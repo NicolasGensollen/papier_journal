@@ -202,11 +202,21 @@ Pr[P_{ij} \leq P^{CRCT}] = \dfrac{1}{2} \left[ 1+ erf \left( \dfrac{P^{CRCT} - \
 \end{equation}
 
 The amount of risks a given coalition is willing to take depends on a lot of things, among wich its capacity to compensate for under-producing (using batteries, backup generators...). Selecting the right contract value appears thus as an interesting problem on its own that we plan to investigate in future works. In order to keep the present paper in a reasonable length, we simplify the contract value selection problem a little bit by giving some responsabilities to a third party named the grid operator. The role of the grid operator is to constrain the market entry with an absolute low bound on the contract value and a upper limit relative to the coalition. In other words, the grid operator restrict the market to coalitions able to propose both sufficiently high and sufficiently credible contract values. More formally, let $ \phi \in [0,1] $ be a threshold fixed by the grid operator as a maximum value for the probability of under-producing. The highest contract value that a coalition can propose is thus $ P_{S}^{CRCT \star} $ such that $ Pr[P_{ij} \leq P_{S}^{CRCT \star}] = \phi $. In the gaussian example, this translates by coalition $ \{i,j\}$ announcing :
+
 \begin{equation}
+\label{eq:P_star}
 P_{S}^{CRCT \star} = \mu_{ij} + \sqrt{2} \sigma_{ij} erf^{-1}(2 \phi - 1 )
 \end{equation}
 
-This is the best contract value that the coalition S can afford giving the stability policy $\phi$ of the grid operator, and it is computable by any coalition. In order not to overload the market with unrealistically small coalitions, the grid operator also specify a lower bound $ P^{MIN} $ on the contract values. We thus characterized a valid coalition as one satisfying the two conditions :
+\begin{figure}
+\includegraphics[scale=.6]{gaussian_P_star.pdf}
+\caption{$ P_{S}^{CRCT \star} $ depending on reliability parameter $ \phi $ for gaussian distributions (see equation \ref{eq:P_star}). Blue curve with triangles stands for a coalition S with an expected production of 5 units and a standard deviation of 0.5. Under a grid policy of $ \phi = 0.1 $, it is able to announce a contract value of $ P_{S}^{CRCT \star} = 4.36 $. The same coalition in term of expected production ($\mu = 5 $), but with a higher variance ($ \sigma = 1.5 $, cyan curve with circles) can only afford a smaller contract value of $ P_{S}^{CRCT \star} = 3.07 $. The red curve with diamonds stands for a coalition with a higher expected production $(\mu = 7)$, but with a very high unpredictability ($ \sigma = 5 $). For low values of $ \phi $, this coalition is thus heavily penalized and can only afford a contract of $ 0.59 $ units. Under grid policy $ (\phi = 0.1, P^{MIN} = 2) $, this last coalition is thus not allowed to enter the market (red dot below the horrizontal dashed line)	. }
+\label{fig:Gaussian}
+\end{figure}
+
+This is the best contract value that the coalition S can afford giving the stability policy $\phi$ of the grid operator, and it is computable by any coalition. Figure \ref{fig:Gaussian} shows how $ P_{S}^{CRCT \star} $ evolves according to the reliability parameter $ \phi $. For illustration, the range of $ \phi $ values is shown from 0 to 1, but in practice, only small values of $ \phi $ really make sense : $ \phi = 1 $ for instance means that coalitions can announce absolutely anything since the probability of producing less than any contract value is necessarily less than one by trivial definition of a probability. As visible on figure \ref{fig:Gaussian}, coalitions with high expected production but presenting a high unpredictability are penalized and can only afford small contracts.  
+
+In order not to overload the market with unrealistically small coalitions, the grid operator also specify a lower bound $ P^{MIN} $ on the contract values. We thus characterized a valid coalition as one satisfying the two conditions :
 
 \begin{equation}
 \left\{ \begin{array}{lll}
@@ -215,7 +225,9 @@ This is the best contract value that the coalition S can afford giving the stabi
 \end{array} \right.
 \end{equation}
 
-The gaussian assumption of this small example is convenient as it allows us to write $ P_{S}^{CRCT \star} $ analytically. Nevertheless, such assumption is rather unrealistic in practice. In the following, we thus release this assumption and work with observed distributions.
+On figure \ref{fig:Gaussian}, $ P^{MIN} $ is fixed to 2 units for illustration purpose. For $ \phi = 0.1 $, only blue triangles and cyan circles coalitions are valid while red diamonds coalition is not.
+
+The gaussian assumption of this small example is convenient as it allows us to write $ P_{S}^{CRCT \star} $ analytically. Nevertheless, such assumption is rather unrealistic in practice. In the following, we keep the same framework but release this gaussian assumption. We therefore work with any observed distributions drawn from the data.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -239,7 +251,7 @@ We designed our model in a way that coalitions are remunerated proportionnally t
 
 Since $ \lambda $ appears, in this simple model, just a multiplicative constant, we consider for simplicity $ \lambda = 1 $ in the following. The utility of S is now the amount of energy S plans to inject during its contract period. Since we focused on power quantities from the begining of the present paper, and because the power injected by S in the grid is supposed to be constant over time, we simplify further the utility to its contract value : $ \mathcal{U}(S) = P_{S}^{CRCT} $. Although concise, this formulation suffers a major drawback. It is indeed not a concave function of the coalition length, meaning that coalitions can grow as large as the number of agents allows it, without any counterparty. 
 
-Such a model, that virtually allows infinitely large coalitions, is in practice not realistic. There are indeed costs (communication costs for instance) that increase with the coalitions sizes. We take this observation into account by rescaling the utility of a coalitions by its size in term of number of agents :
+Such a model, that virtually allows infinitely large coalitions, is in practice not realistic. There are indeed costs (communication costs for instance) that increase with the coalitions sizes. We take this observation into account by rescaling the utility of a coalition by its size in term of number of agents :
 
 \begin{equation}
 \mathcal{U}(S) = \left\{ \begin{array}{lll}
@@ -257,6 +269,18 @@ Based on $ \mathcal{U} $, the marginal contribution of an agent i can be express
 \delta_{S}(i) \geq 0 \Leftrightarrow P_{S+\{i\}}^{CRCT} \geq P_{S}^{CRCT} \left( \dfrac{|S|+1}{|S|} \right)^{\alpha} \dfrac{P_{S + \{i\}}^{MAX}}{P_{S}^{MAX}}
 \end{equation}
 
+Clearly, as $ \alpha $ impacts the sizes of the coalitions, it should not be selected randomly. In order to have an initial guess, we use a mean field approximation in a gaussian case (as in section \ref{sec:notations}). In this section, $ \bar{x} $ denote the mean approximation of quantity x. Recall that we have N agents and we wish to form $ N_{COAL} $ coalitions. We denote by $ \bar{N} = \lfloor \dfrac{N}{N_{COAL}} \rfloor $ the expected mean number of agents in a coalition. If $ \mathcal{U}(S) $ favors coalitions of size $ \bar{N} $, then :
+
+\begin{equation}
+\left[ \dfrac{\partial{ U}}{ \partial{|S|}} \right]_{|S| = \bar{N}} = 0
+\end{equation}
+
+Solving this equation for $ \alpha $ in the mean field approximation for the gaussian case yields :
+\footnotesize
+\begin{equation}
+\alpha^{\star}_{\bar{N}} = \dfrac{0.7 \bar{\sigma}(\bar{\rho}-1)erf^{-1}(2 \phi - 1)}{\bar{\mu}\sqrt{\bar{N}(\bar{\rho}\bar{N}-\bar{\rho}+1)}+1.4 \bar{\sigma} erf^{-1} (2 \phi -1 ) (\bar{\rho}\bar{N}-\bar{\rho} + 1)} 
+\end{equation}
+\normalsize
 Clearly, if $ \alpha = 0 $, whatever the size of the coalition, additional agents are added as long as they increase the contract value. Values of $\alpha $ greater than zero implies that additional agents must improve the contract value by a certain coefficient that decreases and converges to one as the size of the coalition is growing. For instance, if $\alpha = 1$ and $ |S| = 1 $, an additional agent must first double the contract value to be included, the next agent will then have to increase it by a factor of $ 1.5 $, and so on... Obviously, $ \alpha $ impacts directly the sizes of the coalitions formed. In the following, we consider the case where $ \alpha = 1 $.
 
 As can be pointed out, the purpose of $ \mathcal{U} $ is not a study of coalitions stability against player defection, wich game theory provides a lot of tools for. This is indeed a problem on its own. The redistribution of a coalition's utility in terms of individual payoffs will therefore not be considered directly in this paper. $ \mathcal{U} $ can be rather interpreted as a measure of how good a given coalition is according to our criteria since it favors small coalitions with a good production to risk ratio.
