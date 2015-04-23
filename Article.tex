@@ -227,7 +227,7 @@ In order not to overload the market with unrealistically small coalitions, the g
 
 On figure \ref{fig:Gaussian}, $ P^{MIN} $ is fixed to 2 units for illustration purpose. For $ \phi = 0.1 $, only blue triangles and cyan circles coalitions are valid while red diamonds coalition is not.
 
-The gaussian assumption of this small example is convenient as it allows us to write $ P_{S}^{CRCT \star} $ analytically. Nevertheless, such assumption is rather unrealistic in practice. In the following, we keep the same framework but release this gaussian assumption. We therefore work with any observed distributions drawn from the data.
+The gaussian assumption of this small example is convenient as it allows us to write $ P_{S}^{CRCT \star} $ analytically. Nevertheless, such assumption is rather unrealistic in practice. In the following, we keep the same framework but release this gaussian assumption unless the contrary is specified. This assumption will indeed be convenient for computing some parameter estimates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -261,34 +261,45 @@ Such a model, that virtually allows infinitely large coalitions, is in practice 
 				  \right.
 \end{equation}
 
-Where $ \alpha $ controls to what extent the size of the coalition impacts its utility, and $ P_{S}^{MAX} $ is a normalizing factor. $ P_{S}^{MAX} $ is the maximum production possible, which only occurs when all consumptions are null and all generators produce their maximum power.
+Where parameter $ \alpha $ controls to what extent the size of the coalition impacts its utility, and $ P_{S}^{MAX} $ is a normalizing factor. $ P_{S}^{MAX} $ is the maximum production possible, which only occurs when all consumptions are null and all generators produce their maximum power.
 
 Based on $ \mathcal{U} $, the marginal contribution of an agent i can be expressed as $ \delta_{S}(i) = \mathcal{U}(S+\{i\}) - \mathcal{U}(S) $. A coalition S has thus an interest in adding an additional agent i if this marginal contribution is positive : 
 
 \begin{equation}
 \delta_{S}(i) \geq 0 \Leftrightarrow P_{S+\{i\}}^{CRCT} \geq P_{S}^{CRCT} \left( \dfrac{|S|+1}{|S|} \right)^{\alpha} \dfrac{P_{S + \{i\}}^{MAX}}{P_{S}^{MAX}}
+\label{eq:marginal_benefit}
 \end{equation}
 
-Clearly, as $ \alpha $ impacts the sizes of the coalitions, it should not be selected randomly. In order to have an initial guess, we use a mean field approximation in a gaussian case (as in section \ref{sec:notations}). In this section, $ \bar{x} $ denote the mean approximation of quantity x. Recall that we have N agents and we wish to form $ N_{COAL} $ coalitions. We denote by $ \bar{N} = \lfloor \dfrac{N}{N_{COAL}} \rfloor $ the expected mean number of agents in a coalition. If $ \mathcal{U}(S) $ favors coalitions of size $ \bar{N} $, then :
+In order to understand how this utility function behaves and how it relates to the $ \alpha $ parameter, we use again the gaussian case (as in section \ref{sec:notations}). Since considering all the possible interactions between agents is analytically intractable, we use here a mean approximation. Any quantity x that varies over the agent set is thus simplified in its mean value $ \bar{x} $. In the following $ \bar{N} $ denotes the mean number of agents in a coalition. If we wish that $ \mathcal{U}(S) $ tends to form coalitions of size approximately of the order of $ \bar{N} $, then :
 
 \begin{equation}
 \left[ \dfrac{\partial{ U}}{ \partial{|S|}} \right]_{|S| = \bar{N}} = 0
 \end{equation}
 
-Solving this equation for $ \alpha $ in the mean field approximation for the gaussian case yields :
+Solving this equation for $ \alpha $ in the mean approximation for the gaussian case yields :
 \footnotesize
 \begin{equation}
 \alpha^{\star}_{\bar{N}} = \dfrac{0.7 \bar{\sigma}(\bar{\rho}-1)erf^{-1}(2 \phi - 1)}{\bar{\mu}\sqrt{\bar{N}(\bar{\rho}\bar{N}-\bar{\rho}+1)}+1.4 \bar{\sigma} erf^{-1} (2 \phi -1 ) (\bar{\rho}\bar{N}-\bar{\rho} + 1)} 
+\label{eq:alpha_star}
 \end{equation}
 \normalsize
-Clearly, if $ \alpha = 0 $, whatever the size of the coalition, additional agents are added as long as they increase the contract value. Values of $\alpha $ greater than zero implies that additional agents must improve the contract value by a certain coefficient that decreases and converges to one as the size of the coalition is growing. For instance, if $\alpha = 1$ and $ |S| = 1 $, an additional agent must first double the contract value to be included, the next agent will then have to increase it by a factor of $ 1.5 $, and so on... Obviously, $ \alpha $ impacts directly the sizes of the coalitions formed. In the following, we consider the case where $ \alpha = 1 $.
+
+Figure \ref{fig:mean_approx} shows how $ \alpha^{\star} $ and the utility function evolves according to the mean size of the coalitions $ \bar{N} $. These nice curves are of course only valid in the simplified example considered here, but they will provide some guidance when using real data.
+
+\begin{figure}
+\includegraphics[scale=.6]{mean_field.pdf}
+\caption{Gaussian mean approximation. Subplot \textbf{a} shows how the parameter $ \alpha $ of the utility function should be chosen in function of the mean desired size of the coalitions (see equation \ref{eq:alpha_star}). Subplot \textbf{b} dislays the corresponding utility functions for different values of $ \alpha $. Blue curve with diamonds favors very small coalitions of 2 agents while the green one with triangles favors 5 agents coalitions. Finally, the red curve with squares has an optimum size of 15 agents. }
+\label{fig:mean_approx}
+\end{figure}
+
+%Clearly, if $ \alpha = 0 $, whatever the size of the coalition, additional agents are added as long as they increase the contract value. Values of $\alpha $ greater than zero implies that additional agents must improve the contract value by a certain coefficient that decreases and converges to one as the size of the coalition is growing. For instance, if $\alpha = 1$ and $ |S| = 1 $, an additional agent must first double the contract value to be included, the next agent will then have to increase it by a factor of $ 1.5 $, and so on... Obviously, $ \alpha $ impacts directly the sizes of the coalitions formed. In the following, we consider the case where $ \alpha = 1 $.
 
 As can be pointed out, the purpose of $ \mathcal{U} $ is not a study of coalitions stability against player defection, wich game theory provides a lot of tools for. This is indeed a problem on its own. The redistribution of a coalition's utility in terms of individual payoffs will therefore not be considered directly in this paper. $ \mathcal{U} $ can be rather interpreted as a measure of how good a given coalition is according to our criteria since it favors small coalitions with a good production to risk ratio.
 
 
 \subsection{Representing the correlation structure}
 
-The previous section explained that coalitions with small variances in their production probability distributions are more likely to afford high contracts. Furthermore, the gaussian example highlighted that the correlation structure of the agents plays an important role in finding stable coalitions. Usually, this correlation structure is formalized with a covariance matrix or a correlation matrix that contains all the correlation coefficients between the agents : $ M = (\rho_{ij})_{\forall i,j \in \mathcal{A}^{2}}$.
+The previous section explained that coalitions with small variances in their production probability distributions are more likely to afford high contracts. Furthermore, the gaussian approximation highlighted that the correlation structure of the agents plays an important role in finding stable coalitions. Usually, this correlation structure is formalized with a covariance matrix or a correlation matrix that contains all the correlation coefficients between the agents : $ M = (\rho_{ij})_{\forall i,j \in \mathcal{A}^{2}}$.
 
 In the following, we use two opposite distance metrics : 
 
@@ -323,10 +334,17 @@ Consider now a clique in  $ G_{2} $, which is a complete subgraph of $ G_{2} $. 
 \end{array} \right.			
 \end{equation}
 
-be the mean correlation of coalition S and the maximum correlation value in S. If S is a clique in $ G_{2} $ and $ \epsilon \in [0,1] $ is the threshold used for filtering $ G_{2} $, then $ \bar{\rho}_{S} \leq \dfrac{2}{|S|(|S|-1)} \sum_{i \in S} \sum_{j \in S, j>i} \epsilon $, that is, $ \bar{\rho}_{S} \leq \epsilon $, and $ \rho_{S}^{>} \leq \epsilon $.
+be the mean correlation of coalition S and the maximum correlation value in S. If S is a clique in $ G_{2} $ and $ \epsilon \in [0,1] $ is the threshold used for filtering $ G_{2} $, then $ \bar{\rho}_{S} \leq 2/(|S|(|S|-1)) \sum_{i \in S} \sum_{j \in S, j>i} \epsilon $, that is, $ \bar{\rho}_{S} \leq \epsilon $, and $ \rho_{S}^{>} \leq \epsilon $.
 
-Because of this de-correlation property, cliques in $ G_{2} $ appear as good candidates for coalitions. Nevertheless, by doing so, coalitions are often small and only formed based on the underlying correlation structure of the agents, and not on power generation capacity. It is possible that adding agents to these coalitions has the combined effect of increasing the production while decreasing its stability. The question revolves around measuring the benefits of this production surplus compared to the disadvantage of a higher unstability. Hopefully, this can be quantified exactly with the marginal benefit developped in the previous section.
+Figure \ref{fig:histo_cliques} shows the distributions of the utility values for cliques of size 3 (triangles) in $ G_{2}^{\epsilon^{\star}} $ and for all the other possible triplets of agents. It is clearly visible that cliques tend to exhibit higher utilities because of their de-correlation property. Choosing cliques in $ G_{2}^{\epsilon^{\star}} $ as coalitions seems therefore appealing. Nevertheless, the quality of the results seems to decrease as the sizes of the cliques increase. Indeed, the larger the desired cliques, the more dense $ G_{2}^{\epsilon^{\star}} $ becomes (see equation \ref{epsilon_star}). There is a point where cliques results more from noisy edges than true de-correlation relationships, which decreases the quality of the results.
 
+Directly mapping cliques to coalitions by this de-correlation oriented approach is thus not sufficient. It is indeed possible that adding agents to these cliques has the combined effect of increasing the expected production while decreasing its stability. The question revolves around measuring the benefits of this production surplus compared to the disadvantage of a higher unstability. This can be quantified by the marginal benefit of equation \ref{eq:marginal_benefit}.
+
+\begin{figure}
+\includegraphics[scale=.6]{cliques_histo.pdf}
+\caption{Histograms of utility values for coalitions of size 3. Red bars stands for cliques in the decorrelation graph, and blue bars represents all the other possible triplets. As visible, cliques tend to exhibit higher utilities than randomly selected coalitions.}
+\label{fig:histo_cliques}
+\end{figure}
 
 \subsection{Coalition formation algorithm}
 
@@ -336,10 +354,9 @@ The algorithm takes inputs from :
 	\item \textbf{The grid operator :} market entrance policy $ (P^{MIN},\phi) $,
 	\item \textbf{The "user" :} Number of desired coalitions $ N_{COAL} $ and size of starting cliques k.
 \end{itemize} 
-The first steps consists in computing the de-correlation graph $ G_{2} $ as well as the optimal threshold $ \epsilon^{\star} $. Cliques of size k in $ G_{2}^{\epsilon^{\star}} $ are considered as coalition seeds. The next step is a local greedy improvement over the correlation structure represented by  $ G_{2}^{\epsilon^{\star}} $. Cliques add alternatively the node $ i^{\star} $ in their neighborhood that yields the best marginal benefit $ MAX_{ i \in N(clique) } \delta_{clique}(i) $ where $ N(clique) $ is the neighborhood of a given clique. This addition occurs only if $ i^{\star} $ is not already involved in another coalition, and if $ \delta_{clique}(i^{\star}) \geq 0 $, meaning that utilities are increasing. The algorithm stops when all nodes are distributed in a coalition or when the global utility stops increasing. See the details in algorithm.
+The first steps consists in computing the de-correlation graph $ G_{2} $ as well as the optimal threshold $ \epsilon^{\star} $. Cliques of size k in $ G_{2}^{\epsilon^{\star}} $ are considered as coalition seeds. The next step is a local greedy improvement over the correlation structure represented by  $ G_{2}^{\epsilon^{\star}} $. Cliques add alternatively the node $ i^{\star} $ in their neighborhood that yields the best marginal benefit $ MAX_{ i \in N(clique) } \delta_{clique}(i) $ where $ N(clique) $ is the neighborhood of a given clique. This addition occurs only if $ i^{\star} $ is not already involved in another coalition, and if $ \delta_{clique}(i^{\star}) \geq 0 $, meaning that utilities are increasing. The algorithm stops when all nodes are distributed in a coalition or when the global utility stops increasing. See the details in algorithm \ref{alg:algo1}.
 
 \begin{algorithm}
-\label{alg:algo1}
  \KwData{$P_{i}$ series,\\ Grid policy $ (P^{MIN},\phi) $,\\ Desired number of coalitions $ N_{COAL} $,\\ size of starting cliques k}
  \KwResult{ $ CS = \{ S_{1},...,S_{N_{COAL}}\} $ }
  Compute $ G_{2}^{\epsilon^{\star}} $ \;
@@ -353,10 +370,10 @@ The first steps consists in computing the de-correlation graph $ G_{2} $ as well
    		}
   	}
  \caption{Percolation algorithm}
+ \label{alg:algo1}
 \end{algorithm}
 
 \begin{algorithm}
-\label{alg:algo2}
  \KwData{Agent set $\mathcal{A}$,\\ Desired number of coalitions $ N_{COAL} $, \\ Maximum number of iterations $ maxiter $}
  \KwResult{ $ CS = \{ S_{1},...,S_{N_{COAL}}\} $ }
  $ curriter \leftarrow 0 $ \;
@@ -370,10 +387,10 @@ The first steps consists in computing the de-correlation graph $ G_{2} $ as well
   	}
   return $ CS^{\star} $
  \caption{Random algorithm}
+ \label{alg:algo2}
 \end{algorithm}
 
 \begin{algorithm}
-\label{alg:algo3}
  \KwData{$P_{i}$ series,\\ Desired number of coalitions $ N_{COAL} $,\\ search step size $ \beta << 1 $}
  \KwResult{ $ CS = \{ S_{1},...,S_{N_{COAL}}\} $ }
  $ \epsilon \leftarrow 1 $ \;
@@ -389,6 +406,7 @@ The first steps consists in computing the de-correlation graph $ G_{2} $ as well
  	}
   	}
  \caption{Correlated algorithm}
+\label{alg:algo3}
 \end{algorithm}
 
 \section{Results}
@@ -397,8 +415,8 @@ The algorithm presented in the previous section is supposed to generate a given 
 
 In order to have an idea about the algorithm's quality, we compare its results with :
 \begin{itemize}
-\item \textbf{Random :} This algorithm is basically a random search over the coalition structures space. It analyses a given number of structures and returns the best that it has encountered so far. See algorithm.
-\item \textbf{Correlated :} This is the complete opposite of our algorithm. It basically uses the correlation graph $ G_{1} $ and performs community detection on it. The resulting coalitions have thus very high internal correlations. We thus expect this algorithm to perform very bad compared to the others. See algorithm.
+\item \textbf{Random :} This algorithm is basically a random search over the coalition structures space. It analyses a given number of structures and returns the best that it has encountered so far. See algorithm \ref{alg:algo2}.
+\item \textbf{Correlated :} This is the complete opposite of our algorithm. It basically uses the correlation graph $ G_{1} $ and performs community detection on it. The resulting coalitions have thus very high internal correlations. We thus expect this algorithm to perform very bad compared to the others. See algorithm \ref{alg:algo3}.
 \item \textbf{K-means :} This is simply a K-means clustering of the agents $ P_{i} $'s series. The goal of presenting this algorithm is to show that K-means do not consider correlations explicitely and is therefore not well suited for our purpose.
 \end{itemize} 
 
@@ -409,6 +427,23 @@ The coalitions formed according to these algorithms will be compared using two c
 \begin{equation}
 	\tau(CS) = \dfrac{|\{ S \in CS,\ s.t\ \mathcal{U}(S) > 0 \}|}{N_{COAL}}
 \end{equation}
+
+
+Before running the algorithm, we need to calibrate the utility function by choosing the $ \alpha $ parameter. In this paper, neither the communication network nor the electrical grid are explicitely considered. Thus, we do not have any technical constraints on coalition sizes even if we designed the utitility such that these kind of constraints could be taken into account. We select the desired size as being $ \lfloor N/N_{COAL} \rfloor $ (where $ \lfloor.\rfloor $ means floor). Figure \ref{fig:real_utility2} shows how the mean utility of a coalition evolves with its size when the optimum size is set to 40 agents. Using equation \ref{eq:alpha_star} to select $ \alpha $ based on the mean quantities seems to give acceptable results for the utility function.
+
+\begin{figure}
+\includegraphics[scale=.6]{real_utility.pdf}
+\caption{Utility of random coalitions depending on their size. Lines shows mean utility values and colored areas stands for standard deviations. The slim blue noisy curve shows the real mean utility, and the thick red curve is its smoothed version by applying a Savitzky-Golay filter. On this plot the $ \alpha $ parameter of the utility function was selected according to equation \ref{eq:alpha_star} in order to favor 10 agents coalitions.}
+\label{fig:real_utility}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.6]{real_utility_2.pdf}
+\caption{Utility of random coalitions depending on their size. Blue dots shows real mean utility values and the thick red curve its smoothed version by applying a Savitzky-Golay filter. On this plot the $ \alpha $ parameter of the utility function was selected according to equation \ref{eq:alpha_star} in order to favor 40 agents coalitions.}
+\label{fig:real_utility2}
+\end{figure}
+
+
 
 %Let $ P^{MARKET} = \sum_{S \in CS} P_{S}^{CRCT} $ be the production on the market, where CS is the coalition structure formed $ CS = \{S_{1},...S_{N_{COAL}} \} $, and $ N_{COAL} $ is the number of coalitions in the structure. First of all, $ P^{MARKET} $ depends explicitely on $ N_{COAL} $ such that, forming more coalitions induces an increase of the production. However, for a finite pool of agents, we expect an optimal number of coalitions $ N_{COAL}^{\star} $ that maximizes the market production. The reason for this expectation is that, for a given number of agents, more coalitions causes necessarily less agents in the coalitions, and therefore less diversity. We expect thus a point where coalitions formed start to fail the market entrance, and deteriorate the market production.
 
