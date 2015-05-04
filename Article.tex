@@ -455,6 +455,28 @@ Figure \ref{fig:coalitions} shows the coalitions formed with the considered algo
 \label{fig:coalitions}
 \end{figure}
 
+A key point for the coalitions, besides stability and productivity, is their resilience. The resilience of a system can be roughly described as its ability to perform its tasks when subject to failures of its components. Therefore, the notion of resilience we will use in the following can be seen as the ability of the coalition structures to inject stable power in the grid when node failures occur. According to our model, the injected power of a coalition structure ($ P_{CS}^{inject} $) is nothing more than the sum of the contract values of its coalitions :
+
+\begin{equation}
+P_{CS}^{inject} = \sum_{S \in CS} P_{S}^{CRCT}
+\label{eq:inject}
+\end{equation}
+
+In this section the following scenario is played : a coalition structure is formed with a given algorithm and its injected power is considered as a reference value. Fonctional prosumers are then randomly selected and removed from their respective coalitions. Each time a prosumer is removed, the contract value of its coalition is recomputed, and therefore $ P_{CS}^{inject} $ is also recomputed according to equation \ref{eq:inject}. We denote by $x$ the number of nodes removed, and for the sake of comparison between algorithms, we observe the percentage of initially injected power as a function of $ x $ :
+
+\begin{equation}
+\tau_{CS}^{inject}(x) = \dfrac{P_{CS}^{inject}(x)}{P_{CS}^{inject}(0)} 
+\label{eq:perc}
+\end{equation}
+
+Figure \ref{fig:resilience} exhibits how the percentage of initially injected power (see equation \ref{eq:perc}) evolves with random failures. The three curves show the averaged results for the three coalition structures obtained with the three studied algorithms. The x axis stands for the number of nodes that failed. For $ x = 0 $, coalitions are all intact, and thus inject $ 100\% $ of their initial capacities. When a node fails, the production capacity of its former coalition drops, forcing the latter to lower its contract value, which in turn decreases the injected power. There is a point where the coalition cannot provide a sufficient contract value ($P_{S}^{CRCT} < P^{MIN} $) and has to leave the market. These coalition failures have a strong impact as they cut down the injected power to a bigger extent than a single node failure. As visible on figure \ref{fig:resilience}, the de-correlated coalitions achieve a more resilient production on the market in the sense that their market production is less impacted by the failures compared with random and correlated coalitions. 
+
+\begin{figure}
+\includegraphics[scale=.6]{./figures/resilience/resilience.pdf}
+\caption{Percentage of initially injected power (see equation \ref{eq:perc}) when nodes fail randomly. The curves are averaged over 100 realizations.}
+\label{fig:resilience}
+\end{figure}
+
 
 
 %Let $ P^{MARKET} = \sum_{S \in CS} P_{S}^{CRCT} $ be the production on the market, where CS is the coalition structure formed $ CS = \{S_{1},...S_{N_{COAL}} \} $, and $ N_{COAL} $ is the number of coalitions in the structure. First of all, $ P^{MARKET} $ depends explicitely on $ N_{COAL} $ such that, forming more coalitions induces an increase of the production. However, for a finite pool of agents, we expect an optimal number of coalitions $ N_{COAL}^{\star} $ that maximizes the market production. The reason for this expectation is that, for a given number of agents, more coalitions causes necessarily less agents in the coalitions, and therefore less diversity. We expect thus a point where coalitions formed start to fail the market entrance, and deteriorate the market production.

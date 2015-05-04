@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  29 APR 2015 18:38
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  4 MAY 2015 17:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -987,6 +987,18 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 453--454
 [][] 
  []
 
+<./figures/resilience/resilience.pdf, id=542, 433.62pt x 289.08pt>
+File: ./figures/resilience/resilience.pdf Graphic file (type pdf)
+
+<use ./figures/resilience/resilience.pdf>
+Package pdftex.def Info: ./figures/resilience/resilience.pdf used on input line
+ 475.
+(pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
+
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 475--476
+[][] 
+ []
+
 (./Article.bbl)
 
 ** Conference Paper **
@@ -999,23 +1011,25 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 481.
-[9
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 503.
+[9 <./figures/coalitions/coalitions.pdf> <./figures/resilience/resilience.pdf
 
- <./figures/coalitions/coalitions.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 481.
+pdfTeX warning: pdflatex.exe (file ./figures/resilience/resilience.pdf): PDF in
+clusion: multiple pdfs with page group included in a single page
+>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 503.
  (./Article.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 481.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 481.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 503.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 503.
 Package rerunfilecheck Info: File `Article.out' has not changed.
 (rerunfilecheck)             Checksum: 08E1CC121959792FF8312052BEB8BA89;773.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 481.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 503.
  ) 
 Here is how much of TeX's memory you used:
- 10586 strings out of 493488
- 156133 string characters out of 3144748
- 280611 words of memory out of 3000000
- 13681 multiletter control sequences out of 15000+200000
+ 10598 strings out of 493488
+ 156406 string characters out of 3144748
+ 280850 words of memory out of 3000000
+ 13688 multiletter control sequences out of 15000+200000
  113445 words of font info for 126 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
  36i,16n,38p,1254b,439s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1037,10 +1051,10 @@ ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2012/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2012/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Article.pdf (9 pages, 1328627 bytes).
+Output written on Article.pdf (9 pages, 1344169 bytes).
 PDF statistics:
- 709 PDF objects out of 1000 (max. 8388607)
- 330 compressed objects within 4 object streams
- 55 named destinations out of 1000 (max. 500000)
- 137 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 760 PDF objects out of 1000 (max. 8388607)
+ 343 compressed objects within 4 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 142 words of extra memory for PDF output out of 10000 (max. 10000000)
 
