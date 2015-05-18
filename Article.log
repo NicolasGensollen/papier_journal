@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  12 MAY 2015 16:17
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  18 MAY 2015 16:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -870,9 +870,13 @@ LaTeX Info: Redefining \nameref on input line 49.
  [1{c:/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-] [2]
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
 LaTeX Font Info:    Try loading font information for U+msa on input line 131.
- (c:/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+(c:/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 131.
@@ -983,7 +987,15 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 486--487
 [][] 
  []
 
-(./Article.bbl)
+[9 <./real_utility_2.pdf> <./search.pdf
+
+pdfTeX warning: pdflatex.exe (file ./search.pdf): PDF inclusion: multiple pdfs 
+with page group included in a single page
+> <./figures/coalitions/coalitions.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/coalitions/coalitions.pdf): PDF in
+clusion: multiple pdfs with page group included in a single page
+>] (./Article.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -995,25 +1007,17 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 514.
-[9 <./real_utility_2.pdf> <./search.pdf
-
-pdfTeX warning: pdflatex.exe (file ./search.pdf): PDF inclusion: multiple pdfs 
-with page group included in a single page
-> <./figures/coalitions/coalitions.pdf
-
-pdfTeX warning: pdflatex.exe (file ./figures/coalitions/coalitions.pdf): PDF in
-clusion: multiple pdfs with page group included in a single page
->] [10
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 517.
+[10
 
  <./figures/resilience_both.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 514.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 517.
  (./Article.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 514.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 514.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 517.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 517.
 Package rerunfilecheck Info: File `Article.out' has not changed.
 (rerunfilecheck)             Checksum: 08E1CC121959792FF8312052BEB8BA89;773.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 514.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 517.
  ) 
 Here is how much of TeX's memory you used:
  10599 strings out of 493488
@@ -1041,7 +1045,7 @@ ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2012/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2012/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Article.pdf (10 pages, 1359583 bytes).
+Output written on Article.pdf (10 pages, 1360874 bytes).
 PDF statistics:
  771 PDF objects out of 1000 (max. 8388607)
  359 compressed objects within 4 object streams
