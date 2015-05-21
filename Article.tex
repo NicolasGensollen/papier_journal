@@ -72,7 +72,7 @@ Email: \{nicolas.gensollen, vincent.gauthier, michel.marot, monique.becker\}@tel
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-Achieving a successful energetic transition became a major goal for the 21st century in most developped countries. The reconciliation of several research areas and their recent focus on the same smart grid objective has led to major technical improvements. For instance, allowing large penetrations of renewables into the electricity production seemed more like a dream yesterday, but appears more and more doable as research progresses. The inherent volatility of some of these energy sources poses indeed various problems in such a constrained environment. It is often supposed that a large number of these small generators will be decentralized down to the distribution networks and even be owned by individuals. By enabling bi-directional flows, this vision revolutionises the nature of the simple today's consumer into some futuristic agent that can both consume and produce. Such an agent can obviously reduce its electricity bill by seeking energetic independance through demand side management programs coupled with storage. Nevertheless, as it could be the case that an agent's production exceeds its consumption and storage capacity, its ability to sell its extra-production appears as a way to save energy.
+Achieving a successful energetic transition became a major goal for the 21st century in most developped countries. The reconciliation of several research areas and their recent focus on the same smart grid objective has led to major technical improvements. For instance, allowing a large penetration of renewables into the electricity production grid seemed more like a dream yesterday, but appears more and more doable as research progresses. The inherent volatility of some of these energy sources poses indeed various problems in such a constrained environment. It is often supposed that a large number of these small generators will be decentralized down to the distribution network and even be owned by individuals. By enabling bi-directional flows, this vision revolutionises the nature of today simple consumers into futuristic agents that can both consume and produce. Such agents can obviously reduce their electricity bills by seeking energetic independance through demand side management programs coupled with storage. Nevertheless, as it could be the case that an agent's production exceeds its consumption and storage capacity, its ability to sell its extra-production appears as a way to save energy.
 
 In this paper, we thus consider agents that tend to produce more than they consume and seek to sell their surplus of production. More precisely, we rely on aggregations of these agents that can be seen as virtual power plants with production and consumption components that are both variable. Because these virtual power plants are complex aggregations of different types of production means and consumption habits, the volatilities of the plants productions are deeply impacted by the correlation between the agents. We propose here an algorithm that takes the underlying correlation structure of the agents into account while forming the coalitions. We show then that the resulting diversified coalitions are able to generate higher benefits on a constrained energy market, and are more resilient to random failures of the agents.
 \end{abstract}
@@ -88,23 +88,21 @@ In this paper, we thus consider agents that tend to produce more than they consu
 \section{Introduction}
 \label{sec:introduction}
 
-Designing stable power systems is a classical engineering challenge since blackout events can have catastrophic consequences. A recent approach introduced by complex systems theorists consists in abstracting the power grid as a graph where nodes represent loads, generators, or transformers, while edges stand for electrical lines. As graphs, power grids display some characteristics like clustering coefficients, degree distributions, or density for instance. These metrics enable scientists to get a better understanding of the structure of such complex systems. It appears that power grids are particular graphs compared to well-known large networks like the internet, the world wide web, or social networks. That is, they exhibit different characteritics, suggesting that they may behave differently. A common hypothesis for such a difference is that power grids are completely designed by a very small number of entities (electricity operators mainly), whereas other pre-cited graphs results from the interactions of billions of independant entities. Therefore, properties like power law degree distributions, prerential attachment, or hub oriented attacks do not necessarily apply with power grids.
+Designing stable power systems is a classical engineering challenge since blackout events can have catastrophic consequences. A recent approach introduced by complex systems theorists consists in abstracting the power grid as a graph where nodes represent loads, generators, or transformers, while edges stand for electrical lines \cite{Rosas-Casals2007} \cite{Pahwa}. As graphs, power grids display some characteristics like clustering coefficients, degree distributions, or density for instance. These metrics enable scientists to get a better understanding of the structure of such complex systems. It appears that power grids are particular graphs compared to well-known large networks like the internet, the world wide web, or social networks. That is, they exhibit different characteritics, suggesting that they may behave differently \cite{Rosas-Casals2007}. A common hypothesis for such a difference is that power grids are completely designed by a very small number of entities (electricity operators mainly), whereas other pre-cited graphs results from the interactions of billions of independant entities. Therefore, properties like power law degree distributions, prerential attachment, or hub oriented attacks do not necessarily apply with power grids.
 
-Actually, drawing conclusions based only on the study of the underlying graph structure may lead to unrealistic results. Power grids are ideed dynamical systems governed by physical laws. Concepts such as shortest path or centrality metrics have thus to be extended to take into account the particular nature of power grids. Besides, stability and resilience of such systems are much more complex than the simple connectivity of the underlying graph. It is well-known for instance that frequency synchronization in the grid is a necessary condition for stability. A common solution consists in modeling the grid as a network of coupled oscillators governed by a swing equation dynamic. It can then be shown that the topology of the network impacts directly the capacity of the oscillators to reach the synchronized state.
+Actually, drawing conclusions based only on the study of the underlying graph structure may lead to unrealistic results \cite{Pahwa}. Power grids are ideed dynamical systems governed by physical laws. Concepts such as shortest path or centrality metrics have thus to be extended to take into account the particular nature of power grids. Besides, stability and resilience of such systems are much more complex than the simple connectivity of the underlying graph \cite{Pahwa}. It is well-known for instance that frequency synchronization in the grid is a necessary condition for stability. A common solution consists in modeling the grid as a network of coupled oscillators governed by a swing equation dynamic. It can then be shown that the topology of the network impacts directly the capacity of the oscillators to reach the synchronized state.
 
-Understanding power grids seems like a reasonable strarting point for studying so-called \textit{smart grids} that gained a lot of attention recently. As there exists many good articles presenting smart grid ideas, concepts, or architectures, we will not dwell too much on this point. In this paper, we rather concentrate on a different approach to the system stability. We consider a set of agents that are equiped with distributed energy ressources (DER) as well as electrical loads, such that an agent can produce and consume energy at any time. His production can be, of course, used to meet his own demand, but in cases where he is over-producing, we consider that he has the possibility to sell his extra-production to the grid. Such an agent model is known as a "\textit{prosumer}" (and will be called accordingly in this paper). 
+Understanding power grids seems like a reasonable starting point for studying so-called \textit{smart grids} that gained a lot of attention recently. As there exists many good articles presenting smart grid ideas, concepts, or architectures, we will not dwell too much on this point. In this paper, we rather concentrate on a different approach to the system stability. We consider a set of agents that are equiped with distributed energy ressources (DER) as well as electrical loads, such that an agent can produce and consume energy at any time. His production can be, of course, used to meet his own demand, but in cases where he is over-producing, we consider that he has the possibility to sell his extra-production to the grid. Such an agent model is known as a "\textit{prosumer}" (and will be called accordingly in this paper). 
 
-The constraints necessary for the electrical grid to remain in a stable state obiously forbid any anarchic system where prosumers inject power whenever and however they want. An envisaged solution for organizing such a system consists in a market environement, where participating entities announce a production capacity for an upcoming period of time. These entities thus commit to injecting exactly at any time the contracted amount of power under financial penalities if they fail. Such a market system necessitates obviously some communication architecture to be viable. Since the number of prosumers in a system may be large, it seems unrealistic to have a flat centralized topology where a single agent coordinates all the others individually. Some articles suggest that a fully decentralized architecture will probably be too complicated to achieve, and that some kind of hierarchical hybrid topology seems more likely to be viable.
+The constraints necessary for the electrical grid to remain in a stable state obiously forbid any anarchic system where prosumers inject power whenever and however they want. An envisaged solution for organizing such a system consists in a market environement, where participating entities announce a production capacity for an upcoming period of time. If the contract is bought, the concerned entity commits to injecting exactly at any time the contracted amount of power under financial penalities if it fails.
 
-Moreover, taking into account that the production component of a prosumer is supposed to come mainly from renewables, its over-producing state, and therefore the power he injects in the grid, might be rather unstable.
+In this paper, we consider that the production of a prosumer comes from renewables. The over-producing state of the agents, and thus the power they inject in the grid, might be therefore rather unstable. It has been suggested that energy diversification, geographical expansion, as well as using storage devices are envisageable techniques for  stabilizing the production. Besides, it has been argued that considering coalitions of prosumers as potential providers, and allowing these aggregations to enter the market as virtual power plants could have a stabilizing effect. Indeed, it is well-known that diversification of the assets is a way of minimizing risks when constructing a portfolio. One thus expect a more stable and predictable energy production for a coalition than for a single agent. However, all possible aggregations are not equal in terms of risks and expected productions. This is a central topic of the present paper : given N prosumers, what coalitions should be formed so that the compromise between expected production and variability is optimized ?
 
-It has been suggested that energy diversification, geographical expansion, as well as using storage devices are envisageable techniques for  stabilizing the production. Considering virtual coalitions of prosumers as potential providers, and allowing these aggregations to enter the market, could potentially solve some of these problems. Indeed, the system operator would only have to communicate with a relatively small number of aggregators, that in turn will use some internal communication protocol to manage the involved agents. Moreover, if the aggregation has been done properly, one should expect a more stable and predictable energy production for the coalition than for a single agent. This diversification idea is ideed a central topic of the present paper : given N prosumers, what coalitions should be formed so that the compromise between expected production and variability is optimized ?
+We will see that variability in the aggregated productions can be quantified to a certain extend by the correlation among the agents forming the coalitions. Understanding the correlation reliationships among the agents can thus be illuminating in the sense that it gives an indication about what coalitions to form and how much they should sell. More precisely, we use a graph representation of the correlation structure to gain insight about the expected production to risk ratios of different agents aggregations. We build a framework in which the system operator has the possibility of fixing some entrance conditions on the market both in terms of stability and sufficient production. Based on predictions, coalitions can decide wether or not to enter and what power quantities they are willing to provide. Of course, coalitions failing at fulfilling their obligations during the contracted period of time (because of bad forecasts, unexpected rare events, or lying) will be exposed to financial penalities.
 
-We will see that variability in the coalitions productions can be quantified to a certain extend by the correlation among the agents forming the coalitions. Understanding the correlation reliationships among the agents can thus be illuminating in the sense that it will help us decide both what coalitions to form and how much they should sell. More precisely, we will build a framework in which the system operator has the possibility of fixing some entrance conditions on the market both in terms of stability and sufficient production. Based on predictions, coalitions can decide wether or not to enter and what power quantity they are willing to provide. Of course, coalitions failing at fulfilling their obligations during the contracted period of time (because of bad forecasts, unexpected rare events, or lying) will be exposed to financial penalities.
+Because agents are susceptible to fail for diverse reasons, the impact on the system's stability is critical. The propensy of a system to undertake these failures is often refered to as its resilience \cite{Pahwa}. Once formed, we also investigate in this paper the resilience of the coalitions when prosumers fail. Despite the fact that loosing agents is usually detrimental to the coalitions, we will see that, with our algorithm, coalitions tend to be less impacted by random failures.
 
-Because agents are susceptible to fail for diverse reasons, the impact on the system's stability is critical. The propensy of a system to undertake these failures is often refered to as its resilience. Once formed, we also investigate in this paper the resilience of the coalitions when prosumers fail. Despite the fact that loosing agents is always detrimental to the coalitions, we will see that, with our algorithm, coalitions tend to be less impacted by random failures.
-
-The paper is organized as follows, section 2 will give a brief overview of the related litterature, section 3 will clarify how we generated realistic prosumer production traces based on weather data. In section 4, we will define most of the notations and explain why correlation between prosumer is a quantity of interest for our objective. Based on the conclusions of section 4, section 5 shows how we approached the problem in a complex system fashion. Finally, section 6 will provide some results both on performance of the method and resilience of the coalitions formed.
+The paper is organized as follows, section \ref{sec:related} gives a brief overview of the related litterature, section \ref{sec:data} clarifies how we generated realistic prosumer production traces based on weather data. In section \ref{sec:notations}, we define most of the notations and explain why correlation between prosumers is a quantity of interest for our objective. Based on the conclusions of section \ref{sec:notations}, we develop in section \ref{sec:utility} a utility function quantifying how much power a coalition can announce on the market given an accepted risk level. We then develop, in section \ref{sec:forming} a greedy optimization algorithm that uses decorrelated cliques as inputs and improves their utility over a correlation-constrained environment. Finally, section \ref{sec:results} provides some results both on performance of the method and resilience of the coalitions formed.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,19 +114,19 @@ The paper is organized as follows, section 2 will give a brief overview of the r
 \section{Related Work}
 \label{sec:related}
 
-The intermittent nature of renewables such as wind or solar power introduces new challenges in control design. Besides, on the contrary to fossil plants whose production can be scheduled in advance to meet the expected consumption, renewables by definition only produce when the natural ressource is present. Unfortunately, these moments do not necessarily coincide with the consumption peak hours. A first approach to remedy this situation by acting on the consumption component is the use of dynamic ectricity prices sent to the end users. Together with demand side management techniques implemented on the smart meters, they consitute a first tool for shaping the consumption profiles. In periods where the production is expected to be greater than the consumption, prices are scheduled low in order to encourage end users to delay their elastic loads to these periods. On the contrary, when the production is expected to be less than the consumption, high prices are scheduled to deter any delayable loads over these periods.
+The intermittent nature of renewables such as wind or solar power introduces new challenges in control design. On the contrary to fossil plants whose production can be scheduled in advance to meet the expected consumption, renewables by definition only produce when the natural ressource is present. Unfortunately, these moments do not necessarily coincide with the consumption peak hours. A first approach to remedy this situation by acting on the consumption component is the use of dynamic ectricity prices sent to the end users. Together with demand side management techniques implemented on the smart meters, they consitute a first tool for shaping the consumption profiles. In periods where the production is expected to be greater than the consumption, prices are scheduled low in order to encourage end users to delay their elastic loads to these periods. On the contrary, when the production is expected to be less than the consumption, high prices are scheduled to deter any delayable loads over these periods.
 
-Another popular approach on the production side, is to combined renewable generators with storage devices, such that these are charged when there is a surplus of production, and discharged when the consumption exceeds the production. Although simple, this idea causes numerous challenges. Depending on the size of the system considered, centralized or decentralized control is desirable. In[], the authors introduce a distributed energy management system with a high penetration of renewables such that power is scheduled in a distributed fashion. In [] the optimal storage capacity problem is adressed. There is indeed an interesting tradeoff between the costs of the equipments and the expected availability of power. The authors develop a framework that enables them to exhibit a Pareto front of efficient solutions.
+Another popular approach on the production side, is to combine renewable generators with storage devices, such that these are charged when there is a surplus of production, and discharged when the consumption exceeds the production. Although simple, this idea causes numerous challenges. Depending on the size of the system considered, centralized or decentralized control is desirable. In[], the authors introduce a distributed energy management system with a high penetration of renewables such that power is scheduled in a distributed fashion. In [] the optimal storage capacity problem is adressed. There is indeed an interesting tradeoff between the costs of the equipments and the expected availability of power. The authors develop a framework that enables them to exhibit a Pareto front of efficient solutions.
 
-Although there are great progresses in stabilizing the production by demand side managment or storage architectures, the need for good prediction techniques is more important than ever. Understanding the statistical properties of wind or solar irradiance are already well-established areas of research. There exists indeed a very interesting litterature on techniques aiming at predicting wind or solar irradiance profiles for future periods with error margins. In this paper, we adopt a slightly different approach : we suppose that the agents have historical records of their production and consumption, and we seek aggregations of agents with high expected production and low variability (wich is sometimes called risk in the present paper).
+Although there are great progresses in stabilizing the production by demand side management or storage architectures, the need for good prediction techniques is more important than ever. Understanding the statistical properties of wind or solar irradiance are already well-established areas of research. There exists indeed a very interesting litterature on techniques aiming at predicting wind or solar irradiance profiles for future periods with error margins. In this paper, we adopt a slightly different approach : we suppose that the agents have historical records of their production and consumption, and we seek aggregations of agents with high expected production and low variability.
 
-Optimization of expected returns to risk is a traditional goal in finance. It is indeed well-known, that the more risk one is willing to take, the higher his potential gains. On the contrary, when investing exclusively on low rik assets, one should expect relatively small gains. This tradeoff is formalized in the Markowitz' portfolio theory. More precisely, given a set of assets for which we have some historic data of returns, the objective is to find a linear combination of these assets (the so-called portfolio) which maximizes the expected value while minimizing the variance of the portfolio's return. Markowitz's answer is a set of efficient portolios that all optimize in some sense this tradeoff. If one is able to put a number on his risk acceptance or on the target expected return, the corresponding efficient portfolio is a priori the best option. 
+Optimization of expected returns to risk is a traditional goal in finance. It is indeed well-known, that the more risk one is willing to take, the higher his potential gains. On the contrary, when investing exclusively on low rik assets, one should expect relatively small gains. This tradeoff is formalized in the Markowitz' portfolio theory \cite{Markowitz1959}. More precisely, given a set of assets for which we have some historic data of returns, the objective is to find a linear combination of these assets (the so-called portfolio) which maximizes the expected value while minimizing the variance of the portfolio's return. Markowitz's answer is a set of efficient portolios that all optimize in some sense this tradeoff. If one is able to put a number on his risk acceptance or on the target expected return, the corresponding efficient portfolio is a priori the best option. 
 
-This problem exhibits similarities with our objective of forming stable coalitions since our expected return can be formulated as the expected production and the risk / volatility as the variance of the production. However, one of the assumptions in the portfolio theory is that returns are normaly distributed random variables (or at least that the joint distribution is elliptic). In this paper, we chose to use normal distributions only for explanation purposes, or for estimating some parameters. Therefore, all the results are computed based on observed distributions (sometines far from gaussians).
+This problem exhibits similarities with our objective of forming stable coalitions since our expected return can be formulated as the expected production and the risk / volatility as the variance of the production. However, it is assume in the portfolio theory \cite{Markowitz1959} that returns are normaly distributed (or at least that the joint distribution is elliptic). In this paper, we chose to use normal distributions only for explanation purposes, or for estimating some parameters. Therefore, all the results are computed based on observed distributions (sometines far from gaussians).
 
-One of the key point in the Markowitz theory is to consider explicitely the correlation structure between the assets since these correlation relationships impact directly (as we will see in section X) the variances of the portfolios. Since the work of Mantanega, an interresting approach consists in computing a distance metric based on the correlation coefficients in order to organize the series in a correlation graph where the weight of an edge between two timeseries (nodes) is the metric value for these series.
+One of the key point in the Markowitz theory is to consider explicitely the correlation structure between the assets since these correlation relationships impact directly the variances of the portfolios. Since the work of \cite{Mantegna1999}, an interresting approach consists in computing a distance metric based on the correlation coefficients in order to organize the series in a correlation graph where the weight of an edge between two series (nodes) is the metric value for these series.
 
-Because the metric can be computed for all pairs, these graphs are complete and of little use as is. Historically, the approach used by Mantanega was to compute a minimum spanning tree over the correlation graph as to extract a correlation structure of the form of a hierarchical clustering. Later on, it was pointed out that, by definition, a spanning tree could not capture the underlying clustering structure hidden in the correlation graph. Another filtering approach by mean of a threshold $ \epsilon $ on the edge weights solves this problem and allows one to exhibit clusters of correlated series. In the following we will refer to these filtered graphs as $ \epsilon $-graph.
+Because the metric can be computed for all pairs, these graphs are complete and of little use as is. Historically, the approach used by \cite{Mantegna1999} was to compute a minimum spanning tree over the correlation graph as to extract a correlation structure of the form of a hierarchical clustering. Later on, it was pointed out that, by definition, a spanning tree could not capture the underlying clustering structure hidden in the correlation graph. Another filtering approach by mean of a threshold $ \epsilon $ on the edge weights solves this problem and allows one to exhibit clusters of correlated series. In the following we will refer to these filtered graphs as $ \epsilon $-graph.
 
 An efficient portfolio of assets and a clustering of assets based on the correlations are obviously two very distinct things. And none of them is exactly what we seek. We will see in section X, how we combined both theories in order to form sufficiently producing coalitions with an acceptable volatility level.
 
@@ -243,44 +241,46 @@ On figure \ref{fig:Gaussian}, $ P^{MIN} $ is fixed to 2 units for illustration p
 
 The gaussian assumption of this small example is convenient as it allows us to write $ P_{S}^{CRCT \star} $ analytically. Nevertheless, such assumption is rather unrealistic in practice. In the following, we keep the same framework but release this gaussian assumption unless the contrary is specified. This assumption will indeed be convenient for computing some parameter estimates.
 
+
+
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% Section V: Coalition Formation
+% Section V: Utility Function
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Coalition Formation}
-\label{sec:forming}
+\section{Utility Function}
+\label{sec:utility}
 
-Now that we defined the notions of contract values and valid coalitions, we can face the problem of forming the "right" coalitions given a pool of agents. In this paper, we consider the "right" coalitions as being the ones that maximize some utility notion that, basically, indicates how much stable power can be injected in the grid. This section aims at formalizing this utility notion, while explaining how this utility will be optimized in a greedy fashion over the correlation structure of the agents. 
-
-
-\subsection{Utility function}
-
-We designed our model in a way that coalitions are remunerated proportionnally to their contract values $ \mathcal{U}(S) \propto P_{S}^{CRCT} $. That is, if $ \lambda $ is the unitary price rate for electricity, a coalition S injecting $ P_{S}^{CRCT} $ in the grid during a period $ [t_{0},t_{k}] $ earns :
+In this section, we use the notions of contract values and valid coalitions developped in section \ref{sec:notations} in order to design a proper utility function. The contract basically indicates the rate at which a coalition has to inject power in the grid. It seems then natural that coalitions are remunerated proportionnally to their contract values $ gain(S) \propto P_{S}^{CRCT \star} $. More precisely, if $ \lambda $ is the unitary price rate for electricity, a coalition S injecting $ P_{S}^{CRCT \star} $ in the grid during a period $ [t_{0},t_{k}] $ earns :
 
 \begin{equation}
-\mathcal{U}(S ) = \int_{t_{0}}^{t_{k}} \lambda P_{S}^{CRCT} dt = P_{S}^{CRCT} \lambda \Delta_{t}
+gain(S) = \int_{t_{0}}^{t_{k}} \lambda P_{S}^{CRCT \star} dt = P_{S}^{CRCT \star} \int_{t_{0}}^{t_{k}} \lambda dt
 \end{equation} 
 
-Since $ \lambda $ appears, in this simple model, just a multiplicative constant, we consider for simplicity $ \lambda = 1 $ in the following. The utility of S is now the amount of energy S plans to inject during its contract period. Since we focused on power quantities from the begining of the present paper, and because the power injected by S in the grid is supposed to be constant over time, we simplify further the utility to its contract value : $ \mathcal{U}(S) = P_{S}^{CRCT} $. Although concise, this formulation suffers a major drawback. It is indeed not a concave function, meaning that coalitions can grow as large as the number of agents allows it, without any counterparty. 
+(since $ P_{S}^{CRCT \star} $ is supposed to be a constant rate over the contracted period). Using $ gain(S) $ directly as a utility function suffers a major drawback. It is indeed not a concave function of the coalitions' sizes, meaning that coalitions can grow as large as the number of agents allows it, without any counterparty. 
 
-Such a model, that virtually allows infinitely large coalitions, is in practice not realistic. There are indeed costs (communication costs for instance) that increase with the coalitions sizes. We take this observation into account by rescaling the utility of a coalition S by its size in term of number of agents ($|S|$):
+Such a model, that virtually allows infinitely large coalitions and contract values, is in practice not realistic. There are indeed costs (communication costs for instance) that increase with the coalitions sizes. We take this observation into account by rescaling the utility of a coalition S by its size in term of number of agents ($|S|$):
 
 \begin{equation}
 \mathcal{U}(S) = \left\{ \begin{array}{lll}
-							\dfrac{1}{|S|^{\alpha}} \dfrac{ P_{S}^{CRCT} }{P^{MAX}},\ if\ S\ is\ valid, \\
+							\dfrac{1}{|S|^{\alpha}} \dfrac{ P_{S}^{CRCT \star} }{P^{MAX}},\ if\ S\ is\ valid, \\
 							0,\ if\ S\ is\ not\ valid
 						 \end{array}
 				  \right.
 \end{equation}
 
-Where parameter $ \alpha $ controls to what extent the size of the coalition impacts its utility, and $ P^{MAX} $ is a normalizing factor. $ P^{MAX} $ can be seen as the maximum production which can be injected in the grid.
+Where parameter $ \alpha $ controls to what extent the size of a coalition impacts its utility, and $ P^{MAX} $ is a normalizing factor. $ P^{MAX} $ can be seen as the maximum production which can be injected in the grid.
 
 Based on $ \mathcal{U} $, the marginal contribution of an agent i can be expressed as $ \delta_{S}(i) = \mathcal{U}(S+\{i\}) - \mathcal{U}(S) $. A coalition S has thus an interest in adding an additional agent i if this marginal contribution is positive : 
 
 \begin{equation}
-\delta_{S}(i) \geq 0 \Leftrightarrow P_{S+\{i\}}^{CRCT} \geq P_{S}^{CRCT} \left( \dfrac{|S|+1}{|S|} \right)^{\alpha}
+\delta_{S}(i) \geq 0 \Leftrightarrow P_{S+\{i\}}^{CRCT \star} \geq P_{S}^{CRCT \star} \left( \dfrac{|S|+1}{|S|} \right)^{\alpha}
 \label{eq:marginal_benefit}
 \end{equation}
 
@@ -313,13 +313,22 @@ Figure \ref{fig:mean_approx} shows how $ \alpha^{\star} $ and the utility functi
 As can be pointed out, the purpose of $ \mathcal{U} $ is not a study of coalitions stability against player defection, wich game theory provides a lot of tools for. This is indeed a problem on its own. The redistribution of a coalition's utility in terms of individual payoffs will therefore not be considered directly in this paper. $ \mathcal{U} $ can be rather interpreted as a measure of how good a given coalition is according to our criteria since it favors coalitions with good production to risk ratios.
 
 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Section VI: Coalition Formation
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Coalition Formation}
+\label{sec:forming}
+Section \ref{sec:notations} explained how contract values for the coalitions are computed, and in section \ref{sec:utility} we related this quantity to the utility and gains of a coalition. As the computation time of this quantity is not negligable, and is increasing in the sizes of the aggregations, we explain in this section the heuristic we used to compute the coalitions. 
+
 \subsection{Representing the correlation structure}
+As seen in section \ref{sec:notations}, the variance of the aggregated production impacts directly the contract values, and depends on the covariances between the agents productions. We argue here that, by having some representation of the correlation structure between the agents, the search landscape for high utility coalitions could be reduced, such that good coalitions are more likely to be found quickly. Usually, this correlation structure is formalized with a covariance matrix or a correlation matrix that contains all the correlation coefficients between the agents : $ M = (\rho_{ij})_{\forall i,j \in \mathcal{A}^{2}}$. By using a metric to map this matrix in a weighted adjacency matrix (see section \ref{sec:related}), it is possible to obtain a graph representation of the correlation relationships between the agents. 
 
-\subsubsection{Filtering the correlation graph}
-
-The previous section explained that coalitions with small variances in their production probability distributions are more likely to afford better contracts. Furthermore, the gaussian approximation highlighted that the correlation structure of the agents plays an important role in finding stable coalitions. Usually, this correlation structure is formalized with a covariance matrix or a correlation matrix that contains all the correlation coefficients between the agents : $ M = (\rho_{ij})_{\forall i,j \in \mathcal{A}^{2}}$.
-
-In the following, we use two opposite distance metrics : 
+In the following, we use two opposite distance metrics for this mapping : 
 
 \begin{equation}
 \left\{ \begin{array}{lll}
@@ -330,7 +339,7 @@ In the following, we use two opposite distance metrics :
 
 Clearly, $ d^{1} $ (resp. $ d^{2} $) maps two correlated series as close points (resp. distant) while two uncorrelated series are distant (resp. close). These metrics enable us to compute a correlation graph $ G_{1} = (\mathcal{A}, E_{1}) $ and a "de-correlation" graph $ G_{2} = (\mathcal{A}, E_{2} ) $. For any i and j, the weight of the edge $ e_{ij} $ is $ d_{ij}^{1} $ in $ G_{1} $ and $ d_{ij}^{2} $ in $ G_{2} $.
 
-Selecting the right filter $ \epsilon $ for the $ \epsilon $-graph is an important point since it affects the correlation structure which affects in turn the formation of the coalitions. Unfortunately, there seems to be no clear consensus in the litterature on how to select such a threshold. We will see later in this section that cliques in $ G_{2} $ are potential seeds for the coalitions. Since we want to generate $ N_{COAL} $ coalitions, we need at least $ N_{COAL} $ cliques of a given size to start. Besides, since we consider coalitions as disjoint, the starting cliques should be non overlapping. We thus select our optimal threshold for $ G_{2} $ as :
+In both cases, we want to keep only the edges which weights are located in the lower tail of the distance distributions. In other words, we want to compute the $ \epsilon$-graphs of $ G_{1} $ and $ G_{2} $ such that only meaningful edges remain. Selecting the right filter $ \epsilon $ is thus an important point since it affects the landscape search for the coalition formation. Unfortunately, there seems to be no clear consensus in the litterature on how to select such a threshold. We will see later in this section that cliques in $ G_{2} $ are potential seeds for the coalitions. Since we want to generate $ N_{COAL} $ coalitions, we need at least $ N_{COAL} $ cliques of a given size to start. Besides, since we consider coalitions as disjoint, the starting cliques should be non overlapping. We thus select our optimal threshold for $ G_{2} $ as :
 
 \begin{equation}
 \label{epsilon_star}
@@ -339,11 +348,13 @@ Selecting the right filter $ \epsilon $ for the $ \epsilon $-graph is an importa
 
 Where $ G_{2}^{\epsilon} $ is the de-correlation graph $ G_{2} $ filtered by $ \epsilon $, and $ \Theta_{k}(G) $ is the set of non overlapping cliques of size k in a given graph G. In other words we select $ \epsilon^{\star} $ as the smallest threshold posible such that the filtered de-correlation graph contains at least $ N_{COAL} $ non overlapping cliques of size k. The existence of $ \epsilon^{\star} $  as defined in equation  \ref{epsilon_star} is not guaranteed. The users has indeed to provide consistent values of $ N_{COAL} $ or k compared to the size of the agent population $ \mathcal{A} $. \\
 
-\subsubsection{Cliques as de-correlated starting seeds}
 
+
+
+\subsection{Cliques as de-correlated starting seeds}
 Correlation can be seen as cosine of angles in $ L^{2} $, hence even if there is no strict transivity relation for correlation, there is, to a certain extent, some partial notion of it. More precisely, if a, b, and c are three items such that $ \rho_{ab} > \delta $ and $ \rho_{bc} > \delta $, then we know, by the cosine addition formula\footnote{ $ cos(a+b) = cos(a)cos(b) - sin(a)sin(b) $ }, that $ \rho_{ac} > 2 \delta^{2} - 1 $. That is, if a and b are strongly correlated ($\rho_{ab} > 0.9 $) and b and c are also strongly correlated ($\rho_{bc} > 0.9 $), then there is a high probability for a and c of being strongly correlated ($\rho_{ac} > 0.62 $).
 
-Nevertheless de-correlation seems like a more complex concept than correlation in the sense that there is not even a partial notion of transitivity when it comes to it. Therefore, the clustering coefficients of $ G_{1}^{\epsilon} $ is much higher than the one of $ G_{2}^{\epsilon} $. This can be seen as another formulation of Onnela's study on the structural roles of weak and strong links on correlation graphs. Strong links, accounting for strong correlation relationships, are responsible for the clustering, while weak links provide the connectivity between clusters. Searching for clusters in $ G_{2}^{\epsilon} $ and hoping that this strategy will provide a nice coalition structure of internally uncorrelated coalitions seems thus pointless.
+Nevertheless de-correlation seems like a more complex concept than correlation in the sense that there is not even a partial notion of transitivity when it comes to it. Therefore, the clustering coefficients of $ G_{1}^{\epsilon} $ is much higher than the one of $ G_{2}^{\epsilon} $. This can be seen as another formulation of \cite{Garas2008} on the structural roles of weak and strong links on financial correlation graphs. Strong links, accounting for strong correlation relationships, are responsible for the clustering, while weak links provide the connectivity between clusters. Searching for clusters in $ G_{2}^{\epsilon} $ and hoping that this strategy will provide a nice coalition structure of internally uncorrelated coalitions seems thus pointless.
 
 Consider now a clique in  $ G_{2}^{\epsilon} $, which is a complete subgraph of $ G_{2}^{\epsilon} $. This is indeed a structure of interest for our purpose. Since there is a link for every pairs of nodes, we know, by construction, that a clique has a mean correlation and a maximum correlation less than $ \epsilon $. 
 
@@ -358,15 +369,18 @@ Figure \ref{fig:histo_cliques} shows the distributions of the utility values for
 Directly mapping cliques to coalitions by this de-correlation oriented approach is thus not sufficient. It is indeed possible that adding agents to these cliques has the combined effect of increasing the expected production while decreasing its stability. The question revolves around measuring the benefits of this production surplus compared to the disadvantage of a higher unstability. This can be quantified by the marginal benefit of equation \ref{eq:marginal_benefit}.
 
 
-\subsection{Coalition formation algorithm}
+\subsection{Algorithm}
 
 The algorithm takes inputs from :
+
 \begin{itemize}
 	\item \textbf{The agents :} historical series of available productions $P_{i}$, 
 	\item \textbf{The grid operator :} market entrance policy $ (P^{MIN},\phi) $,
 	\item \textbf{The "user" :} Number of desired coalitions $ N_{COAL} $ and size of starting cliques k.
 \end{itemize} 
-The first steps consists in computing the de-correlation graph $ G_{2} $ as well as the optimal threshold $ \epsilon^{\star} $. Cliques of size k in $ G_{2}^{\epsilon^{\star}} $ are considered as coalition seeds. The next step is a local greedy improvement over the correlation structure represented by  $ G_{2}^{\epsilon^{\star}} $. Cliques add alternatively the node $ i^{\star} $ in their neighborhood that yields the best marginal benefit $ MAX_{ i \in N(clique) } \delta_{clique}(i) $ where $ N(clique) $ is the neighborhood of a given clique. This addition occurs only if $ i^{\star} $ is not already involved in another coalition, and if $ \delta_{clique}(i^{\star}) \geq 0 $, meaning that utilities are increasing. The algorithm stops when all nodes are distributed in a coalition or when the global utility stops increasing. See the details in algorithm \ref{alg:algo1}.
+
+The first steps consists in computing the de-correlation graph $ G_{2} $ as well as the optimal threshold $ \epsilon^{\star} $. Cliques of size k in $ G_{2}^{\epsilon^{\star}} $ are considered as coalition seeds. The next step is a local greedy improvement over the landscape represented by  $ G_{2}^{\epsilon^{\star}} $. Cliques add alternatively the node $ i^{\star} $ in their neighborhood that yields the best marginal benefit $ MAX_{ i \in N(clique) } \delta_{clique}(i) $ where $ N(clique) $ is the neighborhood of a given clique. This addition occurs only if $ i^{\star} $ is not already involved in another coalition, and if $ \delta_{clique}(i^{\star}) \geq 0 $, meaning that utilities are increasing. The algorithm stops when all nodes are distributed in a coalition or when the global utility stops increasing. See the details in algorithm \ref{alg:algo1}.
+
 
 \begin{algorithm}
  \KwData{$P_{i}$ series,\\ Grid policy $ (P^{MIN},\phi) $,\\ Desired number of coalitions $ N_{COAL} $,\\ size of starting cliques k}
@@ -376,31 +390,38 @@ The first steps consists in computing the de-correlation graph $ G_{2} $ as well
  \While{$ \mathcal{U}(CS) $ is improving}{
  	\For{each clique}{
  		Find $ i^{\star} $ \;
- 		\If{ $ \delta_{clique}(i^{\star}) >= 0 $ }{
+ 		\If{ $ \delta_{clique}(i^{\star}) \geq 0 $ }{
  			$ clique \leftarrow clique \cup \{i^{\star} \} $ \;
+ 			}
+ 		\If{ $ \exists j \in clique,\ s.t\ \delta_{clique}(j) < 0 $}{
+ 			$ clique \leftarrow clique - \{j \} $ \;
  			}
    		}
   	}
- \caption{Percolation algorithm}
+ \caption{Local greedy optimization algorithm}
  \label{alg:algo1}
 \end{algorithm}
 
+
+
 \begin{algorithm}
- \KwData{Agent set $\mathcal{A}$,\\ Desired number of coalitions $ N_{COAL} $, \\ Maximum number of iterations $ maxiter $}
+ \KwData{Agent set $\mathcal{A}$,\\ Desired number of coalitions $ N_{COAL} $, \\ Maximum number of iterations $ Loop^{max} $}
  \KwResult{ $ CS = \{ S_{1},...,S_{N_{COAL}}\} $ }
- $ curriter \leftarrow 0 $ \;
+ $ N^{loop} \leftarrow 0 $ \;
  $ CS^{\star} \leftarrow \emptyset $\;
- \While{$ curriter < maxiter $}{
+ \While{$ N^{loop} < Loop^{max} $}{
  	$ CS \leftarrow SelectRandomCS() $\;
  	\If{ $ \mathcal{U}(CS) > \mathcal{U}(CS^{\star}) $ }{
  		$ CS^{\star } \leftarrow CS $\;
  		}
- 	$ curriter \leftarrow  curriter + 1 $\;
+ 	$ N^{loop} \leftarrow  N^{loop} + 1 $\;
   	}
   return $ CS^{\star} $
  \caption{Random algorithm}
  \label{alg:algo2}
 \end{algorithm}
+
+
 
 \begin{algorithm}
  \KwData{$P_{i}$ series,\\ Desired number of coalitions $ N_{COAL} $,\\ search step size $ \beta << 1 $}
@@ -421,9 +442,20 @@ The first steps consists in computing the de-correlation graph $ G_{2} $ as well
 \label{alg:algo3}
 \end{algorithm}
 
-\section{Results}
 
-The algorithm presented in the previous section is supposed to generate a given number of coalitions that have good utilities. Nevertheless, as it comprises mainly of a greedy optimization based on local improvements, the probability that the algorithm finds the optimal coalitions set is very low. Actually, it is not obvious that a strict optimum exists at all. Besides, there is, to our knowledge, no state of the art algorithm that aggregate uncorrelated agents in an optimum way (see section \ref{sec:related} for related problems in finance).
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Section VII: Results
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+\label{sec:results}
+
+The algorithm presented in the previous section is supposed to generate a given number of coalitions that have good utilities. Nevertheless, as it comprises mainly of a greedy optimization based on local improvements, the probability that the algorithm finds the global optimal coalitions set is very low. Actually, it is not obvious that a strict optimum exists at all. Besides, there is, to our knowledge, no state of the art algorithm that aggregate uncorrelated agents in an optimum way (see section \ref{sec:related} for related problems).
 
 
 In order to have an idea about the algorithm's quality, we compare its results with :
@@ -433,7 +465,7 @@ In order to have an idea about the algorithm's quality, we compare its results w
 \end{itemize} 
 
 
-Before running the algorithms, we need to calibrate the utility function by choosing the $ \alpha $ parameter. Recall that the purpose of this parameter is to take into account some constraints on the coalition's sizes if needed. In this paper, neither the communication network nor the electrical grid are explicitely considered. Thus, we do not have any technical constraints on coalition sizes even if we designed the utitility such that these could be taken into account. We select the desired size as being $ \lfloor N/N_{COAL} \rfloor $ (where $ \lfloor.\rfloor $ means floor). Figure \ref{fig:real_utility2} shows how the mean utility of a coalition evolves with its size when the optimum size is set to 40 agents. Using equation \ref{eq:alpha_star} to select $ \alpha $ based on the mean quantities seems to give acceptable results for the utility function.
+Before running the algorithms, we need to calibrate the utility function by choosing the $ \alpha $ parameter. Recall that the purpose of this parameter is to take into account some constraints on the coalition's sizes if needed. In this paper, neither the communication network nor the electrical grid are explicitely considered. Thus, we do not have any technical constraints on coalition sizes even if we designed the utitility such that these could be taken into account. We select the desired size as being $ \lfloor N/N_{COAL} \rfloor $ (where $ \lfloor.\rfloor $ means floor). Figure \ref{fig:real_utility2} shows how the mean utility of a coalition evolves with its size when the optimum size is set to 40 agents. Using equation \ref{eq:alpha_star} to estimate $ \alpha $ based on the mean quantities and gaussian approximations seems to give acceptable results for the utility function behavior.
 
 Figure \ref{fig:search} displays the evolution of the global utility and the number of involved agents during the course of the greedy algorithm \ref{alg:algo1}. The transition from unvalid to valid coalitions is clearly visible on the blue diamond curve and occurs between iteration 10 and 15. After this transition, coalition's utilities improve slowly up to a maximum point. 
 
@@ -470,7 +502,7 @@ On figure \ref{fig:coalitions}, the de-correlated coalitions (blue dots) and the
 A key point for the coalitions, besides stability and productivity, is their resilience. The resilience of a system can be roughly described as its ability to perform its tasks when subject to failures of its components. Therefore, the notion of resilience we will use in the following can be seen as the ability of the coalition structures to inject stable power in the grid when node failures occur. According to our model, the grid operator specified two thresholds ($P^{MIN}$ and $ \phi $) such that the power injected by every coalition is constrained : $ P_{S}^{CRCT} \in [P^{MIN}, P_{S}^{CRCT \star}] $. As long as a coalition can propose a contract value higher than $ P^{MIN} $, it is valid and allowed to enter the energy market. We define the resilience of a coalition S as the probability that S produces more than the $ P^{MIN} $ threshold :
 
 \begin{equation}
-\mathcal{R}_{S} = 1 - Pr[P_{S} < P^{MIN}]
+\mathcal{R}_{S} = Pr[P_{S} >= P^{MIN}] = 1 - Pr[P_{S} < P^{MIN}]
 \end{equation}
 
 And we extend this measure to the coalition stuctures :
@@ -500,9 +532,9 @@ We consider that prosumers fail randomly, and we denote by $ \psi \in [0,1] $ th
 \section{Conclusion}
 \label{sec:conclusion}
 
-In this paper we studied how aggregations of prosumers could be authorized to sell their surplus of production to the grid operator. By relying on the past values of the agents, we constrained the market entry to both sufficiently productive and stable coalitions. The power that a coalition is able to propose on the market is therefore related to both quantities. As the correlations between the prosumers that form these coalitions impact directly their volatilities, we seek uncorrelated aggregations of agents. We used a greedy algorithm that starts with cliques of the "de-correlation" graph of the agents and makes local improvements. We compare the results with a random search and an opposite strategy that clusters correlated agents together. We showed that the coalitions resulting from our algorithm are able to provide more stable power to the grid because they tend to have globally better production over volatility ratios while the others are generally more disparate. 
+In this paper we studied how aggregations of prosumers could be authorized to sell their surplus of production to the grid operator. By relying on the past values of the agents, we constrained the market entry to both sufficiently productive and stable coalitions. The power that a coalition is able to propose on the market is therefore related to both quantities. As the correlations between the prosumers that form these coalitions impact directly their volatilities, we seek uncorrelated aggregations of agents. We used a graph representation of the correlation relationships between the agents as a reduced landscape for the coalition formation. A greedy algorithm that starts with cliques of the "de-correlation" graph of the agents and makes local improvements offers a good compromise between speed and quality of the results. We compare these results with a random search, and an opposite strategy that clusters correlated agents together. We showed that the coalitions resulting from our algorithm are able to provide more power to the grid with a lower volatility. Because they tend to have globally better production over volatility ratios, these coalitions will tend to use les storage and spill less energy than more unstable ones. We plan to study these benefits for the control of the aggregations in future works.
 
-Because in real situations, agents are prone to failure, the resilience of the coalitions is an important criterium. We therefore studied how the coalitions are able to remain on the market when their agents fail randomly one by one. We showed that, in this situation, the coalitions resulting from our algorithm better withstand losses of agents.
+Because in real situations, agents are prone to failure, resilience is also an important criterium for the quality of the aggregations. We therefore studied how the coalitions are able to remain on the market when their agents fail randomly one by one. We showed that, in this situation, the coalitions resulting from our algorithm better withstand losses of agents.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
