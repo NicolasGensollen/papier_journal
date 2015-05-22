@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  21 MAY 2015 15:21
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  22 MAY 2015 12:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -884,7 +884,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 129.
 (c:/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-<Fig2.pdf, id=86, 614.295pt x 794.97pt>
+<Fig2.pdf, id=100, 614.295pt x 794.97pt>
 File: Fig2.pdf Graphic file (type pdf)
  <use Fig2.pdf>
 Package pdftex.def Info: Fig2.pdf used on input line 176.
@@ -894,7 +894,7 @@ Overfull \hbox (24.43019pt too wide) in paragraph at lines 176--177
 [][] 
  []
 
-[3] [4 <./Fig2.pdf>] <gaussian_P_star.pdf, id=181, 433.62pt x 289.08pt>
+[3] [4 <./Fig2.pdf>] <gaussian_P_star.pdf, id=195, 433.62pt x 289.08pt>
 File: gaussian_P_star.pdf Graphic file (type pdf)
 
 <use gaussian_P_star.pdf>
@@ -905,7 +905,7 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 224--225
 [][] 
  []
 
-[5 <./gaussian_P_star.pdf>] <mean_field.pdf, id=278, 433.62pt x 289.08pt>
+[5 <./gaussian_P_star.pdf>] <mean_field.pdf, id=292, 433.62pt x 289.08pt>
 File: mean_field.pdf Graphic file (type pdf)
 
 <use mean_field.pdf>
@@ -921,7 +921,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 349--350
 
  []
 
-[6 <./mean_field.pdf>] <cliques_histo.pdf, id=353, 433.62pt x 289.08pt>
+[6 <./mean_field.pdf>] <cliques_histo.pdf, id=367, 433.62pt x 289.08pt>
 File: cliques_histo.pdf Graphic file (type pdf)
 
 <use cliques_histo.pdf>
@@ -932,7 +932,7 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 362--363
 [][] 
  []
 
-[7 <./cliques_histo.pdf>] <real_utility.pdf, id=414, 433.62pt x 289.08pt>
+[7 <./cliques_histo.pdf>] <real_utility.pdf, id=427, 433.62pt x 289.08pt>
 File: real_utility.pdf Graphic file (type pdf)
 
 <use real_utility.pdf>
@@ -943,7 +943,7 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 473--474
 [][] 
  []
 
-<real_utility_2.pdf, id=417, 433.62pt x 289.08pt>
+<real_utility_2.pdf, id=430, 433.62pt x 289.08pt>
 File: real_utility_2.pdf Graphic file (type pdf)
  <use real_utility_2.pdf>
 Package pdftex.def Info: real_utility_2.pdf used on input line 479.
@@ -953,7 +953,7 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 479--480
 [][] 
  []
 
-<search.pdf, id=420, 433.62pt x 289.08pt>
+<search.pdf, id=433, 433.62pt x 289.08pt>
 File: search.pdf Graphic file (type pdf)
  <use search.pdf>
 Package pdftex.def Info: search.pdf used on input line 485.
@@ -964,7 +964,7 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 485--486
  []
 
 [8 <./real_utility.pdf>]
-<./figures/coalitions/coalitions.pdf, id=479, 433.62pt x 289.08pt>
+<./figures/coalitions/coalitions.pdf, id=493, 433.62pt x 289.08pt>
 File: ./figures/coalitions/coalitions.pdf Graphic file (type pdf)
 
 <use ./figures/coalitions/coalitions.pdf>
@@ -976,7 +976,15 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 497--498
 [][] 
  []
 
-<./figures/resilience_both.pdf, id=482, 433.62pt x 289.08pt>
+[9 <./real_utility_2.pdf> <./search.pdf
+
+pdfTeX warning: pdflatex.exe (file ./search.pdf): PDF inclusion: multiple pdfs 
+with page group included in a single page
+> <./figures/coalitions/coalitions.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/coalitions/coalitions.pdf): PDF in
+clusion: multiple pdfs with page group included in a single page
+>] <./figures/resilience_both.pdf, id=678, 433.62pt x 289.08pt>
 File: ./figures/resilience_both.pdf Graphic file (type pdf)
 
 <use ./figures/resilience_both.pdf>
@@ -987,15 +995,7 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 518--519
 [][] 
  []
 
-[9 <./real_utility_2.pdf> <./search.pdf
-
-pdfTeX warning: pdflatex.exe (file ./search.pdf): PDF inclusion: multiple pdfs 
-with page group included in a single page
-> <./figures/coalitions/coalitions.pdf
-
-pdfTeX warning: pdflatex.exe (file ./figures/coalitions/coalitions.pdf): PDF in
-clusion: multiple pdfs with page group included in a single page
->] (./Article.bbl
+(./Article.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `English'. Using the pattern for
 ** the default language instead.
@@ -1031,13 +1031,13 @@ Package rerunfilecheck Info: File `Article.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 549.
  ) 
 Here is how much of TeX's memory you used:
- 10623 strings out of 493488
- 156707 string characters out of 3144748
- 283038 words of memory out of 3000000
- 13705 multiletter control sequences out of 15000+200000
+ 10635 strings out of 493488
+ 156887 string characters out of 3144748
+ 283241 words of memory out of 3000000
+ 13711 multiletter control sequences out of 15000+200000
  114581 words of font info for 127 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
- 36i,16n,38p,1344b,445s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,16n,38p,1344b,447s stack positions out of 5000i,500n,10000p,200000b,50000s
 {c:/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2012/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2012/texmf-dist/fo
 nts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2012/texmf-dist/fonts/t
@@ -1056,10 +1056,10 @@ ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2012/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2012/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Article.pdf (10 pages, 1364199 bytes).
+Output written on Article.pdf (10 pages, 1366219 bytes).
 PDF statistics:
- 804 PDF objects out of 1000 (max. 8388607)
- 392 compressed objects within 4 object streams
- 65 named destinations out of 1000 (max. 500000)
+ 823 PDF objects out of 1000 (max. 8388607)
+ 410 compressed objects within 5 object streams
+ 71 named destinations out of 1000 (max. 500000)
  142 words of extra memory for PDF output out of 10000 (max. 10000000)
 
