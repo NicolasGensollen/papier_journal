@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  22 MAY 2015 12:48
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  22 JUN 2015 16:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -874,105 +874,116 @@ LaTeX Info: Redefining \nameref on input line 49.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-LaTeX Font Info:    Try loading font information for U+msa on input line 129.
+LaTeX Font Info:    Try loading font information for U+msa on input line 136.
 
 (c:/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 129.
+LaTeX Font Info:    Try loading font information for U+msb on input line 136.
 
 (c:/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-<Fig2.pdf, id=100, 614.295pt x 794.97pt>
+<Fig2.pdf, id=85, 614.295pt x 794.97pt>
 File: Fig2.pdf Graphic file (type pdf)
  <use Fig2.pdf>
-Package pdftex.def Info: Fig2.pdf used on input line 176.
+Package pdftex.def Info: Fig2.pdf used on input line 183.
 (pdftex.def)             Requested size: 276.43019pt x 357.7332pt.
 
-Overfull \hbox (24.43019pt too wide) in paragraph at lines 176--177
+Overfull \hbox (24.43019pt too wide) in paragraph at lines 183--184
 [][] 
  []
 
-[3] [4 <./Fig2.pdf>] <gaussian_P_star.pdf, id=195, 433.62pt x 289.08pt>
+[3] [4 <./Fig2.pdf>] <gaussian_P_star.pdf, id=180, 433.62pt x 289.08pt>
 File: gaussian_P_star.pdf Graphic file (type pdf)
 
 <use gaussian_P_star.pdf>
-Package pdftex.def Info: gaussian_P_star.pdf used on input line 224.
+Package pdftex.def Info: gaussian_P_star.pdf used on input line 231.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
 
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 224--225
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 231--232
 [][] 
  []
 
-[5 <./gaussian_P_star.pdf>] <mean_field.pdf, id=292, 433.62pt x 289.08pt>
+[5 <./gaussian_P_star.pdf>] <mean_field.pdf, id=277, 433.62pt x 289.08pt>
 File: mean_field.pdf Graphic file (type pdf)
 
 <use mean_field.pdf>
-Package pdftex.def Info: mean_field.pdf used on input line 306.
+Package pdftex.def Info: mean_field.pdf used on input line 313.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
 
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 306--307
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 313--314
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 356--357
 
  []
 
-[6 <./mean_field.pdf>] <cliques_histo.pdf, id=367, 433.62pt x 289.08pt>
+[6 <./mean_field.pdf>] <cliques_histo.pdf, id=352, 433.62pt x 289.08pt>
 File: cliques_histo.pdf Graphic file (type pdf)
 
 <use cliques_histo.pdf>
-Package pdftex.def Info: cliques_histo.pdf used on input line 362.
+Package pdftex.def Info: cliques_histo.pdf used on input line 369.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
 
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 362--363
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 369--370
 [][] 
  []
 
-[7 <./cliques_histo.pdf>] <real_utility.pdf, id=427, 433.62pt x 289.08pt>
+[7 <./cliques_histo.pdf>] <real_utility.pdf, id=413, 433.62pt x 289.08pt>
 File: real_utility.pdf Graphic file (type pdf)
 
 <use real_utility.pdf>
-Package pdftex.def Info: real_utility.pdf used on input line 473.
+Package pdftex.def Info: real_utility.pdf used on input line 480.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
 
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 473--474
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 480--481
 [][] 
  []
 
-<real_utility_2.pdf, id=430, 433.62pt x 289.08pt>
+<real_utility_2.pdf, id=416, 433.62pt x 289.08pt>
 File: real_utility_2.pdf Graphic file (type pdf)
  <use real_utility_2.pdf>
-Package pdftex.def Info: real_utility_2.pdf used on input line 479.
+Package pdftex.def Info: real_utility_2.pdf used on input line 486.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
 
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 479--480
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 486--487
 [][] 
  []
 
-<search.pdf, id=433, 433.62pt x 289.08pt>
+<search.pdf, id=419, 433.62pt x 289.08pt>
 File: search.pdf Graphic file (type pdf)
  <use search.pdf>
-Package pdftex.def Info: search.pdf used on input line 485.
+Package pdftex.def Info: search.pdf used on input line 492.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
 
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 485--486
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 492--493
 [][] 
  []
 
 [8 <./real_utility.pdf>]
-<./figures/coalitions/coalitions.pdf, id=493, 433.62pt x 289.08pt>
+<./figures/coalitions/coalitions.pdf, id=478, 433.62pt x 289.08pt>
 File: ./figures/coalitions/coalitions.pdf Graphic file (type pdf)
 
 <use ./figures/coalitions/coalitions.pdf>
 Package pdftex.def Info: ./figures/coalitions/coalitions.pdf used on input line
- 497.
+ 504.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
 
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 497--498
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 504--505
+[][] 
+ []
+
+<./figures/resilience_both.pdf, id=481, 433.62pt x 289.08pt>
+File: ./figures/resilience_both.pdf Graphic file (type pdf)
+
+<use ./figures/resilience_both.pdf>
+Package pdftex.def Info: ./figures/resilience_both.pdf used on input line 525.
+(pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
+
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 525--526
 [][] 
  []
 
@@ -984,18 +995,7 @@ with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./figures/coalitions/coalitions.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
->] <./figures/resilience_both.pdf, id=678, 433.62pt x 289.08pt>
-File: ./figures/resilience_both.pdf Graphic file (type pdf)
-
-<use ./figures/resilience_both.pdf>
-Package pdftex.def Info: ./figures/resilience_both.pdf used on input line 518.
-(pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
-
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 518--519
-[][] 
- []
-
-(./Article.bbl
+>] (./Article.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `English'. Using the pattern for
 ** the default language instead.
@@ -1020,15 +1020,19 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 549.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 556.
 [10 <./figures/resilience_both.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 549.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 556.
  (./Article.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 549.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 549.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 556.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 556.
 Package rerunfilecheck Info: File `Article.out' has not changed.
 (rerunfilecheck)             Checksum: E8AE2FDCE9628C1728CAF74C463296BA;686.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 549.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 556.
  ) 
 Here is how much of TeX's memory you used:
  10635 strings out of 493488
@@ -1037,7 +1041,7 @@ Here is how much of TeX's memory you used:
  13711 multiletter control sequences out of 15000+200000
  114581 words of font info for 127 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
- 36i,16n,38p,1344b,447s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,16n,38p,1354b,445s stack positions out of 5000i,500n,10000p,200000b,50000s
 {c:/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2012/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2012/texmf-dist/fo
 nts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2012/texmf-dist/fonts/t
@@ -1056,10 +1060,10 @@ ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2012/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2012/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Article.pdf (10 pages, 1366219 bytes).
+Output written on Article.pdf (10 pages, 1366490 bytes).
 PDF statistics:
- 823 PDF objects out of 1000 (max. 8388607)
- 410 compressed objects within 5 object streams
+ 812 PDF objects out of 1000 (max. 8388607)
+ 400 compressed objects within 4 object streams
  71 named destinations out of 1000 (max. 500000)
  142 words of extra memory for PDF output out of 10000 (max. 10000000)
 
