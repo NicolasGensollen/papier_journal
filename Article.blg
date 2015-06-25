@@ -19,51 +19,50 @@ I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-Warning--empty journal in Pagani2012
 Warning--empty journal in Pahwa
 Warning--empty year in Pahwa
 Warning--empty journal in Milligan2010
 
 Done.
-You've used 11 entries,
+You've used 6 entries,
             4039 wiz_defined-function locations,
-            892 strings with 9318 characters,
-and the built_in function-call counts, 8752 in all, are:
-= -- 743
-> -- 169
-< -- 90
-+ -- 99
-- -- 24
-* -- 461
-:= -- 1352
-add.period$ -- 22
-call.type$ -- 11
-change.case$ -- 11
-chr.to.int$ -- 201
-cite$ -- 15
-duplicate$ -- 611
-empty$ -- 635
-format.name$ -- 33
-if$ -- 1977
+            853 strings with 8241 characters,
+and the built_in function-call counts, 4214 in all, are:
+= -- 338
+> -- 76
+< -- 39
++ -- 46
+- -- 11
+* -- 225
+:= -- 651
+add.period$ -- 12
+call.type$ -- 6
+change.case$ -- 6
+chr.to.int$ -- 90
+cite$ -- 9
+duplicate$ -- 301
+empty$ -- 327
+format.name$ -- 15
+if$ -- 942
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 95
-newline$ -- 64
-num.names$ -- 11
-pop$ -- 190
+int.to.str$ -- 6
+missing$ -- 48
+newline$ -- 43
+num.names$ -- 6
+pop$ -- 111
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 663
+skip$ -- 315
 stack$ -- 0
-substring$ -- 481
-swap$ -- 539
-text.length$ -- 23
+substring$ -- 216
+swap$ -- 244
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 11
-warning$ -- 4
-while$ -- 45
-width$ -- 13
-write$ -- 140
+type$ -- 6
+warning$ -- 3
+while$ -- 20
+width$ -- 7
+write$ -- 78
 (There were 2 error messages)
