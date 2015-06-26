@@ -8,13 +8,25 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Article.bib
-Repeated entry---line 242 of file Article.bib
+Repeated entry---line 163 of file Article.bib
+ : @article{Infoclimat
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 166 of file Article.bib
+ : @article{NCDC
+ :              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 276 of file Article.bib
  : @article{Mantegna1999
  :                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 306 of file Article.bib
+Repeated entry---line 340 of file Article.bib
  : @article{Pahwa
  :               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 349 of file Article.bib
+ : @article{Dans2007
+ :                  ,
 I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
@@ -22,47 +34,56 @@ I'm skipping whatever remains of this entry
 Warning--empty journal in Pahwa
 Warning--empty year in Pahwa
 Warning--empty journal in Milligan2010
+Warning--empty author in Infoclimat
+Warning--empty title in Infoclimat
+Warning--empty journal in Infoclimat
+Warning--empty year in Infoclimat
+Warning--empty author in NCDC
+Warning--empty title in NCDC
+Warning--empty journal in NCDC
+Warning--empty year in NCDC
+Warning--empty journal in Dans2007
 
 Done.
-You've used 6 entries,
+You've used 10 entries,
             4039 wiz_defined-function locations,
-            853 strings with 8241 characters,
-and the built_in function-call counts, 4214 in all, are:
-= -- 338
-> -- 76
-< -- 39
-+ -- 46
-- -- 11
-* -- 225
-:= -- 651
-add.period$ -- 12
-call.type$ -- 6
-change.case$ -- 6
-chr.to.int$ -- 90
-cite$ -- 9
-duplicate$ -- 301
-empty$ -- 327
-format.name$ -- 15
-if$ -- 942
+            875 strings with 8670 characters,
+and the built_in function-call counts, 6031 in all, are:
+= -- 471
+> -- 112
+< -- 50
++ -- 66
+- -- 17
+* -- 330
+:= -- 945
+add.period$ -- 18
+call.type$ -- 10
+change.case$ -- 8
+chr.to.int$ -- 114
+cite$ -- 22
+duplicate$ -- 448
+empty$ -- 476
+format.name$ -- 23
+if$ -- 1331
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 48
-newline$ -- 43
-num.names$ -- 6
-pop$ -- 111
+int.to.str$ -- 10
+missing$ -- 73
+newline$ -- 61
+num.names$ -- 8
+pop$ -- 186
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 315
+skip$ -- 450
 stack$ -- 0
-substring$ -- 216
-swap$ -- 244
-text.length$ -- 9
+substring$ -- 274
+swap$ -- 335
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 6
-warning$ -- 3
-while$ -- 20
-width$ -- 7
-write$ -- 78
-(There were 2 error messages)
+type$ -- 10
+warning$ -- 12
+while$ -- 26
+width$ -- 12
+write$ -- 113
+(There were 5 error messages)

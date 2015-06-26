@@ -38,7 +38,7 @@
 \usepackage{multicol}
 \usepackage[]{algorithm2e}
 \usepackage{hyperref}
-
+\usepackage{fancyhdr}
 %
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -47,6 +47,9 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 
 \begin{document}
+\pagestyle{plain}
+\pagenumbering{arabic}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Title
@@ -175,11 +178,11 @@ For simplicity, in this paper we only consider windturbines (WT) and photovoltai
 P_{i}^{D}(t) = \sum_{k \in WT_{i}} P_{k}(t) + \sum_{k \in PV_{i}} P_{k}(t)
 \end{equation} 
 
-We denote by $ \nu_{i}(t) $ and $ \xi_{i}(t) $ the wind speed (in $ m.s^{-1} $) and the solar irradiance ( in $ W.m^{-2} $) at the location of agent i and at time t, so that :
+We denote by $ \nu_{i}(t) $ and $ \Psi_{i}(t) $ the wind speed (in $ m.s^{-1} $) and the solar irradiance ( in $ W.m^{-2} $) at the location of agent i and at time t, so that :
 \begin{equation}
- P_{i}^{P}(t) = \sum_{k \in WT_{i}} \mathcal{F}_{WT}( \nu_{i}(t) ) + \sum_{k \in PV_{i} } \mathcal{F}_{PV}(\xi_{i}(t) ) 
+ P_{i}^{P}(t) = \sum_{k \in WT_{i}} \mathcal{F}_{WT}( \nu_{i}(t) ) + \sum_{k \in PV_{i} } \mathcal{F}_{PV}(\Psi_{i}(t) ) 
 \end{equation}
-Where $ \mathcal{F}_{WT} $ (resp. $ \mathcal{F}_{PV} $) is the power curve for the windturbines (resp. photovoltaic panels). We made here the implicit assumption that all windturbines (resp. photovoltaic panels) have the same power curve. The model can be easily extended to muplitiple power curves accounting for different types of generators. More details about power curves and their approximations can be found in []. 
+Where $ \mathcal{F}_{WT} $ (resp. $ \mathcal{F}_{PV} $) is the power curve for the windturbines (resp. photovoltaic panels). We made here the implicit assumption that all windturbines (resp. photovoltaic panels) have the same power curve. The model can be easily extended to muplitiple power curves accounting for different types of generators. More details about power curves and their approximations can be found in the appendix and in \cite{Lydia2014}. 
 
 Weather quantities like wind speed or solar irradiance appear thus as alternative data for generating the $ P_{i} $ series. Fortunately, these kinds of data are easier to find, and since the developement of small personal weather stations, their geographical granularity keeps increasing.  A quantity like wind speed depends both on time and location (we neglect height since this information is rarely present in the data). In the following, time is discretized into slots and space into zones. A zone is simply a portion of the considered space for which we have weather data. Therefore, if prosumers i and j are positioned on the same zone, they are exposed to the same weather. Adding some intra-zone noise can easily be done though not considered in this paper. The process for generating the $ P_{i} $ series is pictured in the first block of the process diagram (see figure \ref{fig:process}).
 
@@ -191,7 +194,7 @@ Weather quantities like wind speed or solar irradiance appear thus as alternativ
 
 Note that a prosumer i is defined by his zone $ Z_{i} $ as well as the sets $ DER_{i} $ and $ load_{i} $. That is, a prosumer can be configured to represent anything from a single windturbine for instance ($ DER_{i} = \{ WT_{0} \} $ and $ load_{i} = \emptyset $) to a pure load ($ DER_{i} = \emptyset $ and $ load_{i} = \{ L_{0} \} $) through more complex combinations. In practice, we use random configurations for the agents.
 
-In the rest of the paper, we use french weather data (see www.infoclimat.fr) starting in january 2006 and ending in december 2012, with a sampling frequency of three hours, and generate N timeseries of extra-production over this date range.
+In the rest of the paper, we use french weather data \cite{Infoclimat} starting in january 2006 and ending in december 2012, with a sampling frequency of three hours, and generate N timeseries of extra-production over this date range.
 
 
 
@@ -379,7 +382,16 @@ Figure \ref{fig:histo_cliques} shows the distributions of the utility values for
 
 Directly mapping cliques to coalitions by this de-correlation oriented approach is thus not sufficient. It is indeed possible that adding agents to these cliques has the combined effect of increasing the expected production while decreasing its stability. The question revolves around measuring the benefits of this production surplus compared to the disadvantage of a higher unstability. This can be quantified by the marginal benefit of equation \ref{eq:marginal_benefit}.
 
+\subsection{Algorithm}
+The algorithm takes inputs from :
 
+\begin{itemize}
+	\item \textbf{The agents :} historical series of available productions $P_{i}$, 
+	\item \textbf{The grid operator :} market entrance policy $ (P^{MIN},\phi) $,
+	\item \textbf{The "user" :} Number of desired coalitions $ N_{COAL} $ and size of starting cliques k.
+\end{itemize} 
+
+The first steps consists in computing the de-correlation graph $ G_{2} $ as well as the optimal threshold $ \epsilon^{\star} $. Cliques of size k in $ G_{2}^{\epsilon^{\star}} $ are considered as coalition seeds. The next step is a local greedy improvement over the landscape represented by  $ G_{2}^{\epsilon^{\star}} $. Cliques add alternatively the node $ i^{\star} $ in their neighborhood that yields the best marginal benefit $ MAX_{ i \in N(clique) } \delta_{clique}(i) $ where $ N(clique) $ is the neighborhood of a given clique. This addition occurs only if $ i^{\star} $ is not already involved in another coalition, and if $ \delta_{clique}(i^{\star}) \geq 0 $, meaning that utilities are increasing. The algorithm stops when all nodes are distributed in a coalition or when the global utility stops increasing. See the details in algorithm \ref{alg:algo1} in the appendix.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -393,7 +405,8 @@ Directly mapping cliques to coalitions by this de-correlation oriented approach 
 The algorithm presented in the previous section is supposed to generate a given number of coalitions that have good utilities. As it comprises mainly of a greedy optimization based on local improvements, there is no guarantee that the algorithm finds the global optimum. Since there is, to our knowledge, no state of the art algorithm that aggregates uncorrelated agents in an optimum way (see section \ref{sec:related} for related problems), we compare the results with :
 
 \begin{itemize}
-\item \textbf{Random :} This algorithm is basically a random search over the coalition structures space. It analyses a given number of structures and returns the best that it has encountered so far. See algorithm \ref{alg:algo2}.
+\item \textbf{Random sampling of coalitions :} Coalitions are formed randomly without any other constraint that the desired size. This enables us to have an idea about the distributions of utility values for coalitions of a given size.
+\item \textbf{Random sampling of coalition structures :} Coalition structures are sampled randomly by shuffling and random divisions of the agents. Algorithm \ref{alg:algo2} uses such a sampling and returns the highest utility coalition structure sampled. This algorithm will be refered to as "\textit{random}" in the following.
 \item \textbf{Correlated :} This is the complete opposite of our algorithm. It uses the correlation graph $ G_{1} $ and performs a community detection. The resulting coalitions have thus very high internal correlations. We thus expect this algorithm to perform very bad compared to the others. See algorithm \ref{alg:algo3}.
 \end{itemize} 
 
@@ -415,14 +428,15 @@ Figure \ref{fig:search} displays the evolution of the global utility and the num
 \end{figure}
 
 
-Figure \ref{fig:coalitions} shows the coalitions formed with the considered algorithms. A coalition is represented by a marker in the contract value / volatility space, and the color and shape of a marker indicates by which algorithm the coalition has been formed. Besides, as the size of a marker is proportional to the number of agents in the coalition, we can see that the utility function results in approximatively balanced coalitions. The coalitions of correlated agents (green squares) are clearly of poor quality according to our criteria since they can only afford small production contracts, and with a very high volatility (compared to the other coalitions on the plot). 
+Figure \ref{fig:coalitions} shows the coalitions formed with the considered algorithms in the contract value / volatility space. The color map in the background indicates regions where we expect high utilities (red) and the ones where we expect very poor utility values (blue). The bottom right corner, with high contract values and low volatilities, is therefore the region where we wish to form our coalitions. A single coalition is represented by a marker, and the color and shape of a marker indicates by which algorithm the coalition has been formed. Besides, the sizes of the coalitions are indicated on the markers, and the marker size is also proportional to the coalition size. We can see that the utility function results in approximatively balanced coalitions. Small yellow markers indicates the gravity centers of their respective coalition structures. The coalitions of correlated agents (green squares) are clearly of poor quality according to our criteria since they can only afford small production contracts, and with a very high volatility. 
 
-On figure \ref{fig:coalitions}, the de-correlated coalitions (blue dots) and the random ones (red triangles) are closer to the bottom right corner indicating a much better quality. We can see that, despite its simplicity, the random algorithm is able to achieve correct results thanks to the diversification inherent to such algorithm. Nevertheless, based on the utility, coalitions resulting from this random search are less good than the de-correlated ones. This can be understood on figure \ref{fig:coalitions} as the de-correlated coalitions are globally more located toward the bottom right corner, meaning that there are less disparities between coalitions than with the random case.
+On figure \ref{fig:coalitions}, the decorrelated coalitions (blue dots) are closer to the bottom right corner indicating a much better quality in term of productivity over volatility ratio. The black dotted line indicates the mean values for the random coalitions sampling technique. Each small dot stands for the mean position of all sampled coalitions of this given size. Variances are not indicated for readalibility, but are usually quite large since this sampling only take the size as a constraint. Moreover, note that only a subset of the points are labeled with the size they represents as not to overload the figure. We can see that as coalitions get larger, they tend to increase on average their contract values, but at the price of a higher volatility. 
 
+On figure \ref{fig:coalitions}, the results of the random coalition structure sampling is shown with the red ellipses that represent the distribution of the gravity centers of the sampled structures. Since the center of the ellipses stands for the mean and each ellipse adds one standard deviation, more than $ 99\% $ of the sampled gravity centers are within the largest ellipse. The small yellow dot below the ellipses indicates the gravity center of our solution. It is thus visible that our greedy graph based algorithm is able to find a quite good coalition structure in terms of volatility and contract values.
 
 \begin{figure}
-\includegraphics[scale=.5]{./figures/coalitions/coalitions6.pdf}
-\caption{Coalitions formed in the (contract value, volatility) space. The color map indicates qualities of portions of the plane. The closer to red the better (high contract values with small volatility). On the opposite, blue areas shows poor quality (small contract values with high volatility). Blue dots stand for the un-correlated coalitions, red triangles for random search, and green squares for correlated coalitions.}
+\includegraphics[scale=.6]{./figures/coalitions/coalitions6.pdf}
+\caption{Coalitions formed in the (contract value, volatility) space. The color map indicates qualities of portions of the plane. The closer to red the better (high contract values with small volatility). On the opposite, blue areas shows poor quality (small contract values with high volatility). Blue dots stand for the decorrelated coalitions that we formed while green squares show correlated coalitions. The smaller yellow markers stands for the gravity centers of the coalition structures. The black dotted line shows how contract values and volatility evolve  when the size of the coalitions increase (a subset of the points are labeled by the size of the coalition they represent). Each point is the average over $ 10^{5} $ unconstrained draws of a random coalition. As we can also draw random coalition structures, we show the distribution of their gravity centers by the red ellipses (center is the mean, and each ellipse add 1 standard deviation). For comparison with our algorithm where the utility function favors balanced coalitions, we also constrained loosely the sizes of the coalitions in the random process. }
 \label{fig:coalitions}
 \end{figure}
 
@@ -459,7 +473,7 @@ We consider that prosumers fail randomly, and we denote by $ \psi \in [0,1] $ th
 \section{Conclusion}
 \label{sec:conclusion}
 
-In this paper we studied how aggregations of prosumers could be authorized to sell their surplus of production to the grid operator. By relying on the past values of the agents, we constrained the market entry to both sufficiently productive and stable coalitions. The power that a coalition is able to propose on the market is therefore related to production and stability. As the correlations between the prosumers that form these coalitions impact directly their volatilities, we seek uncorrelated aggregations of agents. We used a graph representation of the correlation relationships between the agents as a reduced landscape for the coalition formation. A greedy algorithm that starts with cliques of the "de-correlation" graph of the agents and makes local improvements offers a good compromise between speed and quality of the results. We compare these results with a random search, and an opposite strategy that clusters correlated agents together. We showed that the coalitions resulting from our algorithm are able to provide more power to the grid with a lower volatility. Because they tend to have globally better production over volatility ratios, these coalitions will tend to use less storage and spill less energy than more unstable ones. We plan to study these benefits for the control of the aggregations in future works.
+In this paper we studied how aggregations of prosumers could be authorized to sell their surplus of production to the grid operator. By relying on the past values of the agents, we constrained the market entry to both sufficiently productive and stable coalitions. The power that a coalition is able to propose on the market is therefore related to production and stability. As the correlations between the prosumers that form these coalitions impact directly their volatilities, we seek uncorrelated aggregations of agents. We used a graph representation of the correlation relationships between the agents as a reduced landscape for the coalition formation. A greedy algorithm that starts with cliques of the "de-correlation" graph of the agents and makes local improvements offers a good compromise between speed and quality of the results. We compare these results with random samplings, and an opposite strategy that clusters correlated agents together. We showed that the coalitions resulting from our algorithm are able to provide more power to the grid with a lower volatility. Because they tend to have globally better production over volatility ratios, these coalitions will tend to use less storage and spill less energy than more unstable ones. We plan to study these benefits for the control of the aggregations in future works.
 
 Because in real situations, agents are prone to failure, resilience is also an important criterium for the quality of the aggregations. We therefore studied how the coalitions are able to remain on the market when their agents fail randomly one by one. We showed that, in this situation, the coalitions resulting from our algorithm better withstand losses of agents.
 
@@ -476,16 +490,6 @@ Because in real situations, agents are prone to failure, resilience is also an i
 
 \appendix
 \subsection{Algorithms}
-
-The algorithm takes inputs from :
-
-\begin{itemize}
-	\item \textbf{The agents :} historical series of available productions $P_{i}$, 
-	\item \textbf{The grid operator :} market entrance policy $ (P^{MIN},\phi) $,
-	\item \textbf{The "user" :} Number of desired coalitions $ N_{COAL} $ and size of starting cliques k.
-\end{itemize} 
-
-The first steps consists in computing the de-correlation graph $ G_{2} $ as well as the optimal threshold $ \epsilon^{\star} $. Cliques of size k in $ G_{2}^{\epsilon^{\star}} $ are considered as coalition seeds. The next step is a local greedy improvement over the landscape represented by  $ G_{2}^{\epsilon^{\star}} $. Cliques add alternatively the node $ i^{\star} $ in their neighborhood that yields the best marginal benefit $ MAX_{ i \in N(clique) } \delta_{clique}(i) $ where $ N(clique) $ is the neighborhood of a given clique. This addition occurs only if $ i^{\star} $ is not already involved in another coalition, and if $ \delta_{clique}(i^{\star}) \geq 0 $, meaning that utilities are increasing. The algorithm stops when all nodes are distributed in a coalition or when the global utility stops increasing. See the details in algorithm \ref{alg:algo1}.
 
 
 \begin{algorithm}
@@ -516,7 +520,7 @@ The first steps consists in computing the de-correlation graph $ G_{2} $ as well
  $ N^{loop} \leftarrow 0 $ \;
  $ CS^{\star} \leftarrow \emptyset $\;
  \While{$ N^{loop} < Loop^{max} $}{
- 	$ CS \leftarrow SelectRandomCS() $\;
+ 	$ CS \leftarrow SelectRandomCS( ) $\;
  	\If{ $ \mathcal{U}(CS) > \mathcal{U}(CS^{\star}) $ }{
  		$ CS^{\star } \leftarrow CS $\;
  		}
@@ -526,8 +530,6 @@ The first steps consists in computing the de-correlation graph $ G_{2} $ as well
  \caption{Random algorithm}
  \label{alg:algo2}
 \end{algorithm}
-
-
 
 \begin{algorithm}
  \KwData{$P_{i}$ series,\\ Desired number of coalitions $ N_{COAL} $,\\ search step size $ \beta << 1 $}
@@ -551,7 +553,7 @@ The first steps consists in computing the de-correlation graph $ G_{2} $ as well
 
 \subsection{Net production series}
 
-Data were collected from [] (similar data can be found at [] for the United States). The variables used in the simulation are :
+Data were collected from \cite{Infoclimat} (similar data can be found at \cite{NCDC} for the United States). The variables used in the simulation are :
 
 \begin{itemize}
 \item Average wind speed (in $m.s^{-1}$)
@@ -559,7 +561,8 @@ Data were collected from [] (similar data can be found at [] for the United Stat
 \item Temperature (in degree celsius)
 \end{itemize} 
 
-Power curves are functions that, for a given type of generator, map the input to the output power. For windturbines and solar arrays these functions are well studied and approximations have been proposed. For the wind turbines, the power curve is thus specified by 4 values :
+\subsubsection{Wind power curve}
+Power curves are functions that, for a given type of generator, map the input to the output power. For windturbines and solar arrays these functions are well studied and approximations have been proposed \cite{Lydia2014} \cite{Dans2007}. For the wind turbines, the power curve can be specified by 4 values :
 
 \begin{itemize}
 \item Cut-in-speed : The wind speed at which the turbine first starts to rotate and generates power.
@@ -568,9 +571,10 @@ Power curves are functions that, for a given type of generator, map the input to
 \item Cut-out-speed : The speed at which the turbine is turned off as not to damage the rotor.
 \end{itemize}
 
-The most interesting part is the increase of output power when the wind speed is in the cut-in-speed rated-output-speed range. Even if sometimes a simple linear model is used, the increase has been shown to be non linear and some more complex exponential fit can be found in the litterature.
+The most interesting part is the increase of output power when the wind speed is in the cut-in-speed rated-output-speed range. Even if sometimes a simple linear model is used, the increase has been shown to be non linear and some more complex exponential fit can be found in the litterature \cite{Lydia2014}.
 
-The input quantity desired for our power curve model for solar arrays is a radiance in $ W.m^{-2} $, which can be difficult to find in weather station available data. As we mainly collected nebulosity series, we used the Helios model described in []. This model enabled us to compute perfect (clear blue sky situation) solar radiances at some specific locations on earth and at given timestamps. As nebulosity is a measure of the sky cloudiness, we can use the nebulosity series as degradation factors on the clear blue sky model (see [] for more details) :
+\subsubsection{Solar power curve}
+The input quantity desired for our power curve model for solar arrays is a radiance in $ W.m^{-2} $, which can be difficult to find in weather station available data. As we mainly collected nebulosity series, we used the Helios model described in \cite{Dans2007}. This model enabled us to compute perfect (clear blue sky situation) solar radiances at some specific locations on earth and at given timestamps. As nebulosity is a measure of the sky cloudiness, we can use the nebulosity series as degradation factors on the clear blue sky model (see \cite{Dans2007} for more details) :
 
 \begin{equation}
 \left\{ \begin{array}{lll}
@@ -589,8 +593,28 @@ Once we have input data in the forms of radiances, we compute the production of 
 
 Where $ S_{PV} $ is the surface of the array, and $ e_{PV} $ is its efficiency. The very simple form of this power curve is due to some simplifications in order not to overload the model. For instance, it does not take into account angles and orientations degradations. These could be incorporated if needed by changing the power curve in the simulations.
 
-data, helios model, power curves, scema
+\subsubsection{Consumption}
+Modeling electric consumption has already been widely tackled in the litterature. Models can be basically divided in two main categories : Top-down and bottom-up approaches. Top-down techniques take aggregated consumption data as inputs and try to estimate individual consumption patterns while bottom-up methods use a fine modeling of users consumptions as to obtain realistic aggregated consumption curves. In this paper, we used a bottom-up model since the end user, or relatively small aggregations of end users, are in our interest. The main objective was to capture both daily patterns and seasonal variations of the consumptions. We assumed an additive model where the consumption of an agent is the sum of a seasonal heating term that depends on the outside temperature and an electronic consumption term that only depends on the hour of the day. By denoting $ \tau(t) $ the outside temperature at timestamp t, we can express the consumption $ P_{i}^{D}(t) $ of agent i at time t :
 
+\begin{equation}
+P_{i}^{D}(t) = \mathcal{F}_{i}^{heat}(\tau(t), t) + \mathcal{F}_{i}^{elec}(t)
+\end{equation}
+
+Where $ \mathcal{F}_{i}^{heat}(\tau(t), t) $ is the power curve that maps the temperature to a heating consumption, and $ \mathcal{F}_{i}^{elec}(t) $ computes the consumption of agent i (other than heating) at a given hour of the day. In the simulation, all agents have a desired inside temperature $ T_{i} $, supposed to be a constant for simplification. By using termodynamic laws $ \mathcal{F}_{i}^{heat}(\tau(t), t) $ can be approximated by :
+
+\begin{equation}
+\mathcal{F}_{i}^{heat}(\tau(t), t) = \dfrac{B_{i}}{R_{i}} \left[ T_{i} - \tau(t) \right]
+\end{equation}
+
+Where $ B_{i} $ is the surface of thermal exchanges for agent i and $ R_{i} $ is their thermal resistance.
+
+We denote by $ \Omega_{i} $ the maximum consumption possible for agent i, which is basically the sum of all its appliances powers. We also denote by $ \omega_{i}(t) = \{ \omega_{i}(t_{0}),...,\omega_{i}(t_{24}) \} $ the vector of the average fraction of $ \Omega_{i} $ used for each hour. We can therefore write :
+
+\begin{equation}
+\mathcal{F}_{i}^{elec}(t) = \Omega_{i} ( \omega_{i}(t) + \epsilon )
+\end{equation}
+
+Where $ \epsilon $ is a noise term. The vector $ \omega_{i}(t) $ enables us to easily differentiate agent consumption behaviors. Business or residential areas for instance can be easily distinguised with this kind of model.
 
 
 \end{document}
