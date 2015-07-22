@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  26 JUN 2015 16:46
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  22 JUL 2015 11:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -891,7 +891,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 143.
 (c:/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [3]
-<Fig2.pdf, id=125, 614.295pt x 794.97pt>
+<Fig2.pdf, id=128, 614.295pt x 794.97pt>
 File: Fig2.pdf Graphic file (type pdf)
  <use Fig2.pdf>
 Package pdftex.def Info: Fig2.pdf used on input line 190.
@@ -904,7 +904,7 @@ Overfull \hbox (24.43019pt too wide) in paragraph at lines 190--191
 
 Underfull \vbox (badness 2837) has occurred while \output is active []
 
- [4 <./Fig2.pdf>] <gaussian_P_star.pdf, id=205, 433.62pt x 289.08pt>
+ [4 <./Fig2.pdf>] <gaussian_P_star.pdf, id=206, 433.62pt x 289.08pt>
 File: gaussian_P_star.pdf Graphic file (type pdf)
 
 <use gaussian_P_star.pdf>
@@ -915,7 +915,7 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 238--239
 [][] 
  []
 
-[5 <./gaussian_P_star.pdf>] <mean_field.pdf, id=302, 433.62pt x 289.08pt>
+[5 <./gaussian_P_star.pdf>] <mean_field.pdf, id=303, 433.62pt x 289.08pt>
 File: mean_field.pdf Graphic file (type pdf)
 
 <use mean_field.pdf>
@@ -931,7 +931,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 363--364
 
  []
 
-<cliques_histo.pdf, id=378, 433.62pt x 289.08pt>
+<cliques_histo.pdf, id=379, 433.62pt x 289.08pt>
 File: cliques_histo.pdf Graphic file (type pdf)
  <use cliques_histo.pdf>
 Package pdftex.def Info: cliques_histo.pdf used on input line 376.
@@ -941,10 +941,7 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 376--377
 [][] 
  []
 
-
-Underfull \vbox (badness 2221) has occurred while \output is active []
-
- [7 <./cliques_histo.pdf>] <real_utility_2.pdf, id=436, 433.62pt x 289.08pt>
+[7 <./cliques_histo.pdf>] <real_utility_2.pdf, id=436, 433.62pt x 289.08pt>
 File: real_utility_2.pdf Graphic file (type pdf)
 
 <use real_utility_2.pdf>
@@ -1005,7 +1002,10 @@ Overfull \hbox (8.17401pt too wide) in paragraph at lines 459--460
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `English'. Using the pattern for
 ** the default language instead.
-) [10 <./figures/resilience_both.pdf>]
+)
+Underfull \vbox (badness 1221) has occurred while \output is active []
+
+ [10 <./figures/resilience_both.pdf>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1025,20 +1025,16 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 620.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 620.
 Package rerunfilecheck Info: File `Article.out' has not changed.
 (rerunfilecheck)             Checksum: 39D66376566DC044C4041D3A45FF0162;1162.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 620.
  ) 
 Here is how much of TeX's memory you used:
- 10772 strings out of 493488
- 158459 string characters out of 3144748
- 284528 words of memory out of 3000000
- 13834 multiletter control sequences out of 15000+200000
+ 10771 strings out of 493488
+ 158453 string characters out of 3144748
+ 282507 words of memory out of 3000000
+ 13833 multiletter control sequences out of 15000+200000
  114581 words of font info for 127 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
- 36i,16n,43p,1774b,441s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,16n,43p,1774b,429s stack positions out of 5000i,500n,10000p,200000b,50000s
 {c:/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2012/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2012/texmf-dist/fo
 nts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2012/texmf-dist/fonts/t
@@ -1057,7 +1053,7 @@ ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2012/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2012/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Article.pdf (11 pages, 1488246 bytes).
+Output written on Article.pdf (11 pages, 1486315 bytes).
 PDF statistics:
  781 PDF objects out of 1000 (max. 8388607)
  432 compressed objects within 5 object streams
