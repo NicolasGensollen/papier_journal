@@ -8,23 +8,23 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Article.bib
-Repeated entry---line 165 of file Article.bib
+Repeated entry---line 234 of file Article.bib
  : @article{Infoclimat
  :                    ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 168 of file Article.bib
+Repeated entry---line 237 of file Article.bib
  : @article{NCDC
  :              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 278 of file Article.bib
+Repeated entry---line 347 of file Article.bib
  : @article{Mantegna1999
  :                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 342 of file Article.bib
+Repeated entry---line 411 of file Article.bib
  : @article{Pahwa
  :               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 351 of file Article.bib
+Repeated entry---line 420 of file Article.bib
  : @article{Dans2007
  :                  ,
 I'm skipping whatever remains of this entry
@@ -34,6 +34,8 @@ I'm skipping whatever remains of this entry
 Warning--empty journal in Pahwa
 Warning--empty year in Pahwa
 Warning--empty journal in Milligan2010
+Warning--empty journal in Shadmand2014
+Warning--empty journal in Chicheportiche2010
 Warning--empty author in ISSDA
 Warning--empty title in ISSDA
 Warning--empty journal in ISSDA
@@ -49,45 +51,45 @@ Warning--empty year in NCDC
 Warning--empty journal in Dans2007
 
 Done.
-You've used 11 entries,
+You've used 16 entries,
             4039 wiz_defined-function locations,
-            878 strings with 8742 characters,
-and the built_in function-call counts, 6257 in all, are:
-= -- 480
-> -- 113
-< -- 50
-+ -- 67
-- -- 17
-* -- 348
-:= -- 982
-add.period$ -- 19
-call.type$ -- 11
-change.case$ -- 8
-chr.to.int$ -- 114
-cite$ -- 27
-duplicate$ -- 472
-empty$ -- 501
-format.name$ -- 23
-if$ -- 1373
+            907 strings with 9781 characters,
+and the built_in function-call counts, 10724 in all, are:
+= -- 863
+> -- 220
+< -- 100
++ -- 129
+- -- 33
+* -- 576
+:= -- 1643
+add.period$ -- 29
+call.type$ -- 16
+change.case$ -- 13
+chr.to.int$ -- 228
+cite$ -- 34
+duplicate$ -- 774
+empty$ -- 805
+format.name$ -- 44
+if$ -- 2396
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 77
-newline$ -- 66
-num.names$ -- 8
-pop$ -- 204
+int.to.str$ -- 16
+missing$ -- 125
+newline$ -- 85
+num.names$ -- 13
+pop$ -- 301
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 465
+skip$ -- 811
 stack$ -- 0
-substring$ -- 274
-swap$ -- 341
-text.length$ -- 12
+substring$ -- 545
+swap$ -- 618
+text.length$ -- 24
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 11
-warning$ -- 16
-while$ -- 26
-width$ -- 13
-write$ -- 120
+type$ -- 16
+warning$ -- 18
+while$ -- 47
+width$ -- 18
+write$ -- 176
 (There were 5 error messages)

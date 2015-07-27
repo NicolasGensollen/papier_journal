@@ -21,6 +21,14 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{Jiang2014}
+\BIBentryALTinterwordspacing
+T.~Jiang, Y.~Cao, L.~Yu, and Z.~Wang, ``{Load Shaping Strategy Based on Energy
+  Storage and Dynamic Pricing in Smart Grid},'' \emph{IEEE Transactions on
+  Smart Grid}, vol.~5, no.~6, pp. 2868--2876, 2014. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6880851}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Rathnayaka2012}
 A.~J.~D. Rathnayaka \emph{et~al.}, ``Prosumer management in socio-technical
   smart grid,'' in \emph{Proceedings of the CUBE International Information
@@ -34,11 +42,33 @@ S.~Pahwa, C.~Scoglio, and N.~Schulz, ``{Topological Analysis and Mitigation
 M.~Milligan and B.~Kirby, ``{Utilizing Load Response for Wind and Solar
   Integration and Power System Reliability},'' no. July, 2010.
 
+\bibitem{Logenthiran2012}
+T.~Logenthiran, D.~Srinivasan, and T.~Z. Shun, ``{Demand side management in
+  smart grid using heuristic optimization},'' \emph{IEEE Transactions on Smart
+  Grid}, vol.~3, no.~3, pp. 1244--1252, 2012.
+
+\bibitem{Zhang2013}
+Y.~Zhang, N.~Gatsis, and G.~B. Giannakis, ``{Robust energy management for
+  microgrids with high-penetration renewables},'' \emph{IEEE Transactions on
+  Sustainable Energy}, vol.~4, no.~4, pp. 944--953, 2013.
+
+\bibitem{Shadmand2014}
+M.~B. Shadmand, S.~Member, R.~S. Balog, and S.~Member, ``{Multi-Objective
+  Optimization and Design of Photovoltaic-Wind Hybrid System for Community
+  Smart DC Microgrid},'' vol.~5, no.~5, pp. 2635--2643, 2014.
+
 \bibitem{Markowitz1959}
 \BIBentryALTinterwordspacing
 H.~M. Markowitz, ``{Portfolio Selection: Efficient Diversification of
   Investments},'' pp. 217--234, 1959. [Online]. Available:
   \url{http://www.informaworld.com/openurl?genre=article\&doi=10.1080/00137917908965215\&magic=crossref}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Chicheportiche2010}
+\BIBentryALTinterwordspacing
+R.~Chicheportiche and J.-P. Bouchaud, ``{The joint distribution of stock
+  returns is not elliptical},'' 2010. [Online]. Available:
+  \url{http://arxiv.org/abs/1009.1100}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Mantegna1999}
