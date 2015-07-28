@@ -77,7 +77,9 @@ Email: \{nicolas.gensollen, vincent.gauthier, michel.marot, monique.becker\}@tel
 \begin{abstract}
 %Achieving a successful energetic transition became a major goal for the 21st century in most developped countries. The reconciliation of several research areas and their recent focus on the same smart grid objective has led to major technical improvements. For instance, allowing a large penetration of renewables into the electricity production grid seemed more like a dream yesterday, but appears more and more doable as research progresses. The inherent volatility of some of these energy sources poses indeed various problems in such a constrained environment. It is often supposed that a large number of these small generators will be decentralized down to the distribution network and even be owned by individuals. By enabling bi-directional flows, this vision revolutionises the nature of today simple consumers into futuristic agents that can both consume and produce. Such agents can obviously reduce their electricity bills by seeking energetic independance through demand side management programs coupled with storage. Nevertheless, as it could be the case that an agent's production exceeds its consumption and storage capacity, its ability to sell its extra-production appears as a way to save energy.
 
-Achieving a successful energetic transition through a smarter and greener electricity grid is a major goal for the 21st century. It is assumed that such smart grids will be characterized by bidirectional electricity flows coupled with a large penetration of small renewable generators and a proper efficient information system. All these bricks might enable end users to take part in the grid stability by injecting power, or by shaping their consumption against financial compensation. In this paper, we study the formation of coalitions of these futuristic agents that both produce and consume. These coalitions, which can be seen as aggregators of the electricity market, aim at selling the aggregated surplus of production of the agents they control. We rely on real weather data sampled accross stations of a given territory in order to simulate realistic production and consumption patterns for each agent. This approach enables us to capture geographical correlations among the agents while preserving the diversity due to different behaviors. As aggregators are bound to the grid operator by a contract, they seek to maximize their offer while minimizing their risk. We propose here an algorithm that takes the underlying correlation structure of the agents into account and outputs coalitions with both high productivity and low variability. We show then that the resulting diversified coalitions are able to generate higher benefits on a constrained energy market, and are more resilient to random failures of the agents.
+Achieving a successful energetic transition through a smarter and greener electricity grid is a major goal for the 21st century. It is assumed that such smart grids will be characterized by bidirectional electricity flows coupled with a large penetration of small renewable generators and a proper efficient information system. All these bricks might enable end users to take part in the grid stability by injecting power, or by shaping their consumption against financial compensation. In this paper, we propose an formation of coalitions algorithm of agents that both produce and consume. Our algorithm is designed to be used by an aggregator in order to form coalitions that aim at selling the aggregated surplus of production of the prosumer it controls. We rely on real weather data sampled across stations of a given territory in order to simulate realistic production and consumption patterns for each agent. This approach enables us to capture geographical correlations among the agents while preserving the diversity due to different behaviors. As aggregators are bound to the grid operator by a contract, they seek to maximize their offer while minimizing their risk. We propose here a graph based algorithm that takes the underlying correlation structure of the agents into account and outputs coalitions with both high productivity and low variability. We show then that the resulting diversified coalitions are able to generate higher benefits on a constrained energy market, and are more resilient to random failures of the agents.
+
+%which can be seen as of the electricity market, .
 \end{abstract}
 
 \IEEEpeerreviewmaketitle
@@ -109,6 +111,12 @@ More precisely, in our model, any entity that wishes to sell its production on s
 Forming coalitions/aggregations is an envisaged solution to both the number of entities sollicitating the operator, and their high variabilities. Indeed, it has been argued that using a multi-level aggregators architecture for the control could lead to better performances on the communication side, since an aggregator can be considered as a single node by the level above it. On the other hand, it is well-known that diversification of the assets is a way of minimizing risks when constructing a portfolio. One thus expect a more stable and predictable energy production for a coalition than for a single agent. Nevertheless, all coalitions are obviously not equally stable or productive, which means that special attention should be paid to the aggregation step. Recall that prosumers have both a consumption and a production component, each depending on location and time, meaning that there are complex underlying correlations between the agents. This is a central topic of the present paper : given N prosumers, what coalitions should be formed so that the compromise between expected production and variability is optimized ?
 
 We will see that the variability in the aggregated productions can be quantified to a certain extent by the correlation among the agents forming the coalitions. Understanding the correlation reliationships among the agents can thus give an indication about what coalitions to form and how much they should sell. More precisely, we use a graph representation of the correlation structure to gain insight about the expected production to risk ratios of different coalitions. We build a framework in which the system operator has the possibility of specifying both a maximum amount of risk and a minimum production acceptable to enter the market. We then propose a graph heuristic that uses decorrelated cliques in order to form diversified productive and stable coalitions, and we compare the results with other formation strategies (see section \ref{sec:results}). 
+
+
+%%%%%%s
+Rather than maximizing the profit of each agents in the grid (prosumer and grid operator) our algorithm is trying to find the right trade-off between the productivity and volatility of the power injected into the grid by coalitions of prosumers. However, the pricing strategies for both the prosumer and the grid is beyond the scope of this paper.  
+%%%%%%
+
 
 Furthermore, because agents are susceptible to fail for diverse reasons, the propensy of the system to undertake these failures is critical \cite{Pahwa}. We therefore investigate in this paper the resilience of the coalitions when prosumers fail. Despite the fact that losing agents is usually detrimental to the coalitions, we will see that the coalitions formed with our algorithm tend to be less impacted by random failures.
 
@@ -176,7 +184,7 @@ Where $ \mathcal{F}_{WT} $ (resp. $ \mathcal{F}_{PV} $) is the power curve for t
 Weather quantities like wind speed or solar irradiance appear thus as alternative data for generating the $ P_{i} $ series. Fortunately, these kinds of data are easier to find, and since the developement of small personal weather stations, their geographical granularity keeps increasing.  A quantity like wind speed depends both on time and location (we neglect height since this information is rarely present in the data). In the following, time is discretized into slots and space into zones. A zone is simply a portion of the considered space for which we have weather data. Therefore, if prosumers i and j are positioned on the same zone, they are exposed to the same weather. Adding some intra-zone noise can easily be done though not considered in this paper. The process for generating the $ P_{i} $ series is pictured in the first block of the process diagram (see figure \ref{fig:process}).
 
 \begin{figure}
-\includegraphics[scale=.45]{Fig2.pdf}
+\includegraphics[scale=.45]{Fig2}
 \caption{Process diagram}
 \label{fig:process}
 \end{figure}
@@ -224,7 +232,7 @@ P_{S}^{CRCT \star} = \mu_{ij} - \sqrt{2} \sigma_{ij} erf^{-1}( 1 - 2 \phi )
 \end{equation}
 
 \begin{figure}
-\includegraphics[scale=.6]{gaussian_P_star.pdf}
+\includegraphics[scale=.6]{gaussian_P_star}
 \caption{$ P_{S}^{CRCT \star} $ depending on reliability parameter $ \phi $ for gaussian distributions (see equation \ref{eq:P_star}). Blue curve with triangles stands for a coalition S with an expected production of 5 units and a standard deviation of 0.5. Under a grid policy of $ \phi = 0.1 $, it is able to announce a contract value of $ P_{S}^{CRCT \star} = 4.36 $. The same coalition in term of expected production ($\mu = 5 $), but with a higher variance ($ \sigma = 1.5 $, cyan curve with circles) can only afford a smaller contract value of $ P_{S}^{CRCT \star} = 3.07 $. The red curve with diamonds stands for a coalition with a higher expected production $(\mu = 7)$, but with a very high unpredictability ($ \sigma = 5 $). For low values of $ \phi $, this coalition is thus heavily penalized and can only afford a contract of $ 0.59 $ units. Under grid policy $ (\phi = 0.1, P^{MIN} = 2) $, this last coalition is thus not allowed to enter the market (red dot below the horrizontal dashed line). }
 \label{fig:Gaussian}
 \end{figure}
@@ -306,7 +314,7 @@ In order to get an estimator for $ \alpha $, we solve equation \ref{eq:derivativ
 Figure \ref{fig:mean_approx} shows how $ \alpha^{\star} $ and the utility function evolves according to the mean size of the coalitions $ \bar{N} $. These nice curves are of course only valid in the simplified example considered here, but they will provide some guidance when using real data.
 
 \begin{figure}
-\includegraphics[scale=.6]{mean_field.pdf}
+\includegraphics[scale=.6]{mean_field}
 \caption{Gaussian mean approximation. Subplot \textbf{a} shows how the parameter $ \alpha $ of the utility function should be chosen in function of the mean desired size of the coalitions (see equation \ref{eq:alpha_star}). Subplot \textbf{b} dislays the corresponding utility functions for different values of $ \alpha $. Blue curve with diamonds favors very small coalitions of 2 agents while the green one with triangles favors 5 agents coalitions. Finally, the red curve with squares has an optimal size of 15 agents. }
 \label{fig:mean_approx}
 \end{figure}
@@ -362,7 +370,7 @@ Nevertheless de-correlation seems like a more complex concept than correlation i
 Consider now a clique in  $ G_{2}^{\epsilon} $, which is a complete subgraph of $ G_{2}^{\epsilon} $. This is indeed a structure of interest for our purpose. Since there is a link for every pairs of nodes, we know, by construction, that a clique has a mean correlation and a maximum correlation less than $ \epsilon $. 
 
 \begin{figure}
-\includegraphics[scale=.6]{cliques_histo.pdf}
+\includegraphics[scale=.6]{cliques_histo}
 \caption{Histograms of utility values for coalitions of size 3. Red bars stands for cliques in the decorrelation graph, and blue bars represents all the other possible triplets. As visible, cliques tend to exhibit higher utilities than randomly selected coalitions.}
 \label{fig:histo_cliques}
 \end{figure}
@@ -405,13 +413,13 @@ Before running the algorithms, we need to calibrate the utility function by choo
 Figure \ref{fig:search} displays the evolution of the global utility and the number of involved agents during the course of the greedy algorithm \ref{alg:algo1}. The transition from unvalid to valid coalitions is clearly visible on the blue diamond curve and occurs between iteration 10 and 15. After this transition, coalition's utilities improve slowly up to a maximum point. 
 
 \begin{figure}
-\includegraphics[scale=.6]{real_utility_2.pdf}
+\includegraphics[scale=.6]{real_utility_2}
 \caption{Utility of random coalitions depending on their size. Blue dots shows real mean utility values and the thick red curve its smoothed version by applying a Savitzky-Golay filter. On this plot the $ \alpha $ parameter of the utility function was selected according to equation \ref{eq:alpha_star} in order to favor 40 agents coalitions.}
 \label{fig:real_utility2}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.6]{search.pdf}
+\includegraphics[scale=.6]{search}
 \caption{Evolution of the global utility $ \mathcal{U}(CS) $ (blue diamond curve, left axis) and the number of agents involved in the coalitions (red circle curve, right axis) during the greedy optimization of algorithm \ref{alg:algo1} }
 \label{fig:search}
 \end{figure}
@@ -424,7 +432,7 @@ On figure \ref{fig:coalitions}, the decorrelated coalitions (blue dots) are clos
 On figure \ref{fig:coalitions}, the results of the random coalition structure sampling is shown with the red ellipses that represent the distribution of the gravity centers of the sampled structures. Since the center of the ellipses stands for the mean and each ellipse adds one standard deviation, more than $ 99\% $ of the sampled gravity centers are within the largest ellipse. The small yellow dot below the ellipses indicates the gravity center of our solution. It is thus visible that our greedy graph based algorithm is able to find a quite good coalition structure in terms of volatility and contract values.
 
 \begin{figure}
-\includegraphics[scale=.6]{./figures/coalitions/coalitions6.pdf}
+\includegraphics[scale=.6]{./figures/coalitions/coalitions6}
 \caption{Coalitions formed in the (contract value, volatility) space. The color map indicates qualities of portions of the plane. The closer to red the better (high contract values with small volatility). On the opposite, blue areas shows poor quality (small contract values with high volatility). Blue dots stand for the decorrelated coalitions that we formed while green squares show correlated coalitions. The smaller yellow markers stands for the gravity centers of the coalition structures. The black dotted line shows how contract values and volatility evolve  when the size of the coalitions increase (a subset of the points are labeled by the size of the coalition they represent). Each point is the average over $ 10^{5} $ unconstrained draws of a random coalition. As we can also draw random coalition structures, we show the distribution of their gravity centers by the red ellipses (center is the mean, and each ellipse add 1 standard deviation). For comparison with our algorithm where the utility function favors balanced coalitions, we also constrained loosely the sizes of the coalitions in the random process. }
 \label{fig:coalitions}
 \end{figure}
@@ -445,7 +453,7 @@ And we extend this measure to the coalition stuctures :
 We consider that prosumers fail randomly, and we denote by $ \psi \in [0,1] $ the fraction of agents that failed. Figure \ref{fig:resilience} exhibits how the resilience of the coalition structures evolve according to $ \psi $. On the top subplot, $ P^{MIN} $ was volontarily selected relatively low such that the resiliences of the three structures fit on the same figure. When the $ P^{MIN} $ requirement increases, the differences between the algorithms also increase as visible on the bottom subplot of figure \ref{fig:resilience}. The de-correlated coalitions seem to achieve a more resilient production on the market in the sense that they are able to sustain a higher fraction of node failures.
 
 \begin{figure}
-\includegraphics[scale=.6]{./figures/resilience_both.pdf}
+\includegraphics[scale=.6]{./figures/resilience_both}
 \caption{Resilience of the coalition structures when nodes fail randomly (see equation \ref{eq:resilience}) for $ P^{MIN} = 10MW $ (top subplot) and $ P^{MIN} = 80MW $ (bottom subplot) }
 \label{fig:resilience}
 \end{figure}
