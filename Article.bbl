@@ -21,13 +21,24 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{Brummitt2012}
+C.~D. Brummitt, R.~M. D'Souza, and E.~a. Leicht, ``{Suppressing cascades of
+  load in interdependent networks.}'' \emph{Proceedings of the National Academy
+  of Sciences of the United States of America}, vol. 109, no.~12, pp. E680--9,
+  Mar. 2012.
+
+\bibitem{Wang2009}
+J.-W. Wang and L.-L. Rong, ``{Cascade-based attack vulnerability on the US
+  power grid},'' \emph{Safety Science}, vol.~47, no.~10, pp. 1332--1336, Dec.
+  2009.
+
 \bibitem{Jiang2014}
-\BIBentryALTinterwordspacing
 T.~Jiang, Y.~Cao, L.~Yu, and Z.~Wang, ``{Load Shaping Strategy Based on Energy
   Storage and Dynamic Pricing in Smart Grid},'' \emph{IEEE Transactions on
-  Smart Grid}, vol.~5, no.~6, pp. 2868--2876, 2014. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6880851}
-\BIBentrySTDinterwordspacing
+  Smart Grid}, vol.~5, no.~6, pp. 2868--2876, 2014.
+
+\bibitem{Europe}
+F.~Van~Hulle, ``{Integrating Wind},'' {2009}.
 
 \bibitem{Rathnayaka2012}
 A.~J.~D. Rathnayaka \emph{et~al.}, ``Prosumer management in socio-technical
@@ -58,42 +69,17 @@ M.~B. Shadmand, S.~Member, R.~S. Balog, and S.~Member, ``{Multi-Objective
   Smart DC Microgrid},'' vol.~5, no.~5, pp. 2635--2643, 2014.
 
 \bibitem{Markowitz1959}
-\BIBentryALTinterwordspacing
 H.~M. Markowitz, ``{Portfolio Selection: Efficient Diversification of
-  Investments},'' pp. 217--234, 1959. [Online]. Available:
-  \url{http://www.informaworld.com/openurl?genre=article\&doi=10.1080/00137917908965215\&magic=crossref}
-\BIBentrySTDinterwordspacing
+  Investments},'' pp. 217--234, 1959.
 
 \bibitem{Chicheportiche2010}
-\BIBentryALTinterwordspacing
 R.~Chicheportiche and J.-P. Bouchaud, ``{The joint distribution of stock
-  returns is not elliptical},'' 2010. [Online]. Available:
-  \url{http://arxiv.org/abs/1009.1100}
-\BIBentrySTDinterwordspacing
+  returns is not elliptical},'' 2010.
 
 \bibitem{Mantegna1999}
 R.~Mantegna, ``\BIBforeignlanguage{English}{Hierarchical structure in financial
   markets},'' \emph{\BIBforeignlanguage{English}{The European Physical Journal
   B}}, vol.~11, no.~1, pp. 193--197, 1999.
-
-\bibitem{ISSDA}
-\BIBentryALTinterwordspacing
- [Online]. Available:
-  \url{http://www.ucd.ie/issda/data/commissionforenergyregulationcer/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Lydia2014}
-\BIBentryALTinterwordspacing
-M.~Lydia, S.~S. Kumar, a.~I. Selvakumar, and G.~E. {Prem Kumar}, ``{A
-  comprehensive review on wind turbine power curve modeling techniques},''
-  \emph{Renewable and Sustainable Energy Reviews}, vol.~30, pp. 452--460, 2014.
-  [Online]. Available: \url{http://dx.doi.org/10.1016/j.rser.2013.10.030}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Infoclimat}
-\BIBentryALTinterwordspacing
- [Online]. Available: \url{http://www.infoclimat.fr}
-\BIBentrySTDinterwordspacing
 
 \bibitem{Garas2008}
 A.~Garas \emph{et~al.}, ``\BIBforeignlanguage{English}{The structural role of
@@ -101,9 +87,26 @@ A.~Garas \emph{et~al.}, ``\BIBforeignlanguage{English}{The structural role of
   \emph{\BIBforeignlanguage{English}{The European Physical Journal B}},
   vol.~63, no.~2, pp. 265--271, 2008.
 
+\bibitem{ISSDA}
+\BIBentryALTinterwordspacing
+``{Irish Social Science Data Archive}.'' [Online]. Available:
+  \url{http://www.ucd.ie/issda/data/commissionforenergyregulationcer/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Lydia2014}
+M.~Lydia, S.~S. Kumar, a.~I. Selvakumar, and G.~E. {Prem Kumar}, ``{A
+  comprehensive review on wind turbine power curve modeling techniques},''
+  \emph{Renewable and Sustainable Energy Reviews}, vol.~30, pp. 452--460, 2014.
+
+\bibitem{Infoclimat}
+\BIBentryALTinterwordspacing
+``{Infoclimat}.'' [Online]. Available: \url{http://www.infoclimat.fr}
+\BIBentrySTDinterwordspacing
+
 \bibitem{NCDC}
 \BIBentryALTinterwordspacing
- [Online]. Available: \url{http://www.ncdc.noaa.gov/}
+``{National Centers for Environmental Information}.'' [Online]. Available:
+  \url{http://www.ncdc.noaa.gov/}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Dans2007}
