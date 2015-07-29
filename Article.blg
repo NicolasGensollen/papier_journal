@@ -8,27 +8,31 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Article.bib
-Repeated entry---line 268 of file Article.bib
+Repeated entry---line 273 of file Article.bib
  : @article{Infoclimat
  :                    ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 271 of file Article.bib
+Repeated entry---line 276 of file Article.bib
  : @article{NCDC
  :              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 381 of file Article.bib
+Repeated entry---line 386 of file Article.bib
  : @article{Mantegna1999
  :                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 433 of file Article.bib
+Repeated entry---line 412 of file Article.bib
+ : @article{Ramchurn
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 438 of file Article.bib
  : @article{Europe
  :                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 445 of file Article.bib
+Repeated entry---line 450 of file Article.bib
  : @article{Pahwa
  :               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 454 of file Article.bib
+Repeated entry---line 459 of file Article.bib
  : @article{Dans2007
  :                  ,
 I'm skipping whatever remains of this entry
@@ -36,6 +40,8 @@ I'm skipping whatever remains of this entry
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty journal in Europe
+Warning--empty journal in Ramchurn
+Warning--empty year in Ramchurn
 Warning--empty journal in Pahwa
 Warning--empty year in Pahwa
 Warning--empty journal in Milligan2010
@@ -53,45 +59,45 @@ Warning--empty year in NCDC
 Warning--empty journal in Dans2007
 
 Done.
-You've used 19 entries,
+You've used 20 entries,
             4039 wiz_defined-function locations,
-            927 strings with 10052 characters,
-and the built_in function-call counts, 12918 in all, are:
-= -- 1054
-> -- 263
+            931 strings with 10256 characters,
+and the built_in function-call counts, 13314 in all, are:
+= -- 1076
+> -- 280
 < -- 123
-+ -- 153
-- -- 39
-* -- 661
-:= -- 1959
-add.period$ -- 38
-call.type$ -- 19
-change.case$ -- 19
++ -- 161
+- -- 43
+* -- 682
+:= -- 2019
+add.period$ -- 40
+call.type$ -- 20
+change.case$ -- 20
 chr.to.int$ -- 279
-cite$ -- 35
-duplicate$ -- 946
-empty$ -- 977
-format.name$ -- 52
-if$ -- 2912
+cite$ -- 38
+duplicate$ -- 982
+empty$ -- 1013
+format.name$ -- 57
+if$ -- 2996
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 149
-newline$ -- 86
-num.names$ -- 16
-pop$ -- 344
+int.to.str$ -- 20
+missing$ -- 157
+newline$ -- 89
+num.names$ -- 17
+pop$ -- 371
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 988
+skip$ -- 1014
 stack$ -- 0
-substring$ -- 673
-swap$ -- 766
+substring$ -- 674
+swap$ -- 784
 text.length$ -- 30
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 19
-warning$ -- 16
-while$ -- 58
-width$ -- 21
-write$ -- 196
-(There were 6 error messages)
+type$ -- 20
+warning$ -- 18
+while$ -- 59
+width$ -- 22
+write$ -- 202
+(There were 7 error messages)
