@@ -8,31 +8,31 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Article.bib
-Repeated entry---line 273 of file Article.bib
+Repeated entry---line 284 of file Article.bib
  : @article{Infoclimat
  :                    ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 276 of file Article.bib
+Repeated entry---line 287 of file Article.bib
  : @article{NCDC
  :              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 386 of file Article.bib
+Repeated entry---line 397 of file Article.bib
  : @article{Mantegna1999
  :                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 412 of file Article.bib
+Repeated entry---line 423 of file Article.bib
  : @article{Ramchurn
  :                  ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 438 of file Article.bib
+Repeated entry---line 449 of file Article.bib
  : @article{Europe
  :                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 450 of file Article.bib
+Repeated entry---line 461 of file Article.bib
  : @article{Pahwa
  :               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 459 of file Article.bib
+Repeated entry---line 470 of file Article.bib
  : @article{Dans2007
  :                  ,
 I'm skipping whatever remains of this entry
@@ -59,45 +59,45 @@ Warning--empty year in NCDC
 Warning--empty journal in Dans2007
 
 Done.
-You've used 20 entries,
+You've used 21 entries,
             4039 wiz_defined-function locations,
-            931 strings with 10256 characters,
-and the built_in function-call counts, 13314 in all, are:
-= -- 1076
-> -- 280
-< -- 123
-+ -- 161
-- -- 43
-* -- 682
-:= -- 2019
-add.period$ -- 40
-call.type$ -- 20
-change.case$ -- 20
-chr.to.int$ -- 279
-cite$ -- 38
-duplicate$ -- 982
-empty$ -- 1013
-format.name$ -- 57
-if$ -- 2996
+            938 strings with 10489 characters,
+and the built_in function-call counts, 14036 in all, are:
+= -- 1138
+> -- 295
+< -- 130
++ -- 169
+- -- 45
+* -- 714
+:= -- 2129
+add.period$ -- 42
+call.type$ -- 21
+change.case$ -- 21
+chr.to.int$ -- 297
+cite$ -- 39
+duplicate$ -- 1034
+empty$ -- 1068
+format.name$ -- 60
+if$ -- 3162
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 157
-newline$ -- 89
-num.names$ -- 17
-pop$ -- 371
+int.to.str$ -- 21
+missing$ -- 164
+newline$ -- 92
+num.names$ -- 18
+pop$ -- 388
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1014
+skip$ -- 1070
 stack$ -- 0
-substring$ -- 674
-swap$ -- 784
-text.length$ -- 30
+substring$ -- 717
+swap$ -- 826
+text.length$ -- 31
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 20
+type$ -- 21
 warning$ -- 18
-while$ -- 59
-width$ -- 22
-write$ -- 202
+while$ -- 64
+width$ -- 23
+write$ -- 211
 (There were 7 error messages)
