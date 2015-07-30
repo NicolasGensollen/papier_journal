@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  30 JUL 2015 12:38
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2013.1.17)  30 JUL 2015 16:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -909,10 +909,7 @@ Overfull \hbox (24.43019pt too wide) in paragraph at lines 183--184
 [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4 <./Fig2.pdf>] <gaussian_P_star.pdf, id=233, 433.62pt x 289.08pt>
+[4 <./Fig2.pdf>] <gaussian_P_star.pdf, id=234, 433.62pt x 289.08pt>
 File: gaussian_P_star.pdf Graphic file (type pdf)
 
 <use gaussian_P_star.pdf>
@@ -1030,6 +1027,10 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 600.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 600.
 Package rerunfilecheck Info: File `Article.out' has not changed.
 (rerunfilecheck)             Checksum: 2D6E9D1022BF5867F1342232E4FA3B9D;1130.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 600.
  ) 
 Here is how much of TeX's memory you used:
@@ -1058,7 +1059,7 @@ ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2012/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2012/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb><c:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Article.pdf (11 pages, 1488198 bytes).
+Output written on Article.pdf (11 pages, 1488101 bytes).
 PDF statistics:
  805 PDF objects out of 1000 (max. 8388607)
  456 compressed objects within 5 object streams
