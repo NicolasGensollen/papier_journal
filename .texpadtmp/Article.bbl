@@ -33,17 +33,17 @@ J.-W. Wang and L.-L. Rong, ``{Cascade-based attack vulnerability on the US
   2009.
 
 \bibitem{Jiang2014}
-T.~Jiang, Y.~Cao, L.~Yu, and Z.~Wang, ``{Load Shaping Strategy Based on Energy
-  Storage and Dynamic Pricing in Smart Grid},'' \emph{IEEE Transactions on
-  Smart Grid}, vol.~5, no.~6, pp. 2868--2876, 2014.
+T.~Jiang, Y.~Cao, L.~Yu, and Z.~Wang, ``Load shaping strategy based on energy
+  storage and dynamic pricing in smart grid,'' \emph{Smart Grid, IEEE
+  Transactions on}, vol.~5, no.~6, pp. 2868--2876, Nov 2014.
 
 \bibitem{Europe}
 F.~Van~Hulle, ``{Integrating Wind},'' {2009}.
 
 \bibitem{Ramchurn}
-S.~D. Ramchurn, P.~Vytelingum, A.~Rogers, and N.~R. Jennings, ``{Putting the
-  “ Smarts ” into the Smart Grid : A Grand Challenge for Artificial
-  Intelligence}.''
+S.~D. Ramchurn, P.~Vytelingum, A.~Rogers, and N.~R. Jennings, ``Putting the
+  'smarts' into the smart grid: A grand challenge for artificial
+  intelligence,'' \emph{Commun. ACM}, vol.~55, no.~4, pp. 86--97, Apr. 2012.
 
 \bibitem{Rathnayaka2012}
 A.~J.~D. Rathnayaka \emph{et~al.}, ``Prosumer management in socio-technical
@@ -56,12 +56,14 @@ E.~Negeri and N.~Baken, ``{Architecting the Smart Grid As a Holarchy},''
   Green IT Systems}, pp. 73--78, 2012.
 
 \bibitem{Pahwa}
-S.~Pahwa, C.~Scoglio, and N.~Schulz, ``{Topological Analysis and Mitigation
-  Strategies for Cascading Failures in Power Grid Networks}.''
+S.~Pahwa, C.~Scoglio, S.~Das, and N.~Schulz, ``Load-shedding strategies for
+  preventing cascading failures in power grid,'' \emph{Electric Power
+  Components and Systems}, vol.~41, no.~9, pp. 879--895, 2013.
 
 \bibitem{Milligan2010}
 M.~Milligan and B.~Kirby, ``{Utilizing Load Response for Wind and Solar
-  Integration and Power System Reliability},'' no. July, 2010.
+  Integration and Power System Reliability},'' in \emph{Proc. of WindPower},
+  2010.
 
 \bibitem{Logenthiran2012}
 T.~Logenthiran, D.~Srinivasan, and T.~Z. Shun, ``{Demand side management in
@@ -74,17 +76,20 @@ Y.~Zhang, N.~Gatsis, and G.~B. Giannakis, ``{Robust energy management for
   Sustainable Energy}, vol.~4, no.~4, pp. 944--953, 2013.
 
 \bibitem{Shadmand2014}
-M.~B. Shadmand, S.~Member, R.~S. Balog, and S.~Member, ``{Multi-Objective
-  Optimization and Design of Photovoltaic-Wind Hybrid System for Community
-  Smart DC Microgrid},'' vol.~5, no.~5, pp. 2635--2643, 2014.
+M.~Shadmand and R.~Balog, ``Multi-objective optimization and design of
+  photovoltaic-wind hybrid system for community smart dc microgrid,''
+  \emph{Smart Grid, IEEE Transactions on}, vol.~5, no.~5, pp. 2635--2643, Sept
+  2014.
 
 \bibitem{Markowitz1959}
-H.~M. Markowitz, ``{Portfolio Selection: Efficient Diversification of
-  Investments},'' pp. 217--234, 1959.
+H.~M. Markowitz, \emph{{Portfolio Selection: Efficient Diversification of
+  Investments}}.\hskip 1em plus 0.5em minus 0.4em\relax Yale University Press,
+  1959.
 
-\bibitem{Chicheportiche2010}
-R.~Chicheportiche and J.-P. Bouchaud, ``{The joint distribution of stock
-  returns is not elliptical},'' 2010.
+\bibitem{doi:10.1142/S0219024912500197}
+R.~Chicheportiche and J.-P. Bouchaud, ``The joint distribution of stock returns
+  is not elliptical,'' \emph{International Journal of Theoretical and Applied
+  Finance}, vol.~15, no.~03, p. 1250019, 2012.
 
 \bibitem{Mantegna1999}
 R.~Mantegna, ``\BIBforeignlanguage{English}{Hierarchical structure in financial
@@ -119,7 +124,15 @@ M.~Lydia, S.~S. Kumar, a.~I. Selvakumar, and G.~E. {Prem Kumar}, ``{A
   \url{http://www.ncdc.noaa.gov/}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Dans2007}
-G.~Dans and F.~Science, ``{Rayonnement solaire},'' vol. 360, 2007.
+\bibitem{Piedallu2007}
+C.~Piedallu and J.-C. GÃ©gout, ``\BIBforeignlanguage{English}{Multiscale
+  computation of solar radiation for predictive vegetation modelling},''
+  \emph{\BIBforeignlanguage{English}{Annals of Forest Science}}, vol.~64,
+  no.~8, pp. 899--909, 2007.
+
+\bibitem{Piedallu2008}
+------, ``Efficient assessment of topographic solar radiation to improve plant
+  distribution models,'' \emph{Agricultural and Forest Meteorology}, vol. 148,
+  no.~11, pp. 1696 -- 1706, 2008.
 
 \end{thebibliography}

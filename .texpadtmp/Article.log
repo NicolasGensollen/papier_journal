@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2013.12.4)  29 JUL 2015 16:33
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2013.12.4)  31 JUL 2015 14:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -881,11 +881,11 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 
 ] [2]
-LaTeX Font Info:    Try loading font information for U+msa on input line 140.
+LaTeX Font Info:    Try loading font information for U+msa on input line 137.
  (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 140.
+LaTeX Font Info:    Try loading font information for U+msb on input line 137.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -896,63 +896,60 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: Fig2.pdf Graphic file (type QTm)
 
 <use  "Fig2.pdf" >
-Overfull \hbox (24.43018pt too wide) in paragraph at lines 186--187
+Overfull \hbox (24.43018pt too wide) in paragraph at lines 183--184
 [][] 
  []
 
 [4]
 File: gaussian_P_star.pdf Graphic file (type QTm)
  <use  "gaussian_P_star.pdf" >
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 234--235
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 231--232
 [][] 
  []
 
 [5]
 File: mean_field.pdf Graphic file (type QTm)
  <use  "mean_field.pdf" >
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 309--310
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 306--307
 [][] 
  []
 
 [6]
 File: cliques_histo.pdf Graphic file (type QTm)
  <use  "cliques_histo.pdf" >
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 359--360
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 356--357
 [][] 
  []
 
 [7]
 File: real_utility_2.pdf Graphic file (type QTm)
  <use  "real_utility_2.pdf" >
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 402--403
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 399--400
 [][] 
  []
 
 File: search.pdf Graphic file (type QTm)
 <use  "search.pdf" >
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 408--409
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 405--406
 [][] 
  []
 
 [8]
 File: ./figures/coalitions/coalitions6.pdf Graphic file (type QTm)
  <use  "./figures/coalitions/coalitions6.pdf" >
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 421--422
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 418--419
 [][] 
  []
 
 File: ./figures/resilience_both.pdf Graphic file (type QTm)
 <use  "./figures/resilience_both.pdf" >
-Overfull \hbox (8.17401pt too wide) in paragraph at lines 442--443
+Overfull \hbox (8.17401pt too wide) in paragraph at lines 439--440
 [][] 
  []
 
 [9]
 (/Users/vgauthier/Documents/Utils/TelecomSudParis/Papiers/2015/SmartGrid/.texpa
 dtmp/Article.bbl
-Missing character: There is no “ in font ptmr8t!
-Missing character: There is no ” in font ptmr8t!
-
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `English'. Using the pattern for
 ** the default language instead.
@@ -965,7 +962,13 @@ Missing character: There is no ” in font ptmr8t!
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `English'. Using the pattern for
 ** the default language instead.
-) [10]
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `English'. Using the pattern for
+** the default language instead.
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `English'. Using the pattern for
+** the default language instead.
+) [10] [11]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -977,24 +980,26 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 603.
-[11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 603.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 600.
+[12
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 600.
 
 (/Users/vgauthier/Documents/Utils/TelecomSudParis/Papiers/2015/SmartGrid/.texpa
 dtmp/Article.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 603.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 603.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 603.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 600.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 600.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 600.
  ) 
 Here is how much of TeX's memory you used:
- 13645 strings out of 493938
- 197722 string characters out of 6148857
- 307032 words of memory out of 5000000
- 16797 multiletter control sequences out of 15000+600000
+ 13646 strings out of 493938
+ 197751 string characters out of 6148857
+ 307082 words of memory out of 5000000
+ 16798 multiletter control sequences out of 15000+600000
  102891 words of font info for 117 fonts, out of 8000000 for 9000
  1147 hyphenation exceptions out of 8191
  36i,17n,45p,1852b,448s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/vgauthier/Documents/Utils/TelecomSudParis/Papiers/2015
-/SmartGrid/.texpadtmp/Article.pdf (11 pages).
+/SmartGrid/.texpadtmp/Article.pdf (12 pages).
