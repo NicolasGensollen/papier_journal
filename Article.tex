@@ -233,7 +233,7 @@ P_{S}^{CRCT \star} = \mu_{ij} - \sqrt{2} \sigma_{ij} erf^{-1}( 1 - 2 \phi )
 
 This is the best contract value that the coalition S can afford giving the stability policy $\phi$ of the grid operator. Figure \ref{fig:Gaussian} shows how $ P_{S}^{CRCT \star} $ evolves according to the reliability parameter $ \phi $. For illustration, the range of $ \phi $ values is shown from 0 to 1, but in practice, only small values of $ \phi $ really make sense : $ \phi = 1 $ for instance means that coalitions can announce absolutely anything since the probability of producing less than any contract value is necessarily less than one by trivial definition of a probability. As visible on figure \ref{fig:Gaussian}, coalitions with high expected productions but presenting a high unpredictability are penalized and can only afford small contracts.  
 
-In order not to overload the market with unrealistically small coalitions, the grid operator also specify a lower bound $ P^{MIN} $ on the contract values. We thus characterized a valid coalition as one satisfying the two conditions :
+In order not to overload the market with unrealistically small coalitions, the grid operator also specifies a lower bound $ P^{MIN} $ on the contract values. We thus characterized a valid coalition as one satisfying the two conditions :
 
 \begin{equation}
 \left\{ \begin{array}{lll}
@@ -244,7 +244,7 @@ In order not to overload the market with unrealistically small coalitions, the g
 
 On figure \ref{fig:Gaussian}, $ P^{MIN} $ is fixed to 2 units for illustration purpose. For $ \phi = 0.1 $, only blue triangles and cyan circles coalitions are valid while red diamonds coalition is not.
 
-The Gaussian assumption of this small example is convenient as it allows us to write $ P_{S}^{CRCT \star} $ analytically. Nevertheless, such assumption is rather unrealistic in practice. In the following, we keep the same framework but release this Gaussian assumption unless the contrary is specified. This assumption will indeed be convenient for computing some parameter estimates.
+The Gaussian assumption of this small example is convenient as it allows us to write $ P_{S}^{CRCT \star} $ analytically. Nevertheless, such assumption is rather unrealistic in practice. In the following, we keep the same framework but release this Gaussian assumption unless the contrary is specified (see eq. \ref{eq:alpha_star}). This assumption will indeed be convenient for computing some parameter estimates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
