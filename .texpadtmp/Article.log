@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2013.12.4)  31 JUL 2015 15:34
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2013.12.4)  31 JUL 2015 16:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -895,12 +895,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [3]
 File: Fig2.pdf Graphic file (type QTm)
 
-<use  "Fig2.pdf" >
-Overfull \hbox (24.43018pt too wide) in paragraph at lines 181--182
-[][] 
- []
-
-[4]
+<use  "Fig2.pdf" > [4]
 File: gaussian_P_star.pdf Graphic file (type QTm)
  <use  "gaussian_P_star.pdf" >
 Overfull \hbox (8.17401pt too wide) in paragraph at lines 229--230

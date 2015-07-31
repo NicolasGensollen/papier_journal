@@ -144,7 +144,7 @@ Nevertheless, one of the key point in the Markowitz theory is to consider explic
 \section{Generating realistic prosumer patterns}
 \label{sec:data}
 
-An essential component of the smart grid is the smart meter which makes the interface between the end user and the rest of the system. Smart meters coupled with sensors measure quantities of interest (like instantaneous consumption), receive informations from the grid (electricity prices for instance), and take actions accordingly (demand side management programs). Smart meters are currently and gradually deployed, and will probably provide interesting datasets to work on. Unfortunately, at the time this paper was written, production and consumption data for prosumers over a large region were not yet available to our knowledge. Some interesting experiments are notwithstanding being conducted and data are progressively made public \cite{ISSDA}. 
+An essential component of the smart grid is the smart meter which makes the interface between the end user and the rest of the system. Smart meters coupled with sensors measure quantities of interest (like instantaneous consumption), receive informations from the grid (electricity prices for instance), and take actions accordingly (demand side management programs). Smart meters are currently and gradually deployed, and will probably provide interesting datasets to work on. Unfortunately, at the time this paper was written, production and consumption data for prosumers over a large region were not yet available to our knowledge. Some interesting experiments are nonetheless being conducted and data are progressively made public \cite{ISSDA}. 
 
 In this paper, we use weather quantities like wind speed or solar radiance as alternative data for generating realistic production and consumption series. Fortunately, these kinds of data are easier to find, and since the development of small personal weather stations, their geographical granularity keeps increasing.  Since these quantities depend both on time and location, we discretize time into slots and space into zones in the following. A zone is simply a portion of the considered region of study for which we sampled data. Therefore, if prosumers i and j are positioned on the same zone, they are exposed to the same weather. Adding some intra-zone noise can easily be done though not considered in this paper.
 
@@ -165,7 +165,7 @@ P_{i}^{P}(t) = \sum_{k \in DER_{i}} P_{k}(t)
 P_{i}^{D}(t) = \sum_{k \in load_{i}} P_{k}(t)
 \end{equation}
 
-For simplicity, in this paper we only consider wind-turbines (WT) and photovoltaic panels (PV) as possible DER for the agents ($ DER_{i} = WT_{i} \cup PV_{i} $):  
+For simplicity, in this paper we only consider wind-turbines (WT) and photovoltaic panels (PV) as possible DERs for the agents ($ DER_{i} = WT_{i} \cup PV_{i} $):  
 
 \begin{equation}
 P_{i}^{D}(t) = \sum_{k \in WT_{i}} P_{k}(t) + \sum_{k \in PV_{i}} P_{k}(t)
@@ -178,7 +178,7 @@ We denote by $ \nu_{i}(t) $ and $ \Psi_{i}(t) $ the wind speed (in $ m.s^{-1} $)
 Where $ \mathcal{F}_{WT} $ (resp. $ \mathcal{F}_{PV} $) is the power curve for the wind-turbines (resp. photovoltaic panels). We made here the implicit assumption that all wind-turbines (resp. photovoltaic panels) have the same power curve. The model can be easily extended to multiple power curves accounting for different types of generators. More details about power curves and their approximations can be found in the appendix and in \cite{Lydia2014}. The process for generating the $ P_{i} $ series is pictured in the first block of the process diagram (see figure \ref{fig:process}).
 
 \begin{figure}
-\includegraphics[scale=.45]{Fig2}
+\includegraphics[scale=.49]{Fig2}
 \caption{Process diagram}
 \label{fig:process}
 \end{figure}
@@ -211,14 +211,14 @@ Let us illustrate the rest of the notations and concepts with a simple example. 
 \end{array} \right.
 \end{equation}
 
-$ \rho_{ij} $ being the Pearson's correlation coefficient between $ P_{i} $ and $ P_{j} $. If the coalition $ \{i,j\}$ proposes a contract value $ P_{S}^{CRCT} $, all instants where $ \{i,j\}$ will produce less than $ P_{S}^{CRCT} $ is critical. Indeed, in this kind of situations, $ \{i,j\}$ will either have to discharge batteries to keep up with its contract, or pay penalties to the grid. The probability that $ \{i,j\}$ is under-producing compared to the contract : $ Pr[P_{i,j} \leq P^{CRCT}] $ is thus an important indicator of the coalition's quality. A well-known result for normal distributions is that the cumulative distribution function can be written as :
+$ \rho_{ij} $ being the Pearson's correlation coefficient between $ P_{i} $ and $ P_{j} $. If the coalition $ \{i,j\}$ proposes a contract value $ P_{S}^{CRCT} $, all instants when $ \{i,j\}$ will produce less than $ P_{S}^{CRCT} $ is critical. Indeed, in this kind of situations, $ \{i,j\}$ will either have to discharge batteries to keep up with its contract, or pay penalties to the grid. The probability that $ \{i,j\}$ is under-producing compared to the contract : $ Pr[P_{i,j} \leq P^{CRCT}] $ is thus an important indicator of the coalition's quality. A well-known result for normal distributions is that the cumulative distribution function can be written as :
 \begin{equation}
 Pr[P_{ij} \leq P_{S}^{CRCT}] = \dfrac{1}{2} \left[ 1+ erf \left( \dfrac{P_{S}^{CRCT} - \mu_{ij}}{\sigma_{ij}\sqrt{2}} \right) \right] 
 \end{equation}
  
 Where $ erf $ is the error function : $ erf(x) = \dfrac{2}{\sqrt{\pi}}\int_{0}^{x} e^{-t^{2}} dt $.
 
-The amount of risks a given coalition is willing to take depends on a lot of things, among which its capacity to compensate for under-producing (using batteries, backup generators...), or the risk aversion of the aggregator. Selecting the right contract value appears thus as an interesting problem on its own that we plan to investigate in future works. In order to keep the present paper in a reasonable length, we simplify the contract value selection problem by giving some responsibilities to a third party named the grid operator. The role of the grid operator is to constrain the market entry to coalitions able to propose both sufficiently high and sufficiently credible contract values. More formally, let $ \phi \in [0,1] $ be the reliability threshold fixed by the grid operator as a maximum value for the probability of under-producing. The highest contract value that a coalition can propose is thus $ P_{S}^{CRCT \star} $ such that $ Pr[P_{ij} \leq P_{S}^{CRCT \star}] = \phi $. In the Gaussian example, this translates by coalition $ \{i,j\}$ announcing :
+The contract a given coalition is willing to take depends on its capacity to compensate for under-producing (using batteries, backup generators...), and its risk acceptance. Selecting the right contract value appears thus as an interesting problem on its own that we plan to investigate in future works. In order to keep the present paper in a reasonable length, we simplify the contract value selection problem by giving some responsibilities to a third party named the grid operator. The role of the grid operator is to constrain the market entry to coalitions able to propose both sufficiently high and sufficiently credible contract values. More formally, let $ \phi \in [0,1] $ be the reliability threshold fixed by the grid operator as a maximum value for the probability of under-producing. The highest contract value that a coalition can propose is thus $ P_{S}^{CRCT \star} $ such that $ Pr[P_{ij} \leq P_{S}^{CRCT \star}] = \phi $. In the Gaussian example, it implies that coalition $ \{i,j\}$ is announcing :
 
 \begin{equation}
 \label{eq:P_star}
