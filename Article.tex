@@ -278,7 +278,7 @@ Where parameter $ \alpha $ controls to what extent the size of a coalition impac
 Based on $ \mathcal{U} $, the marginal contribution of an agent i can be expressed as $ \delta_{S}(i) = \mathcal{U}(S+\{i\}) - \mathcal{U}(S) $. A coalition S has thus an interest in adding an additional agent i if this marginal contribution is positive : 
 
 \begin{equation}
-\delta_{S}(i) \geq 0 \Leftrightarrow P_{S+\{i\}}^{CRCT \star} \geq P_{S}^{CRCT \star} \left( \dfrac{|S|+1}{|S|} \right)^{\alpha}
+\delta_{S}(i) \geq 0 \ \ \ \Leftrightarrow \ \ \ P_{S+\{i\}}^{CRCT \star} \geq P_{S}^{CRCT \star} \left( \dfrac{|S|+1}{|S|} \right)^{\alpha}
 \label{eq:marginal_benefit}
 \end{equation}
 
@@ -298,15 +298,13 @@ In order to get an estimator for $ \alpha $, we solve equation \ref{eq:derivativ
 \end{equation}
 \normalsize
 
-Figure \ref{fig:mean_approx} shows how $ \alpha^{\star} $ and the utility function evolves according to the mean size of the coalitions $ \bar{N} $. These nice curves are of course only valid in the simplified example considered here, but they will provide some guidance when using real data.
+Figure \ref{fig:mean_approx} shows how $ \alpha^{\star} $ and the utility function evolves according to the mean size of the coalitions $ \bar{N} $. These curves are only valid in the simplified Gaussian example considered here. Nonetheless, they will provide some guidance when using real data.
 
 \begin{figure}
 \includegraphics[scale=.6]{mean_field}
 \caption{Gaussian mean approximation. Subplot \textbf{a} shows how the parameter $ \alpha $ of the utility function should be chosen in function of the mean desired size of the coalitions (see equation \ref{eq:alpha_star}). Subplot \textbf{b} displays the corresponding utility functions for different values of $ \alpha $. Blue curve with diamonds favors very small coalitions of 2 agents while the green one with triangles favors 5 agents coalitions. Finally, the red curve with squares has an optimal size of 15 agents. }
 \label{fig:mean_approx}
 \end{figure}
-
-%Clearly, if $ \alpha = 0 $, whatever the size of the coalition, additional agents are added as long as they increase the contract value. Values of $\alpha $ greater than zero implies that additional agents must improve the contract value by a certain coefficient that decreases and converges to one as the size of the coalition is growing. For instance, if $\alpha = 1$ and $ |S| = 1 $, an additional agent must first double the contract value to be included, the next agent will then have to increase it by a factor of $ 1.5 $, and so on... Obviously, $ \alpha $ impacts directly the sizes of the coalitions formed. In the following, we consider the case where $ \alpha = 1 $.
 
 As can be pointed out, the purpose of $ \mathcal{U} $ is not to study of coalitions stability against player defection which could be done through game theory, nor to redistribute the coalition's utility in terms of individual payoffs. But we aim to design $ \mathcal{U} $ as a measure of how good a given coalition is according to our criteria. In other terms does a given coalitions has a good production to risk ratio.
 
@@ -339,8 +337,7 @@ In both cases, we want to keep only the edges which weights are located in the l
 \label{epsilon_star}
 \epsilon^{\star} = min_{ \epsilon \in [0,1]} \left\{ \epsilon\ s.t.\ |\Theta_{k}(G_{2}^{\epsilon})| \geq N_{COAL} \right\}
 \end{equation} 
-
-Where $ G_{2}^{\epsilon} $ is the de-correlation graph $ G_{2} $ filtered by $ \epsilon $, and $ \Theta_{k}(G) $ is the set of non overlapping cliques of size k in a given graph G. In other words we select $ \epsilon^{\star} $ as the smallest threshold possible such that the filtered de-correlation graph contains at least $ N_{COAL} $ non overlapping cliques of size k. The existence of $ \epsilon^{\star} $  as defined in equation  \ref{epsilon_star} is not guaranteed. The users has indeed to provide consistent values of $ N_{COAL} $ or k compared to the size of the agent population $ \mathcal{A} $. 
+where $ G_{2}^{\epsilon} $ is the de-correlation graph $ G_{2} $ filtered by $ \epsilon $, and $ \Theta_{k}(G) $ is the set of non overlapping cliques of size k in a given graph G. In other words we select $ \epsilon^{\star} $ as the smallest threshold possible such that the filtered de-correlation graph contains at least $ N_{COAL} $ non overlapping cliques of size k. The existence of $ \epsilon^{\star} $  as defined in equation  \ref{epsilon_star} is not guaranteed. The users has indeed to provide consistent values of $ N_{COAL} $ or k compared to the size of the agent population $ \mathcal{A} $. 
 
 \subsection{Cliques}
 
@@ -358,7 +355,7 @@ Consider now a clique in  $ G_{2}^{\epsilon} $, which is a complete subgraph of 
 
 Figure \ref{fig:histo_cliques} shows the distributions of the utility values for cliques of size 3 (triangles) in $ G_{2}^{\epsilon^{\star}} $ and for all the other possible triplets of agents. It is clearly visible that cliques tend to exhibit higher utilities because of their de-correlation property. Choosing cliques in $ G_{2}^{\epsilon^{\star}} $ as coalitions seems therefore appealing. Nevertheless, the quality of the results seems to decrease as the sizes of the cliques increase. Indeed, the larger the desired cliques, the more dense $ G_{2}^{\epsilon^{\star}} $ becomes (see equation \ref{epsilon_star}). There is a point where cliques results more from noisy edges than true de-correlation, which decreases the quality of the results.
 
-Directly mapping cliques to coalitions by this de-correlation oriented approach is thus not sufficient. It is indeed possible that adding agents to these cliques has the combined effect of increasing the expected production while decreasing its stability. The question revolves around measuring the benefits of this production surplus compared to the disadvantage of having coalition with high volatility. This can be quantified by the marginal benefit of equation \ref{eq:marginal_benefit}.
+Directly mapping cliques to coalitions by this de-correlation oriented approach is thus not sufficient. It is indeed possible that adding agents to these cliques has the combined effect of increasing the expected production while decreasing its stability. The question revolves around measuring the benefits of this production surplus compared to the disadvantage of having coalition with high volatility. This can be quantified by the marginal benefit in equation \ref{eq:marginal_benefit}.
 
 \subsection{Algorithm}
 The algorithm takes inputs from :
