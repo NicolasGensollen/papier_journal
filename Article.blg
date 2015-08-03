@@ -8,45 +8,34 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Article.bib
-Repeated entry---line 284 of file Article.bib
+Repeated entry---line 615 of file Article.bib
  : @article{Infoclimat
  :                    ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 287 of file Article.bib
+Repeated entry---line 621 of file Article.bib
  : @article{NCDC
  :              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 397 of file Article.bib
+Repeated entry---line 841 of file Article.bib
  : @article{Mantegna1999
  :                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 423 of file Article.bib
+Repeated entry---line 893 of file Article.bib
  : @article{Ramchurn
  :                  ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 449 of file Article.bib
+Repeated entry---line 945 of file Article.bib
  : @article{Europe
  :                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 461 of file Article.bib
+Repeated entry---line 969 of file Article.bib
  : @article{Pahwa
  :               ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 470 of file Article.bib
- : @article{Dans2007
- :                  ,
 I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty journal in Europe
-Warning--empty journal in Ramchurn
-Warning--empty year in Ramchurn
-Warning--empty journal in Pahwa
-Warning--empty year in Pahwa
-Warning--empty journal in Milligan2010
-Warning--empty journal in Shadmand2014
-Warning--empty journal in Chicheportiche2010
 Warning--empty author in ISSDA
 Warning--empty journal in ISSDA
 Warning--empty year in ISSDA
@@ -56,48 +45,47 @@ Warning--empty year in Infoclimat
 Warning--empty author in NCDC
 Warning--empty journal in NCDC
 Warning--empty year in NCDC
-Warning--empty journal in Dans2007
 
 Done.
-You've used 21 entries,
+You've used 22 entries,
             4039 wiz_defined-function locations,
-            938 strings with 10489 characters,
-and the built_in function-call counts, 14036 in all, are:
-= -- 1138
-> -- 295
-< -- 130
-+ -- 169
-- -- 45
-* -- 714
-:= -- 2129
-add.period$ -- 42
-call.type$ -- 21
+            960 strings with 10915 characters,
+and the built_in function-call counts, 16491 in all, are:
+= -- 1389
+> -- 321
+< -- 163
++ -- 189
+- -- 46
+* -- 836
+:= -- 2486
+add.period$ -- 44
+call.type$ -- 22
 change.case$ -- 21
-chr.to.int$ -- 297
-cite$ -- 39
-duplicate$ -- 1034
-empty$ -- 1068
-format.name$ -- 60
-if$ -- 3162
+chr.to.int$ -- 360
+cite$ -- 32
+duplicate$ -- 1193
+empty$ -- 1247
+format.name$ -- 62
+if$ -- 3781
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 164
-newline$ -- 92
-num.names$ -- 18
-pop$ -- 388
+int.to.str$ -- 22
+missing$ -- 181
+newline$ -- 95
+num.names$ -- 19
+pop$ -- 377
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1070
+skip$ -- 1291
 stack$ -- 0
-substring$ -- 717
-swap$ -- 826
-text.length$ -- 31
+substring$ -- 878
+swap$ -- 1017
+text.length$ -- 43
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 21
-warning$ -- 18
-while$ -- 64
-width$ -- 23
-write$ -- 211
-(There were 7 error messages)
+type$ -- 22
+warning$ -- 10
+while$ -- 73
+width$ -- 24
+write$ -- 239
+(There were 6 error messages)
