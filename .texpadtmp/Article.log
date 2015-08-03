@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2013.12.4)  3 AUG 2015 15:33
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2013.12.4)  3 AUG 2015 15:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -961,15 +961,15 @@ dtmp/Article.bbl [9]
 ** loaded for the language `English'. Using the pattern for
 ** the default language instead.
 ) [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 578.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 573.
  [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 578.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 573.
 
 (/Users/vgauthier/Documents/Utils/TelecomSudParis/Papiers/2015/SmartGrid/.texpa
 dtmp/Article.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 578.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 578.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 578.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 573.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 573.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 573.
  ) 
 Here is how much of TeX's memory you used:
  13644 strings out of 493938

@@ -540,16 +540,14 @@ The input quantity desired for our power curve model for solar arrays is a radia
 			\eta(t) = 1-0.75 \left( \dfrac{N(t)}{8} \right)^{3.4}
 \end{array} \right.
 \end{equation}
-
-Where $ \Psi_{perfect}(t) $ and $ \Psi{real}(t) $ are respectively the clear blue sky and real radiances at time t, $ \eta(t) $ is the degradation factor at time t, and $ N(t) $ is the nebulosity index at time t.
+where $ \Psi_{perfect}(t) $ and $ \Psi{real}(t) $ are respectively the clear blue sky and real radiances at time t, $ \eta(t) $ is the degradation factor at time t, and $ N(t) $ is the nebulosity index at time t.
 
 Once we have input data in the forms of radiances, we compute the production of a solar array with the following simplified power curve :
 
 \begin{equation}
 \mathcal{F}_{PV}(\Psi{real}(t)) =  S_{PV} \Psi{real}(t)  e_{PV}
 \end{equation}
-
-Where $ S_{PV} $ is the surface of the array, and $ e_{PV} $ is its efficiency. The very simple form of this power curve is due to some simplifications in order not to overload the model. For instance, it does not take into account angles and orientations degradations. These could be incorporated if needed by changing the power curve in the simulations.
+where $ S_{PV} $ is the surface of the array, and $ e_{PV} $ is its efficiency. The very simple form of this power curve is due to some simplifications in order not to overload the model. For instance, it does not take into account angles and orientations degradations. These could be incorporated if needed by changing the power curve in the simulations.
 
 \subsubsection{Consumption}
 Modeling electric consumption has already been widely tackled in the literature. Models can be basically divided in two main categories : Top-down and bottom-up approaches. Top-down techniques take aggregated consumption data as inputs and try to estimate individual consumption patterns while bottom-up methods use a fine modeling of users consumptions as to obtain realistic aggregated consumption curves. In this paper, we used a bottom-up model since the end user, or relatively small aggregations of end users, are in our interest. The main objective was to capture both daily patterns and seasonal variations of the consumptions. We assumed an additive model where the consumption of an agent is the sum of a seasonal heating term that depends on the outside temperature and an electronic consumption term that only depends on the hour of the day. By denoting $ \tau(t) $ the outside temperature at timestamp t, we can express the consumption $ P_{i}^{D}(t) $ of agent i at time t :
@@ -557,22 +555,19 @@ Modeling electric consumption has already been widely tackled in the literature.
 \begin{equation}
 P_{i}^{D}(t) = \mathcal{F}_{i}^{heat}(\tau(t), t) + \mathcal{F}_{i}^{elec}(t)
 \end{equation}
-
-Where $ \mathcal{F}_{i}^{heat}(\tau(t), t) $ is the power curve that maps the temperature to a heating consumption, and $ \mathcal{F}_{i}^{elec}(t) $ computes the consumption of agent i (other than heating) at a given hour of the day. In the simulation, all agents have a desired inside temperature $ T_{i} $, supposed to be a constant for simplification. By using thermodynamic laws $ \mathcal{F}_{i}^{heat}(\tau(t), t) $ can be approximated by :
+where $ \mathcal{F}_{i}^{heat}(\tau(t), t) $ is the power curve that maps the temperature to a heating consumption, and $ \mathcal{F}_{i}^{elec}(t) $ computes the consumption of agent i (other than heating) at a given hour of the day. In the simulation, all agents have a desired inside temperature $ T_{i} $, supposed to be a constant for simplification. By using thermodynamic laws $ \mathcal{F}_{i}^{heat}(\tau(t), t) $ can be approximated by :
 
 \begin{equation}
 \mathcal{F}_{i}^{heat}(\tau(t), t) = \dfrac{B_{i}}{R_{i}} \left[ T_{i} - \tau(t) \right]
 \end{equation}
-
-Where $ B_{i} $ is the surface of thermal exchanges for agent i and $ R_{i} $ is their thermal resistance.
+where $ B_{i} $ is the surface of thermal exchanges for agent i and $ R_{i} $ is their thermal resistance.
 
 We denote by $ \Omega_{i} $ the maximum consumption possible for agent i, which is basically the sum of all its appliances powers. We also denote by $ \omega_{i}(t) = \{ \omega_{i}(t_{0}),...,\omega_{i}(t_{24}) \} $ the vector of the average fraction of $ \Omega_{i} $ used for each hour. We can therefore write :
 
 \begin{equation}
 \mathcal{F}_{i}^{elec}(t) = \Omega_{i} ( \omega_{i}(t) + \epsilon )
 \end{equation}
-
-Where $ \epsilon $ is a noise term. The vector $ \omega_{i}(t) $ enables us to easily differentiate agent consumption behaviors. Business or residential areas for instance can be easily distinguished with this kind of model.
+where $ \epsilon $ is a noise term. The vector $ \omega_{i}(t) $ enables us to easily differentiate agent consumption behaviors. Business or residential areas for instance can be easily distinguished with this kind of model.
 
 
 \end{document}
