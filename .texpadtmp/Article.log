@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2013.12.4)  3 AUG 2015 15:26
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2013.12.4)  3 AUG 2015 15:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -989,7 +989,7 @@ Here is how much of TeX's memory you used:
  16799 multiletter control sequences out of 15000+600000
  102891 words of font info for 117 fonts, out of 8000000 for 9000
  1147 hyphenation exceptions out of 8191
- 36i,17n,45p,1852b,448s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,17n,45p,1844b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on /Users/vgauthier/Documents/Utils/TelecomSudParis/Papiers/2015
 /SmartGrid/.texpadtmp/Article.pdf (11 pages).
