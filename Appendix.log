@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=latex 2013.1.17)  27 AUG 2015 15:49
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=latex 2013.1.17)  27 AUG 2015 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -874,11 +874,11 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 59.
 (c:/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-File: search.eps Graphic file (type eps)
- <search.eps> [1
+File: ./figs/figure_7.eps Graphic file (type eps)
+ <./figs/figure_7.eps>
+[1
 
-]
-(./Appendix.bbl
+] (./Appendix.bbl
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 41.
  (c:/texlive/2012/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
@@ -904,12 +904,12 @@ Package rerunfilecheck Info: File `Appendix.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 10303 strings out of 493489
- 151742 string characters out of 3144771
+ 10304 strings out of 493489
+ 151760 string characters out of 3144771
  273401 words of memory out of 3000000
  13476 multiletter control sequences out of 15000+200000
  100887 words of font info for 115 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
- 36i,17n,43p,125056b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,17n,43p,4218b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Appendix.dvi (2 pages, 24252 bytes).
+Output written on Appendix.dvi (2 pages, 24264 bytes).

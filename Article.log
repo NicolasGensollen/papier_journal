@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=latex 2013.1.17)  27 AUG 2015 15:47
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=latex 2013.1.17)  27 AUG 2015 16:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -882,20 +882,20 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 LaTeX Warning: Reference `appendixB' on page 3 undefined on input line 156.
 
 [3]
-File: gaussian_P_star.eps Graphic file (type eps)
- <gaussian_P_star.eps> [4]
-File: mean_field.eps Graphic file (type eps)
- <mean_field.eps> [5]
-File: cliques_histo.eps Graphic file (type eps)
- <cliques_histo.eps> [6]
-File: real_utility_2.eps Graphic file (type eps)
-
-<real_utility_2.eps>
-File: ./figures/coalitions/coalitions6.eps Graphic file (type eps)
- <./figures/coalitions/coalitions6.eps>
-File: ./figures/resilience_both.eps Graphic file (type eps)
-
-<./figures/resilience_both.eps> [7] (./Article.bbl
+File: ./figs/figure_1.eps Graphic file (type eps)
+ <./figs/figure_1.eps> [4]
+File: ./figs/figure_2.eps Graphic file (type eps)
+ <./figs/figure_2.eps> [5]
+File: ./figs/figure_3.eps Graphic file (type eps)
+ <./figs/figure_3.eps>
+[6]
+File: ./figs/figure_4.eps Graphic file (type eps)
+ <./figs/figure_4.eps>
+File: ./figs/figure_5.eps Graphic file (type eps)
+ <./figs/figure_5.eps>
+File: ./figs/figure_6.eps Graphic file (type eps)
+ <./figs/figure_6.eps> [7]
+(./Article.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `English'. Using the pattern for
 ** the default language instead.
@@ -924,12 +924,12 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 385.
  ) 
 Here is how much of TeX's memory you used:
- 10330 strings out of 493489
- 152076 string characters out of 3144771
+ 10329 strings out of 493489
+ 152003 string characters out of 3144771
  278477 words of memory out of 3000000
  13499 multiletter control sequences out of 15000+200000
  102531 words of font info for 116 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
- 36i,9n,43p,124997b,391s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,9n,43p,4471b,391s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Article.dvi (8 pages, 97764 bytes).
+Output written on Article.dvi (8 pages, 97748 bytes).
