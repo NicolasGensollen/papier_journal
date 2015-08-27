@@ -12,10 +12,6 @@ Repeated entry---line 615 of file Article.bib
  : @article{Infoclimat
  :                    ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 621 of file Article.bib
- : @article{NCDC
- :              ,
-I'm skipping whatever remains of this entry
 Repeated entry---line 841 of file Article.bib
  : @article{Mantegna1999
  :                      ,
@@ -42,50 +38,47 @@ Warning--empty year in ISSDA
 Warning--empty author in Infoclimat
 Warning--empty journal in Infoclimat
 Warning--empty year in Infoclimat
-Warning--empty author in NCDC
-Warning--empty journal in NCDC
-Warning--empty year in NCDC
 
 Done.
-You've used 22 entries,
+You've used 19 entries,
             4039 wiz_defined-function locations,
-            960 strings with 10915 characters,
-and the built_in function-call counts, 16491 in all, are:
-= -- 1389
-> -- 321
-< -- 163
-+ -- 189
-- -- 46
-* -- 836
-:= -- 2486
-add.period$ -- 44
-call.type$ -- 22
-change.case$ -- 21
-chr.to.int$ -- 360
-cite$ -- 32
-duplicate$ -- 1193
-empty$ -- 1247
-format.name$ -- 62
-if$ -- 3781
+            941 strings with 10469 characters,
+and the built_in function-call counts, 14310 in all, are:
+= -- 1206
+> -- 284
+< -- 139
++ -- 166
+- -- 42
+* -- 718
+:= -- 2161
+add.period$ -- 38
+call.type$ -- 19
+change.case$ -- 18
+chr.to.int$ -- 306
+cite$ -- 26
+duplicate$ -- 1036
+empty$ -- 1087
+format.name$ -- 56
+if$ -- 3281
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 181
-newline$ -- 95
-num.names$ -- 19
-pop$ -- 377
+int.to.str$ -- 19
+missing$ -- 159
+newline$ -- 84
+num.names$ -- 17
+pop$ -- 331
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1291
+skip$ -- 1120
 stack$ -- 0
-substring$ -- 878
-swap$ -- 1017
-text.length$ -- 43
+substring$ -- 749
+swap$ -- 882
+text.length$ -- 37
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 22
-warning$ -- 10
-while$ -- 73
-width$ -- 24
-write$ -- 239
-(There were 6 error messages)
+type$ -- 19
+warning$ -- 7
+while$ -- 65
+width$ -- 21
+write$ -- 209
+(There were 5 error messages)
