@@ -8,15 +8,15 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Article.bib
-Repeated entry---line 308 of file Article.bib
+Repeated entry---line 321 of file Article.bib
  : @article{Infoclimat
  :                    ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 421 of file Article.bib
+Repeated entry---line 434 of file Article.bib
  : @article{Mantegna1999
  :                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 485 of file Article.bib
+Repeated entry---line 498 of file Article.bib
  : @article{Pahwa
  :               ,
 I'm skipping whatever remains of this entry
@@ -31,45 +31,45 @@ Warning--empty journal in Infoclimat
 Warning--empty year in Infoclimat
 
 Done.
-You've used 13 entries,
+You've used 14 entries,
             4087 wiz_defined-function locations,
-            910 strings with 9534 characters,
-and the built_in function-call counts, 9338 in all, are:
-= -- 781
-> -- 176
-< -- 86
-+ -- 104
-- -- 26
-* -- 476
-:= -- 1426
-add.period$ -- 26
-call.type$ -- 13
-change.case$ -- 12
-chr.to.int$ -- 186
-cite$ -- 19
-duplicate$ -- 679
-empty$ -- 712
-format.name$ -- 35
-if$ -- 2158
+            918 strings with 9696 characters,
+and the built_in function-call counts, 10019 in all, are:
+= -- 841
+> -- 189
+< -- 92
++ -- 110
+- -- 28
+* -- 508
+:= -- 1538
+add.period$ -- 28
+call.type$ -- 14
+change.case$ -- 13
+chr.to.int$ -- 198
+cite$ -- 20
+duplicate$ -- 730
+empty$ -- 763
+format.name$ -- 38
+if$ -- 2314
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 104
-newline$ -- 66
-num.names$ -- 11
-pop$ -- 222
+int.to.str$ -- 14
+missing$ -- 112
+newline$ -- 69
+num.names$ -- 12
+pop$ -- 238
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 730
+skip$ -- 784
 stack$ -- 0
-substring$ -- 460
-swap$ -- 562
-text.length$ -- 24
+substring$ -- 489
+swap$ -- 603
+text.length$ -- 26
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 13
+type$ -- 14
 warning$ -- 6
-while$ -- 40
-width$ -- 15
-write$ -- 149
+while$ -- 45
+width$ -- 16
+write$ -- 159
 (There were 3 error messages)

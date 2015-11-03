@@ -89,4 +89,9 @@ M.~Lydia, S.~S. Kumar, a.~I. Selvakumar, and G.~E. {Prem Kumar}, ``{A
 ``{Infoclimat}.'' [Online]. Available: \url{http://www.infoclimat.fr}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Schank2001}
+T.~Schank and D.~Wagner, ``{Finding, Counting and Listing all Triangles in
+  Large Graphs, An Experimental Study},'' \emph{Framework}, vol. 001907, pp.
+  3--6, 2001.
+
 \end{thebibliography}
