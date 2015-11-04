@@ -120,7 +120,8 @@ Figure \ref{fig:search} displays the evolution of the global utility and the num
 \end{algorithm}
 
 
-\subsection{Net production series}\label{appendixB}
+\subsection{Net production series}
+\label{appendixB}
 
 Data were collected from \cite{Infoclimat} (data for the United States at \cite{NCDC}). The variables used in the simulation are :
 
@@ -175,6 +176,26 @@ where $ B_{i} $ is the surface of thermal exchanges for agent i and $ R_{i} $ is
 \mathcal{F}_{i}^{elec}(t) = \Omega_{i} ( \omega_{i}(t) + \epsilon )
 \end{equation}
 where $ \epsilon $ is a noise term. The vector $ \omega_{i}(t) $ enables us to easily differentiate agent consumption behaviors. Business or residential areas for instance can be easily distinguished with this kind of model.
+
+\subsection{Resilience algorithm}
+\label{appendix_resilience}
+The following algorithm (see algorithm \ref{alg:algo4}) explains the process through which the resilience of a coalition structure is explored. For a given coalition structure, we consider random failures of physical components of the agents. This results in the agent being unable to support its coalition. Therefore, the agent is simply removed from the coalition, which impacts the coalition's production. Eventually, after some number of agent failures, some coalitions might not be sufficiently stable and productive to fulfill the market's constraints. In this case, the coalition fails, and is removed from the market.
+\begin{algorithm}
+	\KwData{$ CS = \left\{ S_1,S_2,...,S_k \right\} $ Coalition structure \;}
+	
+	$ pool = \cup_{k \in N_{COAL}} S_k $ \; 
+	\While{ $ pool \neq \emptyset $}{
+		Select randomly agent i from pool\;
+		i fails $ \Rightarrow $ Remove i from its coalition : $ S_k \leftarrow S_k - \{i\} $ \;
+		$ pool = pool - \{i\} $\;
+		\If{ $ Pr \left[ P_{S_k} < P^{MIN} \right] > \phi $}{
+			$S_k$ fails $ \Rightarrow $ Remove $S_k$ from the market
+			} 
+		}
+	\caption{Random failures algorithm}
+\label{alg:algo4}
+\end{algorithm}
+
 
 \bibliographystyle{IEEEtran}  
 \bibliography{Article}
