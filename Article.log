@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.28)  4 NOV 2015 14:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.28)  5 NOV 2015 12:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1021,9 +1021,6 @@ Package rerunfilecheck Info: File `Article.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 408.
  ) 
 Here is how much of TeX's memory you used:
@@ -1052,7 +1049,7 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2015/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2015/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb><c:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Article.pdf (9 pages, 1460800 bytes).
+Output written on Article.pdf (9 pages, 1460789 bytes).
 PDF statistics:
  667 PDF objects out of 1000 (max. 8388607)
  356 compressed objects within 4 object streams
