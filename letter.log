@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.28)  13 NOV 2015 16:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.28)  19 NOV 2015 17:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -204,10 +204,10 @@ Missing character: There is no ú in font cmti10!
 Missing character: There is no ‚ in font cmti10!
 Missing character: There is no Ä in font cmti10!
 Missing character: There is no ù in font cmti10!
+ [7]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
- [7]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
@@ -242,12 +242,12 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
-Overfull \hbox (9.66826pt too wide) in paragraph at lines 232--233
+Overfull \hbox (9.66826pt too wide) in paragraph at lines 247--248
 []\OT1/cmr/bx/n/10 [Answer] \OT1/cmr/m/n/10 In this pa-per, we used the word st
 a-bil-ity to char-ac-ter-ize the smootheness
  []
 
-(./letter.bbl) [8] (./letter.aux) ) 
+[8] (./letter.bbl) [9] (./letter.aux) ) 
 Here is how much of TeX's memory you used:
  1570 strings out of 493054
  21386 string characters out of 6138326
@@ -256,20 +256,20 @@ Here is how much of TeX's memory you used:
  4294 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  23i,16n,23p,1226b,386s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmbx10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmex10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c
-:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/
-2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2015/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy7.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmti10.pfb>
-Output written on letter.pdf (8 pages, 145103 bytes).
+<c:/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmbx10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmex10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pf
+b><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmti10.pfb>
+Output written on letter.pdf (9 pages, 148988 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 74 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

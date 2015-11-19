@@ -8,15 +8,15 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Article.bib
-Repeated entry---line 321 of file Article.bib
+Repeated entry---line 330 of file Article.bib
  : @article{Infoclimat
  :                    ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 434 of file Article.bib
+Repeated entry---line 443 of file Article.bib
  : @article{Mantegna1999
  :                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 498 of file Article.bib
+Repeated entry---line 507 of file Article.bib
  : @article{Pahwa
  :               ,
 I'm skipping whatever remains of this entry
@@ -29,47 +29,48 @@ Warning--empty year in ISSDA
 Warning--empty author in Infoclimat
 Warning--empty journal in Infoclimat
 Warning--empty year in Infoclimat
+Warning--empty journal in Anvari2015
 
 Done.
-You've used 14 entries,
+You've used 15 entries,
             4087 wiz_defined-function locations,
-            918 strings with 9696 characters,
-and the built_in function-call counts, 10019 in all, are:
-= -- 841
-> -- 189
+            923 strings with 9941 characters,
+and the built_in function-call counts, 10580 in all, are:
+= -- 873
+> -- 222
 < -- 92
-+ -- 110
-- -- 28
-* -- 508
-:= -- 1538
-add.period$ -- 28
-call.type$ -- 14
-change.case$ -- 13
++ -- 126
+- -- 36
+* -- 536
+:= -- 1619
+add.period$ -- 30
+call.type$ -- 15
+change.case$ -- 14
 chr.to.int$ -- 198
-cite$ -- 20
-duplicate$ -- 730
-empty$ -- 763
-format.name$ -- 38
-if$ -- 2314
+cite$ -- 22
+duplicate$ -- 775
+empty$ -- 808
+format.name$ -- 47
+if$ -- 2440
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 112
-newline$ -- 69
-num.names$ -- 12
-pop$ -- 238
+int.to.str$ -- 15
+missing$ -- 124
+newline$ -- 72
+num.names$ -- 13
+pop$ -- 275
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 784
+skip$ -- 822
 stack$ -- 0
-substring$ -- 489
-swap$ -- 603
+substring$ -- 490
+swap$ -- 631
 text.length$ -- 26
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 14
-warning$ -- 6
-while$ -- 45
-width$ -- 16
-write$ -- 159
+type$ -- 15
+warning$ -- 7
+while$ -- 46
+width$ -- 17
+write$ -- 166
 (There were 3 error messages)

@@ -53,6 +53,9 @@ See bellow our replies to the reviewers’ comments:
 
 \textbf{[Answer]} The results presented in this paper come from hourly sampled weather data. Therefore, all the correlations between the agents are derived from hourly sampled time series. This low frequency sampling has the effect of hiding short time intermittencies that are present in both wind speed and solar irradiance real dynamics. According to \cite{Anvari2015}, “extreme events in the solar irradiance and wind power fluctuations are much more frequent in short time scales” than expected with a Gaussian process. This is especially true and understandable for solar irradiance that can change drastically in case of clouds passing in a sunny sky for instance. Although we did not, in this paper, study how the correlation structure evolves with the sampling frequency of the data, we believe that the variance of the power distribution of the coalitions will increase with the sampling frequency. Nevertheless, as our algorithm tries to minimize intra-coalition correlations, we believe that short time fluctuations will tend to impact less “our” coalitions than the ones obtained with the other presented strategies. 
 
+We added the following text at the end of section 3 : 
+
+\textit{Note that this low sampling frequency might hide short time intermittencies (see \cite{Anvari2015} for more information). Studying the evolution of the correlation structure with the sampling frequency is out of the scope of this paper, but might lead to interresting results.}
 
 \textbf{Comment 4:} What is the affect of using stochastic modeling of the resources on the coalitions resulting from the proposed method? Using a real data set is a good case study, but in the conclusion you mentioned "the coalitions resulting from our algorithm better withstand losses of agents", did you do any comparison? It is not clear how you came up to this conclusion. I think you should have an apple-to-apple comparison, stochastic modeling can help you.
 
@@ -211,8 +214,20 @@ We clarify this point by adding the following text in section IV-A:
 \textbf{Comment 3:} The reviewer is doubting about the interaction model developed in the paper, specifically mentioned in the second column of page 4. Why should the grid operator concern about the coalition of prosumers with its probability of under-producing? Normally saying, under-producing should not cause any grid issue while significant over-producing from the end users would might cause current congestions or voltage violation for the distribution network.
 
 
-\textbf{[Answer]} In this paper, we consider the case of a large penetration of renewables in the distribution network. A significant portion of the production is assumed to come from these coalitions of prosumers, in such a way that the grid operator is scheduling the plants according to the contract values. If coalitions do not satisfy their contracts by under-producing, it might be the case that the grid operator has to re-balance consumption and production by turning on fast ramping generators. This might generates high operational costs for the grid operator.
+\textbf{[Answer]} We agree with the reviewer that, in the case of a large penetration of renewables in the distribution network, the production capacity should be larger than for traditional power plants. This is the consequence of the uncertainty that comes with most renewables. It results from this point that, at certain periods, the production might be drastically larger than the consumption, which might indeed cause various problems in the network. Storage, demand-side managment, inter-connection with neighboring countries, as well as energy markets are often assumed to provide ways of stabilizing the grid in such situations. 
 
+Nevertheless, we want to point out that, in this paper, we focus on the market side of the system rather than the grid pure stability. More precisely, we consider the formation of coalitions of prosumers that seek to sell energy to some entity (grid operator, aggregators). If this entity buys a contract, the coalition commits to injecting exactly $ P_S^{CRCT} $ : 
+
+\begin{equation}
+\forall t,\ P_S^{injected}(t) = P_S^{CRCT} 
+\end{equation}
+
+Obviously, if the actual injected power deviates from the contract, the coalition should pay penalties proportional to $ \sum_t \left| P_S^{injected}(t) - P_S^{CRCT} \right| $. However, within this framework, we build the coalitions by looking at their available power $P_S(t)$, i.e, the maximum production that a coalition can inject at time t : $ P_S^{injected}(t) \leq P_S(t) $. 
+In this situation, we believe that the risk $ Pr[P_S(t) < P^{CRCT} ] $ is a key quantity since, in this case, the contract cannot be respected. In cases where the available production is higher than the contract $ P_S(t) > P^{CRCT} $, it might be possible to shut some renewables down, or to use storage, to maintain the power injection at the contract value.
+
+We added the following text in the introduction as to clarify this point :
+
+\textit{We rely on a market representation of the interactions. Coalitions of prosumers estimate a production capacity for an upcoming period and announce it on the market. If some other entity buys the contract, the coalition has to inject exactly the contracted amount of power at any time. Obviously, deviations will cause financial penalties to the coalitions, such that respecting the contracts is paramount. Since prosumers use exclusively renewables, we are particularly concerned with the probability that the available capacity of a coalition falls below its contract value. In this case, storage or demand side managment might be solutions to avoid penalties, but this probability should still be maintained low.}
 
 \textbf{Comment 4:} Keywords are missing in this paper!
 
