@@ -47,8 +47,8 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 
 \begin{document}
-\pagestyle{plain}
-\pagenumbering{arabic}
+%\pagestyle{plain}
+%\pagenumbering{arabic}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -62,10 +62,12 @@
 % Authors
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\author{Nicolas Gensollen, Vincent Gauthier, Monique Becker and Michel Marot \\
-\IEEEauthorblockA{CNRS UMR 5157 SAMOVAR, \\
-Telecom SudParis/Institut Mines Telecom\\
-Email: \{nicolas.gensollen, vincent.gauthier, michel.marot, monique.becker\}@telecom-sudparis.eu}}
+\author{Nicolas Gensollen, Vincent Gauthier, Monique Becker and Michel Marot
+%\IEEEauthorblockA{CNRS UMR 5157 SAMOVAR, \\
+%Telecom SudParis/Institut Mines Telecom\\
+%Email: \{nicolas.gensollen, vincent.gauthier, michel.marot, monique.becker\}@telecom-sudparis.eu}}
+\thanks{Authors are with CNRS UMR 5157 SAMOVAR, Telecom SudParis/Institut Mines Telecom, e-mail: (\{nicolas.gensollen, vincent.gauthier, michel.marot, monique.becker\}@telecom-sudparis.eu)}}%
+
 
 \maketitle
 
@@ -136,9 +138,9 @@ These are only a few possibilities for balancing production and demand in the sm
 
 
 \begin{figure}
-\label{fig:process}
 	\includegraphics[scale=.45]{Fig2}
 	\caption{Process}
+\label{fig:process}
 \end{figure}
 
 An essential component of the smart grid is the smart meter which makes the interface between the end user and the rest of the system. Smart meters coupled with sensors measure quantities of interest (like instantaneous consumption), receive informations from the grid (electricity prices for instance), and take actions accordingly (demand side management programs). Smart meters are currently and gradually deployed, and will probably provide interesting datasets to work on. Unfortunately, at the time this paper was written, production and consumption data for prosumers over a large region were not yet available to our knowledge. Some interesting experiments are nonetheless being conducted and data are progressively made public \cite{ISSDA}. In this paper, we use weather quantities like wind speed or solar radiance as alternative data for generating realistic production and consumption series. Fortunately, these kinds of data are easier to find, and since the development of small personal weather stations, their geographical granularity keeps increasing.  Since these quantities depend both on time and location, we discretize time into slots and space into zones in the following (see block 1 of fig. \ref{fig:process}). A zone is simply a portion of the considered region of study for which we sampled data. Therefore, if prosumers i and j are positioned on the same zone, they are exposed to the same weather. Adding some intra-zone noise can easily be done though not considered in this paper. We denote by $ P_{i}(t) $ the instantaneous available extra-production of agent i at time t :
