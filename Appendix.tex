@@ -57,40 +57,11 @@
 
 
 
-\onecolumn
-\centering
+
+%\onecolumn
 \appendix
-   \subsection{Notations}
- 
-
-
-	\begin{tabular}{ | l | r | }
-   						N & Number of Prosumers \\
-   						$ P_i^P(t) $ & Available production of agent i at time t \\
-   						$ P_i^D(t) $ & Consumption of agent i at time t \\ 
-  						$ P_i(t) = P_i^P(t) - P_i^D(t) $ & Available extra-production of agent i at time t \\
-  						$  WT_i $ & Wind turbine set of agent i \\
-  						$ PV_i $ & Solar array set of agent i \\
-  						$ DER_i = WT_i \cup PV_i $ & DER of agent i \\
-  						$ \nu_i(t) $ & wind speed (in $ m s^{-2} $) at agent i's location and time t \\
-  						$ \Psi_i(t) $ & solar irradiance (in $ W m^{-2} $) at agent i's location and time t \\
-  						$ \mathcal{F}_{WT} $ & power curve for the wind turbines \\
-  						$ \mathcal{F}_{PV} $ & power curve for the solar arrays \\
-   						$ P_S^{CRCT} $ & Contract value of coalition S \\
-   						$ \phi \in \left[ 0,1 \right] $ & Reliability Threshold \\
-   						$ P^{MIN} $ & Minimum Contract value \\
-   						$ \alpha $ & Parameter that controls the coalitions sizes \\
-   						$ \epsilon $ & Correlation graph filtering threshold \\
-   						$ N_{COAL} $ & Number of coalitions \\
-   						$ \mathcal{R}_S $ & Resilience of coalition S \\
-   						$ \lambda $ & unitary price rate for electricity \\
-   						$ \delta_S(i) $ & marginal utility of agent i in coalition S \\
-   						$ \rho_{ij} $ & Pearson's correlation coefficient between $ P_i$ and $P_j$ \\
-   						$ \Theta_k(G) $ & set of non overlapping cliques of size k in graph G \\
-   						$ \mathcal{R}_S $ & resilience of coalition S
- 	\end{tabular}
- 
-\twocolumn
+  
+%\twocolumn
 \subsection{Algorithms}
 
 
@@ -157,6 +128,46 @@ Figure \ref{fig:search} displays the evolution of the global utility and the num
  \caption{Correlated algorithm}
 \label{alg:algo3}
 \end{algorithm}
+
+
+
+ \subsection{Notations}
+
+Figure \ref{fig:notations} presents all the notations used in the article.
+ 
+\begin{figure*}
+\begin{minipage}{\textwidth}
+\centering
+	\begin{tabular}{ | l | r | }
+   						N & Number of Prosumers \\
+   						$ P_i^P(t) $ & Available production of agent i at time t \\
+   						$ P_i^D(t) $ & Consumption of agent i at time t \\ 
+  						$ P_i(t) = P_i^P(t) - P_i^D(t) $ & Available extra-production of agent i at time t \\
+  						$  WT_i $ & Wind turbine set of agent i \\
+  						$ PV_i $ & Solar array set of agent i \\
+  						$ DER_i = WT_i \cup PV_i $ & DER of agent i \\
+  						$ \nu_i(t) $ & wind speed (in $ m s^{-2} $) at agent i's location and time t \\
+  						$ \Psi_i(t) $ & solar irradiance (in $ W m^{-2} $) at agent i's location and time t \\
+  						$ \mathcal{F}_{WT} $ & power curve for the wind turbines \\
+  						$ \mathcal{F}_{PV} $ & power curve for the solar arrays \\
+   						$ P_S^{CRCT} $ & Contract value of coalition S \\
+   						$ \phi \in \left[ 0,1 \right] $ & Reliability Threshold \\
+   						$ P^{MIN} $ & Minimum Contract value \\
+   						$ \alpha $ & Parameter that controls the coalitions sizes \\
+   						$ \epsilon $ & Correlation graph filtering threshold \\
+   						$ N_{COAL} $ & Number of coalitions \\
+   						$ \mathcal{R}_S $ & Resilience of coalition S \\
+   						$ \lambda $ & unitary price rate for electricity \\
+   						$ \delta_S(i) $ & marginal utility of agent i in coalition S \\
+   						$ \rho_{ij} $ & Pearson's correlation coefficient between $ P_i$ and $P_j$ \\
+   						$ \Theta_k(G) $ & set of non overlapping cliques of size k in graph G \\
+   						$ \mathcal{R}_S $ & resilience of coalition S
+ 	\end{tabular}
+ 
+\end{minipage}
+\caption{Notations}
+\label{fig:notations}
+\end{figure*}
 
 
 \subsection{Net production series}
@@ -236,7 +247,7 @@ The following algorithm (see algorithm \ref{alg:algo4}) explains the process thr
 \end{algorithm}
 
 
+
 \bibliographystyle{IEEEtran}  
 \bibliography{Article}
-
 \end{document}
