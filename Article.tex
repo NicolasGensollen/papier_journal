@@ -273,14 +273,22 @@ where parameter $ \alpha $ controls to what extent the size of a coalition impac
 \label{eq:marginal_benefit}
 \end{equation}
 
-If $ \alpha $ is set to zero, agents are added as long as they increase the contract value of the coalition. If $ \alpha $ is greater than zero, additional agents have to increase the contract value by some factor. We relate now $ \alpha $ to the mean sizes of the coalitions $ \bar{N} $ by solving the following equation in the gaussian case (as in section \ref{sec:notations}) :
+If $ \alpha = 0 $, agents are added as long as they increase the contract value of the coalition. If $ \alpha > 0 $, additional agents have to increase the contract value by some factor. 
+
+In real situations, the shape of such utility function might be complex with numerous local maximums. We choose in this paper to favor the exploration of the space around balanced regions, i.e regions where coalitions sizes are relatively balanced. Therefore, we use $ \alpha $ as a proxy for having both a concave utility function and preferences in the search space. Given a situation with N prosumers and $ N_{COAL} $ desired coalitions, we wish to select $ \alpha $ such that the utility function tend to favor coalitions of approximately $ \bar{N}=N/N_{COAL} $ agents.
+
+In the general case where distributions and correlation structures have no special form, finding an analytical expression for $ \alpha $ appears complicated. To overcome this problem, we express $ \alpha $ in a simplified situation where all power distributions are approximated by normal distributions and all prosumers are considered equivalent to a mean agent : $ \forall i \in \mathcal{A},\ P_i \sim \mathcal{N}(\bar{\mu}, \bar{\sigma}) $, where $ \bar{\mu} = \frac{1}{N} \sum_{i \in \mathcal{A}} \mu_i $, $ \bar{ \sigma } = \frac{1}{N} \sum_{i \in \mathcal{A}} \sigma_i $, and $\forall i,j,\ \rho_{ij} = \bar{\rho} $. In this simplified case, we can express the utility as a function of $ \bar{\mu} $, $ \bar{\sigma} $, $\bar{\rho} $, $ \bar{N} $, and $ \alpha $ (see Appendix for more details). We select $ \alpha^{\star} $ such that :
 
 \begin{equation}
-\left[ \dfrac{\partial{ U}}{ \partial{|S|}} \right]_{|S| = \bar{N}} = 0
+\left\{ \begin{array}{lll}
+	          \left[ \dfrac{\partial{ U}}{ \partial{|S|}} \right]_{|S| = \bar{N}} = 0 \\
+	          \left[ \dfrac{\partial^2 U}{\partial |S|^2} \right]_{ \alpha = \alpha^{\star} } \leq 0
+	    \end{array} 
+\right.
 \label{eq:derivative}
 \end{equation}
 
-Furthermore, since considering all the possible interactions between agents is analytically intractable, we use here a mean approximation. Any quantity x that varies over the agent set is thus simplified in its mean value $ \bar{x} $. Solving equation \ref{eq:derivative} for $ \alpha $ in these conditions leads to:
+Which yields to the following expression for $ \alpha^{\star} $ (see Appendix) :
 
 \footnotesize
 \begin{equation}
@@ -289,7 +297,7 @@ Furthermore, since considering all the possible interactions between agents is a
 \end{equation}
 \normalsize
 
-Figure \ref{fig:mean_approx} shows how $ \alpha^{\star} $ and the utility function evolves according to the mean size of the coalitions $ \bar{N} $. These curves are only valid in the simplified Gaussian example considered here. Nonetheless, they will provide some guidance when using real data. As can be pointed out, the purpose of $ \mathcal{U} $ is not to study coalitions stability against player defection which could be done through game theory, nor to redistribute the coalition's utility in terms of individual payoffs. $ \mathcal{U} $ is rather designed as a quality measure for the coalitions.
+Figure \ref{fig:mean_approx} shows how $ \alpha^{\star} $ and the utility function evolves according to the mean size of the coalitions $ \bar{N} $. As can be pointed out, the purpose of $ \mathcal{U} $ is not to study coalitions stability against player defection which could be done through game theory, nor to redistribute the coalition's utility in terms of individual payoffs. $ \mathcal{U} $ is rather designed as a quality measure for the coalitions.
 
 \begin{figure}
 \includegraphics[scale=.48]{./figs/figure_2}
