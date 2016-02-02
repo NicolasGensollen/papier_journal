@@ -326,7 +326,7 @@ Nevertheless de-correlation seems like a more complex concept than correlation i
 
 \begin{figure}
 \includegraphics[scale=.48]{./figs/figure_3}
-\caption{{\footnotesize Histograms of utility values for coalitions of size 3 in a $N=200$ prosumers example ($\phi = 0.1$, $ \alpha^{\star} = 0.08 $, $ \bar{\mu}=3.9\ MW $, $\bar{\sigma} = 1.9 MW $, $ \bar{\rho} = 0.69 $). Red bars stand for cliques in the decorrelation graph, and blue bars for all the other possible triples. Cliques tend to exhibit higher utilities than random coalitions.}}
+\caption{{\footnotesize Histograms of utility values for coalitions of size 3 ($\bar{N}=3$) in a $N=200$ prosumers example ($\phi = 0.1$, $ \alpha^{\star} = 0.08 $, $ \bar{\mu}=3.9\ MW $, $\bar{\sigma} = 1.9 MW $, $ \bar{\rho} = 0.69 $). Red bars stand for cliques in the decorrelation graph, and blue bars for all the other possible triples. Cliques tend to exhibit higher utilities than random coalitions.}}
 \label{fig:histo_cliques}
 \end{figure}
 
@@ -364,7 +364,7 @@ The algorithm presented in the previous section is supposed to generate a given 
 Before running the algorithms, we need to calibrate the utility function by choosing the value of the $ \alpha $ parameter. Recall that the purpose of this parameter is to take into account some constraints on the coalition's sizes if needed. In this paper, we do not have any technical constraints on coalition sizes though we designed the utility such that these could be taken into account. We select the desired size as being $ \lfloor N/N_{COAL} \rfloor $ (where $ \lfloor.\rfloor $ means floor). Figure \ref{fig:real_utility2} shows how the mean utility of a coalition evolves with its size when the optimum size is set to 40 agents.
 \begin{figure}
 \includegraphics[scale=.48]{./figs/figure_4}
-\caption{{\footnotesize Utility of random coalitions depending on their size. Blue dots show real mean utility values and the thick red curve its smoothed version by applying a Savitzky-Golay filter. On this plot the $ \alpha $ parameter of the utility function was selected according to eq. \ref{eq:alpha_star} in order to favor 40 agents coalitions.}}
+\caption{{\footnotesize Utility of random coalitions depending on their size in a $N=200$ prosumers example ($\phi = .1$, $ \bar{\mu}=3.9\ MW $, $\bar{\sigma} = 1.9 MW $, $ \bar{\rho} = 0.69 $). Blue dots show real mean utility values and the thick red curve its smoothed version by applying a Savitzky-Golay filter. On this plot, $ \alpha^{\star} = 0.006 $, and was selected according to eq. \ref{eq:alpha_star} in order to favor $\bar{N} = 40$ agents coalitions.}}
 \label{fig:real_utility2}
 \end{figure}
 
