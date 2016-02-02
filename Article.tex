@@ -316,7 +316,7 @@ Clearly, $ d^{1} $ (resp. $ d^{2} $) maps two correlated series as close points 
 \label{epsilon_star}
 \epsilon^{\star} = min_{ \epsilon \in [0,1]} \left\{ \epsilon\ s.t.\ |\Theta_{k}(G_{2}^{\epsilon})| \geq N_{COAL} \right\}
 \end{equation} 
-where $ G_{2}^{\epsilon} $ is the de-correlation graph $ G_{2} $ filtered by $ \epsilon $, and $ \Theta_{k}(G) $ is the set of non overlapping cliques of size k in a given graph G. In other words we select $ \epsilon^{\star} $ as the smallest threshold possible such that the filtered de-correlation graph contains at least $ N_{COAL} $ non overlapping cliques of size k. In practice, since finding cliques requires exponential time, we use triangles \cite{Schank2001} ($k=3$ in eq. \ref{epsilon_star}) rather than cliques as soon as the number of nodes is not small. Note also that the existence of $ \epsilon^{\star} $  as defined in equation  \ref{epsilon_star} is not guaranteed. The users has indeed to provide consistent values of $ N_{COAL} $ or k compared to the size of the agent population $ \mathcal{A} $. 
+where $ G_{2}^{\epsilon} $ is the de-correlation graph $ G_{2} $ filtered by $ \epsilon $, and $ \Theta_{k}(G) $ is the set of non overlapping cliques of size k in a given graph G. In other words we select $ \epsilon^{\star} $ as the smallest threshold possible such that the filtered de-correlation graph contains at least $ N_{COAL} $ non overlapping cliques of size k. In practice, since finding cliques requires exponential time, we use triangles \cite{Schank2001} ($k=3$ in eq. \ref{epsilon_star}) rather than cliques as soon as the number of nodes is not small. Note also that the existence of $ \epsilon^{\star} $  as defined in equation  \ref{epsilon_star} is not guaranteed.
 
 \subsection{Cliques}
 
@@ -326,7 +326,7 @@ Nevertheless de-correlation seems like a more complex concept than correlation i
 
 \begin{figure}
 \includegraphics[scale=.48]{./figs/figure_3}
-\caption{{\footnotesize Histograms of utility values for coalitions of size 3. Red bars stand for cliques in the decorrelation graph, and blue bars for all the other possible triples. Cliques tend to exhibit higher utilities than random coalitions.}}
+\caption{{\footnotesize Histograms of utility values for coalitions of size 3 in a $N=200$ prosumers example ($\phi = 0.1$, $ \alpha^{\star} = 0.08 $, $ \bar{\mu}=3.9\ MW $, $\bar{\sigma} = 1.9 MW $, $ \bar{\rho} = 0.69 $). Red bars stand for cliques in the decorrelation graph, and blue bars for all the other possible triples. Cliques tend to exhibit higher utilities than random coalitions.}}
 \label{fig:histo_cliques}
 \end{figure}
 
