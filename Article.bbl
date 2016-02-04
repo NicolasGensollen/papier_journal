@@ -31,20 +31,20 @@ S.~Pahwa, C.~Scoglio, S.~Das, and N.~Schulz, ``Load-shedding strategies for
   preventing cascading failures in power grid,'' \emph{Electric Power
   Components and Systems}, vol.~41, no.~9, pp. 879--895, 2013.
 
-\bibitem{Milligan2010}
-M.~Milligan and B.~Kirby, ``{Utilizing Load Response for Wind and Solar
-  Integration and Power System Reliability},'' in \emph{Proc. of WindPower},
-  2010.
-
-\bibitem{Logenthiran2012}
-T.~Logenthiran, D.~Srinivasan, and T.~Z. Shun, ``{Demand side management in
-  smart grid using heuristic optimization},'' \emph{IEEE Transactions on Smart
-  Grid}, vol.~3, no.~3, pp. 1244--1252, 2012.
-
 \bibitem{Zhang2013}
 Y.~Zhang, N.~Gatsis, and G.~B. Giannakis, ``{Robust energy management for
   microgrids with high-penetration renewables},'' \emph{IEEE Transactions on
   Sustainable Energy}, vol.~4, no.~4, pp. 944--953, 2013.
+
+\bibitem{Saad2011}
+W.~Saad, Z.~Han, and H.~V. Poor, ``{Coalitional Game Theory for Cooperative
+  Micro-Grid Distribution Networks},'' \emph{2011 IEEE International Conference
+  on Communications Workshops (ICC)}, pp. 1--5, jun 2011.
+
+\bibitem{Nguyen2013}
+P.~H. Nguyen, W.~L. Kling, and P.~F. Ribeiro, ``{A game theory strategy to
+  integrate distributed agent-based functions in smart grids},'' \emph{IEEE
+  Transactions on Smart Grid}, vol.~4, no.~1, pp. 568--576, 2013.
 
 \bibitem{Shadmand2014}
 M.~Shadmand and R.~Balog, ``Multi-objective optimization and design of

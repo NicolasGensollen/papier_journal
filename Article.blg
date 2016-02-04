@@ -8,15 +8,15 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Article.bib
-Repeated entry---line 330 of file Article.bib
+Repeated entry---line 357 of file Article.bib
  : @article{Infoclimat
  :                    ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 443 of file Article.bib
+Repeated entry---line 470 of file Article.bib
  : @article{Mantegna1999
  :                      ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 507 of file Article.bib
+Repeated entry---line 534 of file Article.bib
  : @article{Pahwa
  :               ,
 I'm skipping whatever remains of this entry
@@ -34,43 +34,43 @@ Warning--empty journal in Anvari2015
 Done.
 You've used 15 entries,
             4087 wiz_defined-function locations,
-            923 strings with 9941 characters,
-and the built_in function-call counts, 10580 in all, are:
-= -- 873
-> -- 222
-< -- 92
-+ -- 126
-- -- 36
-* -- 536
-:= -- 1619
+            925 strings with 9978 characters,
+and the built_in function-call counts, 10709 in all, are:
+= -- 890
+> -- 228
+< -- 95
++ -- 128
+- -- 37
+* -- 545
+:= -- 1645
 add.period$ -- 30
 call.type$ -- 15
 change.case$ -- 14
-chr.to.int$ -- 198
+chr.to.int$ -- 204
 cite$ -- 22
-duplicate$ -- 775
-empty$ -- 808
-format.name$ -- 47
-if$ -- 2440
+duplicate$ -- 782
+empty$ -- 800
+format.name$ -- 48
+if$ -- 2465
 int.to.chr$ -- 0
 int.to.str$ -- 15
 missing$ -- 124
 newline$ -- 72
 num.names$ -- 13
-pop$ -- 275
+pop$ -- 271
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 822
+skip$ -- 825
 stack$ -- 0
-substring$ -- 490
-swap$ -- 631
-text.length$ -- 26
+substring$ -- 504
+swap$ -- 646
+text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 15
 warning$ -- 7
-while$ -- 46
+while$ -- 50
 width$ -- 17
-write$ -- 166
+write$ -- 167
 (There were 3 error messages)

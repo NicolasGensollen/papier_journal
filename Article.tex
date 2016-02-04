@@ -119,12 +119,12 @@ The paper is organized as follows, section \ref{sec:related} gives a brief overv
 \section{Related Work}
 \label{sec:related}
 
-Since renewables only produce when the resource is present and 
-because these moments do not necessarily coincide with the consumption peak hours \cite{Milligan2010}, allowing large penetration of renewables in the grid appears as a difficult challenge. One possible solution consists in shifting some of the loads towards high productivity periods. Demand side management techniques can indeed mitigate the consumption peaks and waste less production \cite{Milligan2010} \cite{Logenthiran2012}. Since end users tend to seek a maximum utility at a minimum cost, dynamic pricing appears as a good way to give incentives to them. By carefully scheduling the prices, it is assumed that the load curve can be shaped to some extent.
 
-Dynamic pricing is an interesting and useful tool, but it has also some limitations. It is likely that dynamic pricing will serve as a shaping mass tool while finer techniques will be needed locally. A popular approach in this direction consists in deploying storage devices in the network and using them as electricity buffers. Basically these storages would be charged when there is a surplus of production, and discharged when the consumption exceeds the production. Although quite simple, this idea causes numerous challenges when it comes to its real implementation. As long as the system considered remains small, a centralized control of these buffers could be envisioned. However, for real large systems it is likely that more sophisticated decentralized algorithms will be necessary. In \cite{Zhang2013}, the authors introduce a distributed energy management system with a high use of renewables such that power is scheduled in a distributed fashion. In \cite{Shadmand2014} the optimal storage capacity problem is addressed. There is indeed an interesting trade-off between the costs of the equipments and the expected availability of power. The authors develop a framework that enables them to exhibit a Pareto front of efficient solutions.
+Assuming a large penetration of DER, it is expected that the managment of the system would have to evolve in order to copy with the large amount of unpredictable small generators. In \cite{Zhang2013}, the authors introduce a distributed energy management system with a high use of renewables such that power is scheduled in a distributed fashion. Allowing the formation of coalitions whose participants commit to achieving some objective against a reward appears also as a promising approach. Nevertheless, for these structures to be stable toward defection, agents should have an incentive to join, and cooperate. Coalition formation is therefore usually studied through the framework of game theory \cite{Saad2011}. In this direction, \cite{Nguyen2013} introduces an agent-based strategy for managing DER aiming at optimal performance in the electricity supply system.
 
-These are only a few possibilities for balancing production and demand in the smart grid. Most of the time, these techniques will be coupled with predictions of the upcoming load curves and weather conditions. Combining all these technologies enables aggregators to quantify their expected production and the inherent risk that comes with it. The optimization of expected returns to risk is a traditional goal in finance, and a wide literature exists on this topic. It is well-known for instance, that the more risk one is willing to accept, the higher his potential gains. On the contrary, when investing exclusively on low risks assets, one should expect relatively small gains. This trade-off is formalized in the Markowitz' portfolio theory \cite{Markowitz1959}. More precisely, given a set of assets for which we have some historic data of returns, the objective is to find a linear combination of these assets (the so-called portfolio) which maximizes the expected value while minimizing the variance of the portfolio's return. Markowitz's answer is a set of efficient portfolios that all optimize in some sense this trade-off. If one is able to put a number on his risk acceptance or on the target expected return, the corresponding efficient portfolio is a priori the best option. One of the most controversial assumptions in the portfolio theory is that returns are jointly normally distributed (or, at least, that the returns distribution is jointly elliptical). Some economist have pointed out the fact that this assumption might not capture well the reality of financial markets \cite{doi:10.1142/S0219024912500197}. Nevertheless, one of the key point in the Markowitz theory is to consider explicitly the correlation between the assets since they impact directly the variances of the portfolios. Since the work of \cite{Mantegna1999}, an interesting approach consists in computing a distance metric based on the correlation coefficients in order to organize the series in a correlation graph. Nodes represent the series considered while the edges are weighted by the metric. Because the metric can be computed for all pairs, these graphs are complete and of little use as is. Historically, the approach used by \cite{Mantegna1999} was to compute a minimum spanning tree as to obtain a hierarchical clustering of the series. Later on, it was pointed out that, by definition, a spanning tree could not capture the underlying clustering structure hidden in the correlation graph. In this paper, we use another classical filtering technique called $ \epsilon $-graph \cite{Garas2008}. It consists in selecting a threshold $ \epsilon $, and filtering out edges with smaller weights. As we will see further in this paper, this approach has the advantage of preserving clusters of correlated series.
+Since most of the DER have a stochastic production, maintaining the system equilibrium in these conditions is a complicated task. It is often assumed that electricity storage will provide some possibilities in order to copy with the uncertainties. In \cite{Shadmand2014} the optimal storage capacity problem is addressed. There is indeed an interesting trade-off between the costs of the equipments and the expected availability of power. The authors develop a framework that enables them to exhibit a Pareto front of efficient solutions.
+
+In addition to storage and distibuted algorithms, prediction techniques of the upcoming load curves and weather conditions are of paramount importance. Combining all these technologies could enable aggregators to quantify their expected production and the inherent risk that comes with it. The optimization of expected returns to risk is a traditional goal in finance, and a wide literature exists on this topic. It is well-known for instance, that the more risk one is willing to accept, the higher his potential gains. On the contrary, when investing exclusively on low risks assets, one should expect relatively small gains. This trade-off is formalized in the Markowitz' portfolio theory \cite{Markowitz1959}. More precisely, given a set of assets for which we have some historic data of returns, the objective is to find a linear combination of these assets (the so-called portfolio) which maximizes the expected value while minimizing the variance of the portfolio's return. Markowitz's answer is a set of efficient portfolios that all optimize in some sense this trade-off. If one is able to put a number on his risk acceptance or on the target expected return, the corresponding efficient portfolio is a priori the best option. One of the most controversial assumptions in the portfolio theory is that returns are jointly normally distributed (or, at least, that the returns distribution is jointly elliptical). Some economist have pointed out the fact that this assumption might not capture well the reality of financial markets \cite{doi:10.1142/S0219024912500197}. Nevertheless, one of the key point in the Markowitz theory is to consider explicitly the correlation between the assets since they impact directly the variances of the portfolios. Since the work of \cite{Mantegna1999}, an interesting approach consists in computing a distance metric based on the correlation coefficients in order to organize the series in a correlation graph. Nodes represent the series considered while the edges are weighted by the metric. Because the metric can be computed for all pairs, these graphs are complete and of little use as is. Historically, the approach used by \cite{Mantegna1999} was to compute a minimum spanning tree as to obtain a hierarchical clustering of the series. Later on, it was pointed out that, by definition, a spanning tree could not capture the underlying clustering structure hidden in the correlation graph. In this paper, we use another classical filtering technique called $ \epsilon $-graph \cite{Garas2008}. It consists in selecting a threshold $ \epsilon $, and filtering out edges with smaller weights. As we will see further in this paper, this approach has the advantage of preserving clusters of correlated series.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -138,16 +138,20 @@ These are only a few possibilities for balancing production and demand in the sm
 
 
 \begin{figure}
-	\includegraphics[scale=.45]{Fig2}
-	\caption{Process}
-\label{fig:process}
+	\begin{center}
+		\includegraphics[scale=.4]{Fig2}
+		\caption{Process}
+		\label{fig:process}
+	\end{center}
 \end{figure}
 
 An essential component of the smart grid is the smart meter which makes the interface between the end user and the rest of the system. Smart meters coupled with sensors measure quantities of interest (like instantaneous consumption), receive informations from the grid (electricity prices for instance), and take actions accordingly (demand side management programs). Smart meters are currently and gradually deployed, and will probably provide interesting datasets to work on. Unfortunately, at the time this paper was written, production and consumption data for prosumers over a large region were not yet available to our knowledge. Some interesting experiments are nonetheless being conducted and data are progressively made public \cite{ISSDA}. In this paper, we use weather quantities like wind speed or solar radiance as alternative data for generating realistic production and consumption series. Fortunately, these kinds of data are easier to find, and since the development of small personal weather stations, their geographical granularity keeps increasing.  Since these quantities depend both on time and location, we discretize time into slots and space into zones in the following (see block 1 of fig. \ref{fig:process}). A zone is simply a portion of the considered region of study for which we sampled data. Therefore, if prosumers i and j are positioned on the same zone, they are exposed to the same weather. Adding some intra-zone noise can easily be done though not considered in this paper. We denote by $ P_{i}(t) $ the instantaneous available extra-production of agent i at time t :
 
 \begin{figure}
-\label{tab:main_notations}
-	\begin{tabular}{ | l | r | }
+	\begin{center}
+		\begin{scriptsize}
+		\label{tab:main_notations}
+		\begin{tabular}{ | l | r | }
    						N & Number of Prosumers \\
   						$ P_i(t) $ & Extra-production of agent i at time t \\
    						$ P_S^{CRCT} $ & Contract value of coalition S \\
@@ -157,8 +161,10 @@ An essential component of the smart grid is the smart meter which makes the inte
    						$ \epsilon $ & Correlation graph filtering threshold \\
    						$ N_{COAL} $ & Number of coalitions \\
    						$ \mathcal{R}_S $ & Resilience of coalition S
- 	\end{tabular}
- 	\caption{Main notations.}
+ 		\end{tabular}
+ 		\caption{Main notations.}
+ 	\end{scriptsize}
+	\end{center}
 \end{figure}
 
 \begin{equation}
@@ -225,9 +231,11 @@ P_{S}^{CRCT \star} = \mu_{ij} - \sqrt{2} \sigma_{ij} erf^{-1}( 1 - 2 \phi )
 \end{equation}
 
 \begin{figure}
-\includegraphics[scale=.48]{./figs/figure_1}
-\caption{{\footnotesize $ P_{S}^{CRCT \star} $ depending on reliability parameter $ \phi $ for Gaussian distributions (see equation \ref{eq:P_star}). Blue curve with triangles stands for a coalition S with an expected production of 5 units and a standard deviation of 0.5. Under a grid policy of $ \phi = 0.1 $, it is able to announce a contract value of $ P_{S}^{CRCT \star} = 4.36 $. The same coalition in term of expected production ($\mu = 5 $), but with a higher variance ($ \sigma = 1.5 $, cyan curve with circles) can only afford a smaller contract value of $ P_{S}^{CRCT \star} = 3.07 $. The red curve with diamonds stands for a coalition with a higher expected production $(\mu = 7)$, but with a very high unpredictability ($ \sigma = 5 $). For low values of $ \phi $, this coalition is thus heavily penalized and can only afford a contract of $ 0.59 $ units. Under grid policy $ (\phi = 0.1, P^{MIN} = 2) $, this last coalition is thus not allowed to enter the market (red dot below the horizontal dashed line).} }
-\label{fig:Gaussian}
+	\begin{center}
+		\includegraphics[scale=.46]{./figs/figure_1}
+		\caption{{\footnotesize $ P_{S}^{CRCT \star} $ depending on reliability parameter $ \phi $ for Gaussian distributions (see equation \ref{eq:P_star}). Blue curve with triangles stands for a coalition S with an expected production of 5 units and a standard deviation of 0.5. Under a grid policy of $ \phi = 0.1 $, it is able to announce a contract value of $ P_{S}^{CRCT \star} = 4.36 $. The same coalition in term of expected production ($\mu = 5 $), but with a higher variance ($ \sigma = 1.5 $, cyan curve with circles) can only afford a smaller contract value of $ P_{S}^{CRCT \star} = 3.07 $. The red curve with diamonds stands for a coalition with a higher expected production $(\mu = 7)$, but with a very high unpredictability ($ \sigma = 5 $). For low values of $ \phi $, this coalition is thus heavily penalized and can only afford a contract of $ 0.59 $ units. Under grid policy $ (\phi = 0.1, P^{MIN} = 2) $, this last coalition is thus not allowed to enter the market (red dot below the horizontal dashed line).} }
+		\label{fig:Gaussian}
+	\end{center}
 \end{figure}
 
 This is the best contract value that the coalition S can afford for a given stability policy $\phi$ of the grid operator. Figure \ref{fig:Gaussian} shows how $ P_{S}^{CRCT \star} $ evolves according to the reliability parameter $ \phi $. For illustration, the range of $ \phi $ values is shown from 0 to 1, but in practice, only small values of $ \phi $ really make sense : $ \phi = 1 $ for instance means that coalitions can announce absolutely anything since the probability of producing less than any contract value is necessarily less than one by trivial definition of a probability. As visible on figure \ref{fig:Gaussian}, coalitions with high expected productions but presenting a high unpredictability are penalized and can only afford small contracts. The grid operator also specifies a lower bound $ P^{MIN} $ on the contract values as not to overload the market with unrealistic small coalitions. We thus characterized a valid coalition as one satisfying the two conditions :
@@ -241,7 +249,7 @@ This is the best contract value that the coalition S can afford for a given stab
 
 On figure \ref{fig:Gaussian}, $ P^{MIN} $ is fixed to 2 units for illustration purpose. For $ \phi = 0.1 $, only blue triangles and cyan circles coalitions are valid while red diamonds coalition is not.
 
-The Gaussian assumption of this small example is convenient as it allows us to write $ P_{S}^{CRCT \star} $ analytically. Nevertheless, such an assumption is rather unrealistic in practice. In the following, we keep the same framework but release this Gaussian assumption unless the contrary is specified (see eq. \ref{eq:alpha_star}). This assumption will indeed be convenient for computing some parameter estimates.
+The Gaussian assumption of this small example is convenient as it allows us to write $ P_{S}^{CRCT \star} $ analytically. Nevertheless, such an assumption is rather unrealistic in practice. In the following, we keep the same framework but release this Gaussian assumption unless the contrary is specified (see eq. \ref{eq:alpha_star}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -300,9 +308,11 @@ Which yields to the following expression for $ \alpha^{\star} $ (see Appendix) :
 Figure \ref{fig:mean_approx} shows how $ \alpha^{\star} $ and the utility function evolves according to the mean size of the coalitions $ \bar{N} $. As can be pointed out, the purpose of $ \mathcal{U} $ is not to study coalitions stability against player defection which could be done through game theory, nor to redistribute the coalition's utility in terms of individual payoffs. $ \mathcal{U} $ is rather designed as a quality measure for the coalitions.
 
 \begin{figure}
-\includegraphics[scale=.48]{./figs/figure_2}
-\caption{{\footnotesize Gaussian mean approximation ($N=100,\ \phi=0.1,\ \bar{\mu}=5,\ \bar{\sigma}=.5,\ \bar{\rho}=0.2 $). Subplot \textbf{a} shows how the parameter $ \alpha $ of the utility function should be chosen in function of the mean size of the coalitions (see equation \ref{eq:alpha_star}). Subplot \textbf{b} displays the corresponding utility functions for different values of $ \alpha $. Blue curve with diamonds favors small coalitions of 2 agents while the green one with triangles favors 5 agents coalitions. Finally, the red curve with squares has an optimal size of 15 agents.} }
-\label{fig:mean_approx}
+	\begin{center}
+		\includegraphics[scale=.46]{./figs/figure_2}
+		\caption{{\footnotesize Gaussian mean approximation ($N=100,\ \phi=0.1,\ \bar{\mu}=5,\ \bar{\sigma}=.5,\ \bar{\rho}=0.2 $). Subplot \textbf{a} shows how the parameter $ \alpha $ of the utility function should be chosen in function of the mean size of the coalitions (see equation \ref{eq:alpha_star}). Subplot \textbf{b} displays the corresponding utility functions for different values of $ \alpha $. Blue curve with diamonds favors small coalitions of 2 agents while the green one with triangles favors 5 agents coalitions. Finally, the red curve with squares has an optimal size of 15 agents.} }
+		\label{fig:mean_approx}
+	\end{center}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -333,9 +343,11 @@ In \cite{Garas2008} the structural roles of weak and strong links on financial c
 Nevertheless de-correlation seems like a more complex concept than correlation in the sense that there is not even a partial notion of transitivity when it comes to it. Therefore, the clustering coefficients of $ G_{1}^{\epsilon} $ is much higher than the one of $ G_{2}^{\epsilon} $. This can be seen as another formulation of \cite{Garas2008} on the structural roles of weak and strong links on financial correlation graphs. Strong links, accounting for strong correlation relationships, are responsible for the clustering, while weak links provide the connectivity between clusters. Searching for clusters in $ G_{2}^{\epsilon} $ and hoping that this strategy will provide a nice coalition structure of internally uncorrelated coalitions seems thus pointless. Consider now a clique in  $ G_{2}^{\epsilon} $, which is a complete subgraph of $ G_{2}^{\epsilon} $. Since there is a link for every pairs of nodes, we know, by construction, that a clique has a mean correlation and a maximum correlation less than $ \epsilon $. 
 
 \begin{figure}
-\includegraphics[scale=.48]{./figs/figure_3}
-\caption{{\footnotesize Histograms of utility values for coalitions of size 3 ($\bar{N}=3$) in a $N=200$ prosumers example ($\phi = 0.1$, $ \alpha^{\star} = 0.08 $, $ \bar{\mu}=3.9\ MW $, $\bar{\sigma} = 1.9 MW $, $ \bar{\rho} = 0.69 $). Red bars stand for cliques in the decorrelation graph, and blue bars for all the other possible triples. Cliques tend to exhibit higher utilities than random coalitions.}}
-\label{fig:histo_cliques}
+	\begin{center}
+		\includegraphics[scale=.46]{./figs/figure_3}
+		\caption{{\footnotesize Histograms of utility values for coalitions of size 3 ($\bar{N}=3$) in a $N=200$ prosumers example ($\phi = 0.1$, $ \alpha^{\star} = 0.08 $, $ \bar{\mu}=3.9\ MW $, $\bar{\sigma} = 1.9 MW $, $ \bar{\rho} = 0.69 $). Red bars stand for cliques in the decorrelation graph, and blue bars for all the other possible triples. Cliques tend to exhibit higher utilities than random coalitions.}}
+		\label{fig:histo_cliques}
+	\end{center}
 \end{figure}
 
 Figure \ref{fig:histo_cliques} shows the distributions of the utility values for cliques of size 3 (triangles) in $ G_{2}^{\epsilon^{\star}} $ and for all the other possible triplets of agents. It is clearly visible that cliques tend to exhibit higher utilities because of their de-correlation property. Choosing cliques in $ G_{2}^{\epsilon^{\star}} $ as coalitions seems therefore appealing. Nevertheless, the quality of the results seems to decrease as the sizes of the cliques increase. Indeed, the larger the desired cliques, the more dense $ G_{2}^{\epsilon^{\star}} $ becomes (see equation \ref{epsilon_star}). There is a point where cliques result more from noisy edges than true de-correlation, which decreases the quality of the results. Directly mapping cliques to coalitions by this de-correlation oriented approach is thus not sufficient. It is indeed possible that adding agents to these cliques has the combined effect of increasing the expected production while decreasing its stability. The question revolves around measuring the benefits of this production surplus compared to the disadvantage of having coalition with high volatility. This can be quantified by the marginal benefit in equation \ref{eq:marginal_benefit}.
@@ -370,19 +382,25 @@ The algorithm presented in the previous section is supposed to generate a given 
 
 
 Before running the algorithms, we need to calibrate the utility function by choosing the value of the $ \alpha $ parameter. Recall that the purpose of this parameter is to take into account some constraints on the coalition's sizes if needed. In this paper, we do not have any technical constraints on coalition sizes though we designed the utility such that these could be taken into account. We select the desired size as being $ \lfloor N/N_{COAL} \rfloor $ (where $ \lfloor.\rfloor $ means floor). Figure \ref{fig:real_utility2} shows how the mean utility of a coalition evolves with its size when the optimum size is set to 40 agents.
+
+
 \begin{figure}
-\includegraphics[scale=.48]{./figs/figure_4}
-\caption{{\footnotesize Utility of random coalitions depending on their size in a $N=200$ prosumers example ($\phi = .1$, $ \bar{\mu}=3.9\ MW $, $\bar{\sigma} = 1.9 MW $, $ \bar{\rho} = 0.69 $). Blue dots show real mean utility values and the thick red curve its smoothed version by applying a Savitzky-Golay filter. On this plot, $ \alpha^{\star} = 0.006 $, and was selected according to eq. \ref{eq:alpha_star} in order to favor $\bar{N} = 40$ agents coalitions.}}
-\label{fig:real_utility2}
+	\begin{center}
+		\includegraphics[scale=.46]{./figs/figure_4}
+		\caption{{\footnotesize Utility of random coalitions depending on their size in a $N=200$ prosumers example ($\phi = .1$, $ \bar{\mu}=3.9\ MW $, $\bar{\sigma} = 1.9 MW $, $ \bar{\rho} = 0.69 $). Blue dots show real mean utility values and the thick red curve its smoothed version by applying a Savitzky-Golay filter. On this plot, $ \alpha^{\star} = 0.006 $, and was selected according to eq. \ref{eq:alpha_star} in order to favor $\bar{N} = 40$ agents coalitions.}}
+		\label{fig:real_utility2}
+	\end{center}
 \end{figure}
 
 
 Figure \ref{fig:coalitions} shows the coalitions formed with the considered algorithms in the contract value / volatility space. The color map in the background indicates regions where we expect high utilities (red) and the ones where we expect very poor utility values (blue). The bottom right corner, with high contract values and low volatilities, is therefore the region where we wish to form our coalitions. A single coalition is represented by a marker and the color and shape of a marker indicates by which algorithm the coalition has been formed. Besides, the sizes of the coalitions are indicated on the markers, and the marker size is also proportional to the coalition size. We can see that the utility function results in approximatively balanced coalitions. Small yellow markers indicates the gravity centers of their respective coalition structures. The coalitions of correlated agents (green squares) are clearly of poor quality according to our criteria since they can only afford small production contracts, and with a very high volatility. The decorrelated coalitions (blue dots) are closer to the bottom right corner indicating a much better quality in term of productivity over volatility ratio. The black dotted line indicates the mean values for the random coalitions sampling technique. Each small dot stands for the mean position of all sampled coalitions of this given size. Variances are not indicated for readability, but are usually quite large since this sampling only takes the size as a constraint. We can see that as coalitions get larger, they tend to increase on average their contract values, but at the price of a higher volatility. The results of the random coalition structure sampling are shown with the red ellipses that represent the distribution of the gravity centers of the sampled structures. Since the center of the ellipses stands for the mean and each ellipse adds one standard deviation, more than $ 99\% $ of the sampled gravity centers are within the largest ellipse. The small yellow dot below the ellipses indicates the gravity center of our solution. It is thus visible that our greedy graph based algorithm is able to find a quite good coalition structure in terms of volatility and contract values.
 
 \begin{figure}
-\includegraphics[scale=.48]{./figs/figure_5}
-\caption{{\footnotesize Coalitions formed in the (contract value, volatility) space. The color map indicates the underlying quality. The closer to red the better (high contract values with small volatility). On the opposite, blue areas show poor quality (small contract values with high volatility). Blue dots stand for the decorrelated coalitions that we formed while green squares show correlated coalitions. The smaller yellow markers stand for the gravity centers of the coalition structures. The black dotted line shows how contract values and volatility evolve  when the size of the coalitions increases (a subset of the points are labeled by the size of the coalition they represent). Each point is the average over $ 10^{5} $ unconstrained draws of a random coalition. We also show the distribution of the gravity centers of random coalition structures with red ellipses (center is the mean, and each ellipse corresponds to one  standard deviation).}}
-\label{fig:coalitions}
+	\begin{center}
+		\includegraphics[scale=.46]{./figs/figure_5}
+		\caption{{\footnotesize Coalitions formed in the (contract value, volatility) space. The color map indicates the underlying quality. The closer to red the better (high contract values with small volatility). On the opposite, blue areas show poor quality (small contract values with high volatility). Blue dots stand for the decorrelated coalitions that we formed while green squares show correlated coalitions. The smaller yellow markers stand for the gravity centers of the coalition structures. The black dotted line shows how contract values and volatility evolve  when the size of the coalitions increases (a subset of the points are labeled by the size of the coalition they represent). Each point is the average over $ 10^{5} $ unconstrained draws of a random coalition. We also show the distribution of the gravity centers of random coalition structures with red ellipses (center is the mean, and each ellipse corresponds to one  standard deviation).}}
+		\label{fig:coalitions}
+	\end{center}
 \end{figure}
 
 A key point for the coalitions, besides stability and productivity, is their resilience. The resilience of a system refers to its ability to perform its tasks when subject to failures of its components. We consider here the case of random failures of the power electronics of some agents that has the consequence of preventing them from participating in the market. Therefore, the notion of resilience we will use in the following can be seen as the ability of the coalition structures to inject stable power in the grid when some of its internal agents are removed. According to our model, the grid operator specified two thresholds ($P^{MIN}$ and $ \phi $) such that the power injected by every coalition is constrained : $ P_{S}^{CRCT} \in [P^{MIN}, P_{S}^{CRCT \star}] $. As long as a coalition can propose a contract value higher than $ P^{MIN} $, it is valid and allowed to enter the energy market. We define the resilience of a coalition S as the probability that S produces more than the $ P^{MIN} $ threshold : $ \mathcal{R}_{S} = Pr[P_{S} >= P^{MIN}] = 1 - Pr[P_{S} < P^{MIN}] $. And we extend this measure to the coalition structures :
@@ -395,9 +413,11 @@ A key point for the coalitions, besides stability and productivity, is their res
 We consider that prosumers fail randomly, and we denote by $ \psi \in [0,1] $ the fraction of agents that failed. Figure \ref{fig:resilience} exhibits how the resilience of the coalition structures evolves according to $ \psi $ (see appendix section \textit{Resilience algorithm} for more details). On the top subplot, $ P^{MIN} $ was voluntarily selected relatively low such that the resiliences of the three structures fit on the same figure. When the $ P^{MIN} $ requirement increases, the differences between the algorithms also increase as visible on the bottom subplot of figure \ref{fig:resilience}. The decorrelated coalitions achieve a more resilient production on the market in the sense that they sustain a higher fraction of node failures.
 
 \begin{figure}
-\includegraphics[scale=.48]{./figs/figure_6}
-\caption{{\footnotesize Resilience of the coalition structures when nodes fail randomly (see equation \ref{eq:resilience}) for $ P^{MIN} = 10MW $ (top subplot) and $ P^{MIN} = 80MW $ (bottom subplot)} }
-\label{fig:resilience}
+	\begin{center}
+		\includegraphics[scale=.46]{./figs/figure_6}
+		\caption{{\footnotesize Resilience of the coalition structures when nodes fail randomly (see equation \ref{eq:resilience}) for $ P^{MIN} = 10MW $ (top subplot) and $ P^{MIN} = 80MW $ (bottom subplot)} }
+		\label{fig:resilience}
+	\end{center}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
