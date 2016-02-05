@@ -251,39 +251,74 @@ The following algorithm (see algorithm \ref{alg:algo4}) explains the process thr
 
 We have the following utility function (see main article) that attributes a real value to any coalition S depending on the best contract value that S can propose given the grid policy $ (P^{MIN},\phi)$ : 
 
-\[ U(S) = \frac{1}{|S|^{\alpha}} \frac{ P_S^{CRCT \star} }{P^{MAX}} \]
+\begin{equation}
+	U(S) = \frac{1}{|S|^{\alpha}} \frac{ P_S^{CRCT \star} }{P^{MAX}}
+\end{equation}
 
-$ U $ depends on the specific agents within the coalition S because $ P_S^{CRCT \star} $ is directly impacted by the correlations between the agents. $ U $ is also sensitive to the size of the coalition S through the term $ \frac{1}{|S|^{ \alpha } } $. The purpose of this term is to introduce in the utility function the following tradeoff : as a coalition grows, its contract value tends to grow as well but the cost of coordinating all the agents also becomes larger. The parameter $ \alpha $ is used in order to control to what extend the size of the coalition impacts its utility.
+$ U $ depends on the specific agents within the coalition S because $ P_S^{CRCT \star} $ is directly impacted by the correlations between the agents. $ U $ is also sensitive to the size of the coalition S through the term $ \frac{1}{|S|^{ \alpha } } $. The purpose of this term is to introduce in the utility function the following tradeoff : as a coalition grows, its contract value $ P_S^{CRCT \star} $ tends to grow as well but the cost of coordinating all the agents also becomes larger. The parameter $ \alpha $ is used in order to control to what extend the size of the coalition impacts its utility.
 
-Knowing what value to use for $ \alpha $ is not trivial and is important since it influences the shape of the utility function. For some range of values, the utility might not even be a concave function of the coalition size. Given a situation with N agents and a desired number of coalitions $ N_{COAL}$, we want to obtain some estimation of $ \alpha $ such that the utility function is concave, and such that the maximum lies around a desired size $ \bar{N} = \frac{N}{N_{COAL}} $. We thus target a local maximum in this balanced region of the space by shaping the utility function through $ \alpha$.
+Knowing what value to use for $ \alpha $ is not trivial and is important since it influences the shape of the utility function. For some range of values, the utility might not even be a concave function of the coalition size. Given a situation with N agents and a desired number of coalitions $ N_{COAL}$, the algorithm \ref{alg:algo1} will start with $ N_{COAL} $ seeds and increase their sizes as long as the utilities are improved. The order through which coalitions incorporate new prosumers is randomized but leads generally to relatively balanced coalitions. We denote by $ \bar{N} $ the desired approximate final size of the coalitions, i.e we target a utility function that is concave in the coalition size with a maximum at $ \bar{N} $ (in the article, $ \bar{N} $ is fixed at $\frac{N}{N_{COAL}}$). We propose to obtain such utility function through tunning $\alpha $. Ideally, we seek to express $ \alpha $ as a function of $ \bar{N} $ and the agents power distributions and correlations.
 \\
-In order to obtain an analytical expression for $ \alpha $, we use two simplifying assumptions. First, we consider the distributions to be normal distributions, such that the optimal contract value can be written in the following way :
+In the general case, neither the power distributions nor the correlation structure have special forms which makes obtaining an analytical expression for $ \alpha $ difficult. Therefore we use two simplifying assumptions in order to have an estimate for $ \alpha $. First, we approximate the power distributions by normal distributions, such that the optimal contract value can be written in the following way :
 
-\[ P_S^{CRCT \star } = \mu_S - \sqrt{2} \sigma_S erf^{-1}(1 - 2 \phi) \]
-
-Therefore, we can writte the utility function as :
-
-\[ U(S) = \frac{1}{|S|^{\alpha} P^{MAX} } \left[ \mu_S - \sqrt{2} \sigma_S erf^{-1}(1 - 2 \phi) \right] \]
+\begin{equation}
+	P_S^{CRCT \star } = \mu_S - \sqrt{2} \sigma_S erf^{-1}(1 - 2 \phi)
+\end{equation}
 
 With : 
 
-\[ \left\{ \begin{array}{lll} \mu_{S} = \sum_{i \in S} \mu_i \\ \sigma_{S} = \sqrt{ \sum_{i \in S} \sigma_i^2 + 2 \sum_{i} \sum_{j} \rho_{ij} \sigma_i \sigma_j } \end{array} \right. \]
+\begin{equation}
+	\left\{ \begin{array}{lll} \mu_{S} = \sum_{i \in S} \mu_i \\ \sigma_{S} = \sqrt{ \sum_{i \in S} \sigma_i^2 + 2 \sum_{i} \sum_{j} \rho_{ij} \sigma_i \sigma_j } \end{array} \right.
+\end{equation}
 
-We then make a second assumption for simplifying this expression : we consider that :
 
-\[ \left\{ \begin{array}{lll} \forall i \in \mathcal{A}\ \mu_i = \bar{ \mu } = \frac{1}{N} \sum_{i \in \mathcal{A}} \mu_i  \\ \forall i \in \mathcal{A}\ \sigma_i = \bar{ \sigma } = \frac{1}{N} \sum_{i \in \mathcal{A}} \sigma_i \\ \forall i,j \in \mathcal{A}^2\  \rho_{ij} = \bar{ \rho } = \frac{2}{N(N-1)} \sum_{i \in \mathcal{A}} \sum_{j \in \mathcal{A}} \rho_{ij} \end{array} \right.\]
+Therefore, we can write the utility function as :
+
+\begin{equation}
+	U(S) = \frac{1}{|S|^{\alpha} P^{MAX} } \left[ \mu_S - \sqrt{2} \sigma_S erf^{-1}(1 - 2 \phi) \right]
+\end{equation}
+
+As $ \mu_S $ and $ \sigma_S $ depends on the agents in S (and consequently on the size of S), we make a second simplifying assumption :
+
+\begin{equation}
+	\left\{ \begin{array}{lll} \forall i \in \mathcal{A}\ \mu_i = \bar{ \mu } = \frac{1}{N} \sum_{i \in \mathcal{A}} \mu_i  \\ \forall i \in \mathcal{A}\ \sigma_i = \bar{ \sigma } = \frac{1}{N} \sum_{i \in \mathcal{A}} \sigma_i \\ \forall i,j \in \mathcal{A}^2\  \rho_{ij} = \bar{ \rho } = \frac{2}{N(N-1)} \sum_{i \in \mathcal{A}} \sum_{j \in \mathcal{A}} \rho_{ij} \end{array} \right.
+\end{equation}
 
 That is, any agent is replaced by a mean approximation. In these conditions, we have :
 
-\[ U(S) = \frac{ \bar{ \mu } }{ |S|^{\alpha -1} P^{MAX} } - \frac{ \sqrt(2) \bar{ \sigma } }{ |S|^{\alpha} P^{MAX} } \sqrt{|S| + \bar{ \rho } |S| ( |S| - 1 ) } \]
+\begin{equation}
+	\left\{ \begin{array}{lll} 
+				\mu_S = |S| \bar{\mu} \\
+				\sigma_S = \bar{\sigma} \sqrt{|S| \left[ 1 + \bar{\rho} (|S|-1) \right] }	
+	\end{array} \right.
+\end{equation}
 
-$ \bar{ \mu },\ \bar{ \sigma },\ \bar{ \rho }, and\ P^{MAX} $ are all constants in these very particular conditions, such that U is a function of the coalition size with a parameter $ \alpha $. Depending on $ \alpha $ (and $ \bar{ mu },\ \bar{ \sigma },\ \bar{ rho }, and\ P^{MAX} $), the utility function can have very different shapes.
+And the utility function becomes :
+
+\begin{equation}
+	U(S) = \frac{ \bar{ \mu } }{ |S|^{\alpha -1} P^{MAX} } - \frac{ \sqrt(2) \bar{ \sigma } }{ |S|^{\alpha} P^{MAX} } \sqrt{|S| + \bar{ \rho } |S| ( |S| - 1 ) }
+\end{equation}
+
+$ \bar{ \mu },\ \bar{ \sigma },\ \bar{ \rho }, and\ P^{MAX} $ are all constants in these very particular conditions, such that U is a function of the coalition size with a parameter $ \alpha $. Depending on $ \alpha $, the utility function can have very different shapes.
 \\
-We find $\alpha^{\star} $ by solving :
+We select $\alpha^{\star} $ such that :
 
-\[ \left\{ \begin{array}{lll} \left| \frac{ \partial U }{ \partial |S| } \right|_{|S|=\bar{N}} = 0 \\ \left| \frac{ \partial^2 U }{ \partial |S|^2 } \right|_{\alpha = \alpha^{\star}} \leq 0 \end{array} \right. \]  
+\begin{equation}
+	\left\{ \begin{array}{lll} \left| \frac{ \partial U }{ \partial |S| } \right|_{|S|=\bar{N}} = 0 \\ \left| \frac{ \partial^2 U }{ \partial |S|^2 } \right|_{\alpha = \alpha^{\star}} \leq 0 \end{array} \right.
+\end{equation}
 
-Solving this equation with a formal calculus software yields the equation of the paper.
+Solving these equations yields the following expression :
+
+\begin{equation}
+	\begin{tiny}
+		\alpha^{\star} ( \bar{N} ) = \dfrac{0.7 \bar{\sigma}(\bar{\rho}-1)erf^{-1}(2 \phi - 1)}{\bar{\mu}\sqrt{\bar{N}(\bar{\rho}\bar{N}-\bar{\rho}+1)}+1.4 \bar{\sigma} erf^{-1} (2 \phi -1 ) (\bar{\rho}\bar{N}-\bar{\rho} + 1)} 
+	\end{tiny}
+\end{equation}
+
+Since $ \alpha^{\star} ( \bar{N} ) $ is obtained for a simplified case derived from the real situation, it should be considered as a soft constraint on the coalitions sizes.
+
+Using such an approach on 100 prosumers examples with $N_{COAL} = 4 $ and $\bar{N}=25$ results in coalitions which sizes are comprised between 17 and 34 agents.
+
 
 \bibliographystyle{IEEEtran}  
 \bibliography{Article}

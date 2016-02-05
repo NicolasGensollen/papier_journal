@@ -285,7 +285,7 @@ If $ \alpha = 0 $, agents are added as long as they increase the contract value 
 
 In real situations, the shape of such utility function might be complex with numerous local maximums. We choose in this paper to favor the exploration of the space around balanced regions, i.e regions where coalitions sizes are relatively balanced. Therefore, we use $ \alpha $ as a proxy for having both a concave utility function and preferences in the search space. Given a situation with N prosumers and $ N_{COAL} $ desired coalitions, we wish to select $ \alpha $ such that the utility function tend to favor coalitions of approximately $ \bar{N}=N/N_{COAL} $ agents.
 
-In the general case where distributions and correlation structures have no special form, finding an analytical expression for $ \alpha $ appears complicated. To overcome this problem, we express $ \alpha $ in a simplified situation where all power distributions are approximated by normal distributions and all prosumers are considered equivalent to a mean agent : $ \forall i \in \mathcal{A},\ P_i \sim \mathcal{N}(\bar{\mu}, \bar{\sigma}) $, where $ \bar{\mu} = \frac{1}{N} \sum_{i \in \mathcal{A}} \mu_i $, $ \bar{ \sigma } = \frac{1}{N} \sum_{i \in \mathcal{A}} \sigma_i $, and $\forall i,j,\ \rho_{ij} = \bar{\rho} $. In this simplified case, we can express the utility as a function of $ \bar{\mu} $, $ \bar{\sigma} $, $\bar{\rho} $, $ \bar{N} $, and $ \alpha $ (see Appendix for more details). We select $ \alpha^{\star} $ such that :
+In the general case where distributions and correlation structures have no special form, finding an analytical expression for $ \alpha $ appears complicated. To overcome this problem, we seek an approximation for $ \alpha $ in a simplified situation where all power distributions are approximated by normal distributions and all prosumers are considered equivalent to a mean agent : $ \forall i \in \mathcal{A},\ P_i \sim \mathcal{N}(\bar{\mu}, \bar{\sigma}) $, where $ \bar{\mu} = \frac{1}{N} \sum_{i \in \mathcal{A}} \mu_i $, $ \bar{ \sigma } = \frac{1}{N} \sum_{i \in \mathcal{A}} \sigma_i $, and $\forall i,j,\ \rho_{ij} = \bar{\rho} $. In this simplified case, we can express the utility as a function of $ \bar{\mu} $, $ \bar{\sigma} $, $\bar{\rho} $, $ \bar{N} $, and $ \alpha $ (see Appendix for more details). We then select $ \alpha^{\star} $ such that :
 
 \begin{equation}
 \left\{ \begin{array}{lll}
@@ -296,7 +296,7 @@ In the general case where distributions and correlation structures have no speci
 \label{eq:derivative}
 \end{equation}
 
-Which yields to the following expression for $ \alpha^{\star} $ (see Appendix) :
+Which leads to the following expression for $ \alpha^{\star} $ (see Appendix) :
 
 \footnotesize
 \begin{equation}
@@ -305,7 +305,8 @@ Which yields to the following expression for $ \alpha^{\star} $ (see Appendix) :
 \end{equation}
 \normalsize
 
-Figure \ref{fig:mean_approx} shows how $ \alpha^{\star} $ and the utility function evolves according to the mean size of the coalitions $ \bar{N} $. As can be pointed out, the purpose of $ \mathcal{U} $ is not to study coalitions stability against player defection which could be done through game theory, nor to redistribute the coalition's utility in terms of individual payoffs. $ \mathcal{U} $ is rather designed as a quality measure for the coalitions.
+Figure \ref{fig:mean_approx} shows how $ \alpha^{\star} $ and the utility function evolves according to the mean size of the coalitions $ \bar{N} $. Given a policy $ (\phi, P^{MIN} ) $ and a pool of N prosumers, we are now able to quantify the quality of any coalition S.
+
 
 \begin{figure}
 	\begin{center}
@@ -322,7 +323,7 @@ Figure \ref{fig:mean_approx} shows how $ \alpha^{\star} $ and the utility functi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Coalition Formation}
 \label{sec:forming}
-Section \ref{sec:notations} explained how contract values for the coalitions are computed, and in section \ref{sec:utility} we related this quantity to the utility and gains of a coalition. Since the computation time of this quantity is not negligible, we derive in this section the heuristic we used to form the coalitions structure. 
+We aim at forming $ N_{COAL} $ coalitions $ \{ S_1;S_2;...;S_{N_{COAL}} \} $ such that the global utility $ U = \sum_{i = 1}^{N_{COAL}} \mathcal{U}(S_i) $ is maximized. Since achieving such a goal is a well-known hard problem due to the combinatorial explosion in the number of possible aggregations, we propose in this section a greedy heuristic using decorrelation graphs to solve the problem.
 
 \subsection{Representing the correlation structure}
 As seen in section \ref{sec:notations}, the variance of the aggregated production impacts directly the contract values, and depends on the covariances between the agents productions. We argue here that, by having some representation of the correlation structure between the agents, the search landscape for high utility coalitions could be reduced, such that good coalitions are more likely to be found quickly. Usually, this correlation structure is formalized with a covariance matrix or a correlation matrix that contains all the correlation coefficients between the agents : $ M = (\rho_{ij})_{\forall i,j \in \mathcal{A}^{2}}$. By using a metric to map this matrix in a weighted adjacency matrix (see section \ref{sec:related}), it is possible to obtain a graph representation of the correlation relationships between the agents. In the following, we use two opposite distance metrics $  d_{ij}^{1} = 1 - \rho_{ij}^{2} $ and $ d_{ij}^{2} = \rho_{ij}^{2} = 1 - d_{ij}^{1} $.
