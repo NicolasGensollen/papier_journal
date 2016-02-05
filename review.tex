@@ -1,0 +1,163 @@
+\documentclass{letter}
+\makeatletter
+\newenvironment{thebibliography}[1]
+     {\list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\usepackage[]{algorithm2e}
+\newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
+\makeatother
+\signature{Vincent Gauthier}
+\address{Vincent Gauthier \\ Institut Mines Telecom \\ Nano Innov, Saclay \\ France}
+\begin{document}
+
+\begin{letter}{Dr. Jianhui Wang \\ Editor-in-Chief \\ Journal Transactions on Smart Grid } % Addressee name and address
+
+
+\opening{ Dear Dr. Jianhui Wang,}
+
+
+The authors would like to thank you for giving us the opportunity to revise and resubmit this manuscript. We resubmit this revision before the agreed upon deadline, March 29, 2016. We appreciate the time and details provided by each reviewer and by you and have incorporated the suggested changes into the manuscript to the best of our ability. The manuscript has certainly benefited from these insightful revision suggestions.
+
+
+See bellow our replies to the reviewers’ comments:
+
+
+\begin{itemize}
+
+	\item \textbf{Reviewer: 1}
+
+Thank you for addressing my comments and suggestions, the revised manuscript is improved and I have no more questions/comments. I recommend this paper for publication in IEEE Transactions on Smart Grid.
+
+	\item \textbf{Reviewer: 2}
+
+The paper has been further improved, but several unclear points remain. These are listed next, but a general comment is that the contents of Sections V and VI are not developed in a clear manner, and the link between the two sections is hardly described.
+	\begin{itemize}
+	
+		\item The development following eq. (12) until the end of Section V is very confusing. Here are some of the confusing points, but overall, the previously mentioned part needs lots of explanations. Do all coalitions have the same size? (It seems yes, based on $ \bar{N} $, but this seems to be an unjustified arbitrary choice.) What is the logic behind the derivative in (13)? The utility depends on the members of the coalition. In other words, two coalitions of the same size may have different utilities, depending on the correlations between the participating prosumers. Thus taking the derivative to be zero does not seem to be the correct approach to maximize the utility. Which quantities are replaced by their mean values? In a system with N prosumers, there is a correlation matrix of dimension N x N. Is it implied that all pairwise correlations in this matrix are substituted by $ \bar{rho} $ ? The derivation and all symbols of eq. (14) must be explained. Is it always the case that the utility is a concave function of the number of agents, as depicted in Fig. 4? (It seems very unlikely.)
+\\
+
+\textbf{Answer :} The end of section V is devoted to propose a method to select the parameter $ \alpha $ properly. The purpose of this parameter is to introduce in the utility function the following tradeoff : as a coalition grows, its contract value tends to grow as well but the cost of coordinating all the agents also becomes larger. We wish to obtain a concave function in the coalition size such that adding agents increases the utility in the begining of the process while showing diminishing returns after a given point. Therefore, we select $ \alpha $ such that the utility is concave and exhibits a maximum "around" (because $ \alpha $ is selected based on approximations) $\bar{N} $. The resulting coalitions do not have strictly the same size but tend to partition agents in relatively balanced groups. As pointed by the reviewer, agents do not increase the utility of a coalition by the same amount (see $P_S^{CRCT \star}$), but the size cost incurred do not depend on the agents.
+
+
+We agree with the reviewer that this part of the paper may lack some precisions. We therefore reformulated this part of the paper as well as the transition from part V to part VI. Because of space limitation, we also added more precisions about the utility function to the appendix (see the "\textit{utility function}" section of the appendix). For convenience we summurize this section here :
+\\
+We have the following utility function that attributes a real value to any coalition S depending on the best contract value that S can propose given the grid policy $ (P^{MIN},\phi)$ : 
+
+\[ U(S) = \frac{1}{|S|^{\alpha}} \frac{ P_S^{CRCT \star} }{P^{MAX}} \]. 
+
+We completely agree with the reviewer that this utility function depends on the specific agents within the coalition S. Nevertheless, the utility is also sensitive to the size of the coalition it evaluates, and this effect is tunned through the $ \alpha $ parameter. The purpose of this parameter is to introduce in the utility function the following tradeoff : as a coalition grows, its contract value tends to grow as well but the cost of coordinating all the agents also becomes larger. 
+
+
+However, knowing what value to use for $ \alpha $ is not trivial and it is important since it influences the shape of the utility function. As mentionned by the reviewer, for some range of values, the utility might not even be a concave function of the coalition size. Given a situation with N agents and a desired number of coalitions $ N_{COAL}$, we want to obtain some estimation of this $ \alpha $ parameter such that the utility function is concave, and such that the maximum lies around a desired size $ \bar{N} = \frac{N}{N_{COAL}} $. We thus target a local maximum in this balanced region of the space by shaping the utility function through $ \alpha$. In other words, we want to favor structures of balanced coalitions such that, if we have, for instance, 100 agents and we desire 4 coalitions, the algorithm will tend to form coalitions around 25 agents each (but not necessarilly all equals to 25). We agree that this choice is debatable since a completely unbalanced structure with 97 agents in one coalition and 3 other coalitions of 1 agent each could perhaps achieve a better global utility if we were not using $\alpha$. Nevertheless, we believe that such cases could lead to potentially risky aggregations of agents.
+\\
+As stated above, we want an approximation for $ \alpha $ such that we use 2 simplifying assumptions as to obtain an analytical expression for it.
+\\
+First, we consider the distributions to be normal distributions (as in the case introduced in the previous section), such that the optimal contract value can be written in the following way :
+
+\[ P_S^{CRCT \star } = \mu_S - \sqrt{2} \sigma_S erf^{-1}(1 - 2 \phi) \]
+
+Therefore, we can writte the utility function as :
+
+\[ U(S) = \frac{1}{|S|^{\alpha} P^{MAX} } \left[ \mu_S - \sqrt{2} \sigma_S erf^{-1}(1 - 2 \phi) \right] \]
+
+With : 
+
+\[ \left\{ \begin{array}{lll} \mu_{S} = \sum_{i \in S} \mu_i \\ \sigma_{S} = \sqrt{ \sum_{i \in S} \sigma_i^2 + 2 \sum_{i} \sum_{j} \rho_{ij} \sigma_i \sigma_j } \end{array} \right. \]
+
+We then make a second strong assumption for simplifying this expression : we consider that :
+
+\[ \left\{ \begin{array}{lll} \forall i \in \mathcal{A}\ \mu_i = \bar{ \mu } = \frac{1}{N} \sum_{i \in \mathcal{A}} \mu_i  \\ \forall i \in \mathcal{A}\ \sigma_i = \bar{ \sigma } = \frac{1}{N} \sum_{i \in \mathcal{A}} \sigma_i \\ \forall i,j \in \mathcal{A}^2\  \rho_{ij} = \bar{ \rho } = \frac{2}{N(N-1)} \sum_{i \in \mathcal{A}} \sum_{j \in \mathcal{A}} \rho_{ij} \end{array} \right.\]
+
+That is, any agent is replaced by a mean approximation. In these conditions, we have :
+
+\[ U(S) = \frac{ \bar{ \mu } }{ |S|^{\alpha -1} P^{MAX} } - \frac{ \sqrt(2) \bar{ \sigma } }{ |S|^{\alpha} P^{MAX} } \sqrt{|S| + \bar{ \rho } |S| ( |S| - 1 ) } \]
+
+$ \bar{ \mu },\ \bar{ \sigma },\ \bar{ \rho }, and\ P^{MAX} $ are all constants in these very particular conditions, such that U is a function of the coalition size with a parameter $ \alpha $. Depending on $ \alpha $ (and $ \bar{ mu },\ \bar{ \sigma },\ \bar{ rho }, and\ P^{MAX} $), the utility function can have very different shapes.
+\\
+We find $\alpha^{\star} $ by solving :
+
+\[ \left\{ \begin{array}{lll} \left| \frac{ \partial U }{ \partial |S| } \right|_{|S|=\bar{N}} = 0 \\ \left| \frac{ \partial^2 U }{ \partial |S|^2 } \right|_{\alpha = \alpha^{\star}} \leq 0 \end{array} \right. \]  
+
+Solving this equation with a formal calculus software yields the equation of the paper.
+\\
+Please note, that we do not solve the coalition problem by taking the derivative of the utility function to be zero, we only use this in order to obtain a reasonable guess for $ \alpha $.
+\\
+
+		\item It would be very helpful if the numerical example that Fig. 4 is based on is fully described. How many prosumers are considered? What is their correlation?
+		
+		\textbf{Answer :} We added information in the caption of figure 4. The curves are plotted for a situation with $N=100$ prosumers and $ \phi = 0.1 $, such that $ \bar{\mu} = 5 $, $ \bar{\sigma} = 0.5 $, and $ \bar{\rho} = 0.2 $. 
+
+
+		\item What is the connection between Sections V and VI?
+		
+		\textbf{Answer :} We present in section VI the method used in order to optimize the utility function presented in section V.
+
+		\item Why is the correlation graph introduced in Section VI? It appears that all developments are actually utilizing the decorrelation graph.
+		\textbf{Answer :} We introduced the concept of decorrelation graphs in section VI by first citing existing works on correlation graphs. Furthermore, we use correlation graphs as a comparison with our method (see "correlated coalitions" in  the results section). 
+		
+		\item The last sentence of Section VI-A is confusing.
+		
+		\textbf{Answer :} We removed this sentence from the paper.
+
+		\item The numerical setup used to generate Fig. 5 needs to be explained.
+		
+		\textbf{Answer :} We added information in the caption of figure 5. The histograms show utility values for triplets (triangles of decorrelation graph in red, other triplets in blue). The total number of prosumer is $N=200$. $ \phi = 0.1 $, $ \bar{\mu} = 3.9 $MW, $ \bar{\sigma} = 1.9 $MW, $ \bar{\rho} = 0.69 $, $\alpha^{\star} = 0.08 $. 
+
+		\item Are the clusters produced by the algorithms in Section VI sensitive to the selected parameters $ N_{COAL} $ and k?
+		
+		\textbf{Answer :} The clusters are sensible to $ N_{COAL} $ (number of coalitions).
+
+		\item The numerical setup for Fig. 6 must be explained. In particular, how are real data mapped to the quantities of eq. (14)?
+		
+		\textbf{Answer :} We added information in the caption of figure 6. The total number of prosumer is $N=200$, $ \phi = 0.1 $, $ \bar{\mu} = 3.9 $MW, $ \bar{\sigma} = 1.9 $MW, $ \bar{\rho} = 0.69 $. On this figure, we show an example where $ \bar{N} = 40 $, such that $ \alpha^{\star} = 0.006$ from eq. 14.
+
+
+	\end{itemize}
+
+	\item \textbf{Reviewer: 3}
+	
+The revised version of the paper has been improved significantly. However, some questions are from the reviewers are still not addressed completely and need further clarification as follows:
+
+	\begin{itemize}
+	
+		\item Scientifically, you can neglect the agent freedom to choose what coalition to join. However, an active end-user would not join this demand response program, unless a suitable collective incentive will be created. As mentioned, some game-theory frameworks, such as [1], can be an option that should be referred in the related work section for the sake of completeness.
+
+		\item In the related work section, two first paragraphs and citied works there are not much relevant to this research, while some relevant works are missing (as mentioned with game-theory, but can be other methods).
+
+		\item Making a good order of references, i.e. you start with Introduction part and ref [5].
+
+		\textbf{Answer :}  We followed the advices of the reviewer by incorporating the suggested reference, and making a better order of references.
+		
+		\item It is a bit confuse to mention that grid operator plays a role to in the market system. Are you considering grid operator as a balance responsible party who contributes to solve the imbalance of the whole system? And what a coalition can offer here is an optimal portfolio for such party to minimize the risk of having over/under-production/consumption?!
+		
+		\textbf{Answer :} In this work, the grid operator is only responsible for selecting the minimum production threshold $P^{MIN}$ and the reliability threshold $ \phi $ whom coalitions should comply with. Furthermore, the consumption production balance over the grid is not addressed here. We indeed focus on the formation of productive coalitions that propose some production capacity over a period of time. In a more complex and maybe more realistic framework, we could imagine that these parameters ($P^{MIN}$ and $ \phi $) are selected by some market process, or that the electricity price depends on the uncertainty of the production, such that power from unreliable coalitions is cheaper than power from reliable ones. 
+
+		
+		\item At this stage, the research shows a nice and promising mathematical method. However, it misses in the validation part a more realistic use case/scenario to test. At least, a better link between between the proposed model to the possible considered test system should be there.
+		
+		\textbf{Answer :} In this work, we used real weather data as to be confronted with the problems that come with it (noise, non-gaussianity, and so on...). However, prosumers are not configured according to real data (their positions, number of DER owned and so on are drawn from random distributions). A more realistic work would perhaps incorporate to this model data from real aggregators and market conditions. Some information concerning the European market and wind power can be found in \cite{Europe}. However, we believe that such improvements would require extensive work and is out of the scope of this paper. We added the following text to the end of the conclusion : 
+		
+		"\textit{A possible direction for future work could be to use, in addition to real weather data, data from energy markets and aggregators as to propose a prosumer aggregation model closer to real conditions}".
+		
+
+	\end{itemize}
+	
+\end{itemize}
+\bibliographystyle{unsrt}
+\bibliography{review}
+
+\end{letter}
+\end{document}

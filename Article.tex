@@ -285,7 +285,7 @@ If $ \alpha = 0 $, agents are added as long as they increase the contract value 
 
 In real situations, the shape of such utility function might be complex with numerous local maximums. We choose in this paper to favor the exploration of the space around balanced regions, i.e regions where coalitions sizes are relatively balanced. Therefore, we use $ \alpha $ as a proxy for having both a concave utility function and preferences in the search space. Given a situation with N prosumers and $ N_{COAL} $ desired coalitions, we wish to select $ \alpha $ such that the utility function tend to favor coalitions of approximately $ \bar{N}=N/N_{COAL} $ agents.
 
-In the general case where distributions and correlation structures have no special form, finding an analytical expression for $ \alpha $ appears complicated. To overcome this problem, we seek an approximation for $ \alpha $ in a simplified situation where all power distributions are approximated by normal distributions and all prosumers are considered equivalent to a mean agent : $ \forall i \in \mathcal{A},\ P_i \sim \mathcal{N}(\bar{\mu}, \bar{\sigma}) $, where $ \bar{\mu} = \frac{1}{N} \sum_{i \in \mathcal{A}} \mu_i $, $ \bar{ \sigma } = \frac{1}{N} \sum_{i \in \mathcal{A}} \sigma_i $, and $\forall i,j,\ \rho_{ij} = \bar{\rho} $. In this simplified case, we can express the utility as a function of $ \bar{\mu} $, $ \bar{\sigma} $, $\bar{\rho} $, $ \bar{N} $, and $ \alpha $ (see Appendix for more details). We then select $ \alpha^{\star} $ such that :
+In the general case where distributions and correlation structures have no special form, finding an analytical expression for $ \alpha $ appears complicated. To overcome this problem, we seek an approximation for $ \alpha $ in a simplified situation where all power distributions are approximated by normal distributions and all prosumers are considered equivalent to a mean agent : $ \forall i \in \mathcal{A},\ P_i \sim \mathcal{N}(\bar{\mu}, \bar{\sigma}) $, where $ \bar{\mu} = \frac{1}{N} \sum_{i \in \mathcal{A}} \mu_i $, $ \bar{ \sigma } = \frac{1}{N} \sum_{i \in \mathcal{A}} \sigma_i $, and $\forall i,j,\ \rho_{ij} = \bar{\rho} $. In this simplified case, we can express the utility as a function of $ \bar{\mu} $, $ \bar{\sigma} $, $\bar{\rho} $, $ \bar{N} $, and $ \alpha $ (see Appendix). We then select $ \alpha^{\star} $ such that :
 
 \begin{equation}
 \left\{ \begin{array}{lll}
@@ -296,7 +296,7 @@ In the general case where distributions and correlation structures have no speci
 \label{eq:derivative}
 \end{equation}
 
-Which leads to the following expression for $ \alpha^{\star} $ (see Appendix) :
+Which leads to (see Appendix) :
 
 \footnotesize
 \begin{equation}
@@ -345,7 +345,7 @@ Nevertheless de-correlation seems like a more complex concept than correlation i
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=.46]{./figs/figure_3}
+		\includegraphics[scale=.45]{./figs/figure_3}
 		\caption{{\footnotesize Histograms of utility values for coalitions of size 3 ($\bar{N}=3$) in a $N=200$ prosumers example ($\phi = 0.1$, $ \alpha^{\star} = 0.08 $, $ \bar{\mu}=3.9\ MW $, $\bar{\sigma} = 1.9 MW $, $ \bar{\rho} = 0.69 $). Red bars stand for cliques in the decorrelation graph, and blue bars for all the other possible triples. Cliques tend to exhibit higher utilities than random coalitions.}}
 		\label{fig:histo_cliques}
 	\end{center}
@@ -387,7 +387,7 @@ Before running the algorithms, we need to calibrate the utility function by choo
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=.46]{./figs/figure_4}
+		\includegraphics[scale=.45]{./figs/figure_4}
 		\caption{{\footnotesize Utility of random coalitions depending on their size in a $N=200$ prosumers example ($\phi = .1$, $ \bar{\mu}=3.9\ MW $, $\bar{\sigma} = 1.9 MW $, $ \bar{\rho} = 0.69 $). Blue dots show real mean utility values and the thick red curve its smoothed version by applying a Savitzky-Golay filter. On this plot, $ \alpha^{\star} = 0.006 $, and was selected according to eq. \ref{eq:alpha_star} in order to favor $\bar{N} = 40$ agents coalitions.}}
 		\label{fig:real_utility2}
 	\end{center}
@@ -398,7 +398,7 @@ Figure \ref{fig:coalitions} shows the coalitions formed with the considered algo
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=.46]{./figs/figure_5}
+		\includegraphics[scale=.45]{./figs/figure_5}
 		\caption{{\footnotesize Coalitions formed in the (contract value, volatility) space. The color map indicates the underlying quality. The closer to red the better (high contract values with small volatility). On the opposite, blue areas show poor quality (small contract values with high volatility). Blue dots stand for the decorrelated coalitions that we formed while green squares show correlated coalitions. The smaller yellow markers stand for the gravity centers of the coalition structures. The black dotted line shows how contract values and volatility evolve  when the size of the coalitions increases (a subset of the points are labeled by the size of the coalition they represent). Each point is the average over $ 10^{5} $ unconstrained draws of a random coalition. We also show the distribution of the gravity centers of random coalition structures with red ellipses (center is the mean, and each ellipse corresponds to one  standard deviation).}}
 		\label{fig:coalitions}
 	\end{center}
@@ -415,7 +415,7 @@ We consider that prosumers fail randomly, and we denote by $ \psi \in [0,1] $ th
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[scale=.46]{./figs/figure_6}
+		\includegraphics[scale=.45]{./figs/figure_6}
 		\caption{{\footnotesize Resilience of the coalition structures when nodes fail randomly (see equation \ref{eq:resilience}) for $ P^{MIN} = 10MW $ (top subplot) and $ P^{MIN} = 80MW $ (bottom subplot)} }
 		\label{fig:resilience}
 	\end{center}
@@ -429,7 +429,7 @@ We consider that prosumers fail randomly, and we denote by $ \psi \in [0,1] $ th
 \section{Conclusion}
 \label{sec:conclusion}
 
-In this paper we studied how aggregations of prosumers could be authorized to sell their surplus of production to the grid operator. By relying on the past values of the agents, we constrained the market entry to both sufficiently productive and stable coalitions. The power that a coalition is able to propose on the market is therefore related to production and stability. The correlations between the prosumers impact directly the volatility of the coalitions, which led us to seek uncorrelated aggregations of agents. We used a graph representation of the correlation relationships between the agents as a reduced landscape for the coalition formation. A greedy algorithm that starts with cliques of the "de-correlation" graph of the agents and makes local improvements offers a good compromise between speed and quality of the results. We compared these results with random samplings, and an opposite strategy that clusters correlated agents together. We showed that the coalitions resulting from our algorithm are able to provide more power to the grid with a lower volatility. Because of their better production over volatility ratios, these coalitions will tend to use less storage and waste less energy than more unstable coalitions. Because in real situations, agents are prone to failure, resilience is also an important criterion for the quality of the aggregations. We therefore studied how the coalitions remain on the market when their agents fail randomly. We showed that, in this situation, the coalitions resulting from our algorithm better withstand losses of agents.
+In this paper we studied how aggregations of prosumers could be authorized to sell their surplus of production to the grid operator. By relying on the past values of the agents, we constrained the market entry to both sufficiently productive and stable coalitions. The power that a coalition is able to propose on the market is therefore related to production and stability. The correlations between the prosumers impact directly the volatility of the coalitions, which led us to seek uncorrelated aggregations of agents. We used a graph representation of the correlation relationships between the agents as a reduced landscape for the coalition formation. A greedy algorithm that starts with cliques of the "de-correlation" graph of the agents and makes local improvements offers a good compromise between speed and quality of the results. We compared these results with random samplings, and an opposite strategy that clusters correlated agents together. We showed that the coalitions resulting from our algorithm are able to provide more power to the grid with a lower volatility. Because of their better production over volatility ratios, these coalitions will tend to use less storage and waste less energy than more unstable coalitions. Because in real situations, agents are prone to failure, resilience is also an important criterion for the quality of the aggregations. We therefore studied how the coalitions remain on the market when their agents fail randomly. We showed that, in this situation, the coalitions resulting from our algorithm better withstand losses of agents. A possible direction for future work could be to use, in addition to real weather data, data from energy markets and aggregators as to propose a prosumer aggregation model closer to real conditions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
