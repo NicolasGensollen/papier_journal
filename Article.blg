@@ -34,37 +34,37 @@ Warning--empty journal in Anvari2015
 Done.
 You've used 15 entries,
             4087 wiz_defined-function locations,
-            925 strings with 9978 characters,
-and the built_in function-call counts, 10709 in all, are:
-= -- 890
-> -- 228
-< -- 95
-+ -- 128
+            924 strings with 9937 characters,
+and the built_in function-call counts, 10859 in all, are:
+= -- 897
+> -- 229
+< -- 97
++ -- 130
 - -- 37
-* -- 545
-:= -- 1645
+* -- 552
+:= -- 1654
 add.period$ -- 30
 call.type$ -- 15
 change.case$ -- 14
-chr.to.int$ -- 204
+chr.to.int$ -- 210
 cite$ -- 22
-duplicate$ -- 782
-empty$ -- 800
+duplicate$ -- 791
+empty$ -- 824
 format.name$ -- 48
-if$ -- 2465
+if$ -- 2507
 int.to.chr$ -- 0
 int.to.str$ -- 15
-missing$ -- 124
+missing$ -- 126
 newline$ -- 72
 num.names$ -- 13
-pop$ -- 271
+pop$ -- 276
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 825
+skip$ -- 838
 stack$ -- 0
-substring$ -- 504
-swap$ -- 646
+substring$ -- 518
+swap$ -- 653
 text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 5
