@@ -8,26 +8,6 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Article.bib
-Repeated entry---line 80 of file Article.bib
- : @article{Europe
- :                ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 363 of file Article.bib
- : @article{Infoclimat
- :                    ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 476 of file Article.bib
- : @article{Mantegna1999
- :                      ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 528 of file Article.bib
- : @article{Europe
- :                ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 540 of file Article.bib
- : @article{Pahwa
- :               ,
-I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -43,37 +23,37 @@ Warning--empty journal in Anvari2015
 Done.
 You've used 16 entries,
             4087 wiz_defined-function locations,
-            929 strings with 10023 characters,
-and the built_in function-call counts, 11213 in all, are:
-= -- 923
-> -- 237
+            929 strings with 9989 characters,
+and the built_in function-call counts, 11169 in all, are:
+= -- 920
+> -- 233
 < -- 97
-+ -- 134
-- -- 39
-* -- 567
-:= -- 1718
++ -- 132
+- -- 38
+* -- 563
+:= -- 1714
 add.period$ -- 32
 call.type$ -- 16
 change.case$ -- 15
 chr.to.int$ -- 210
 cite$ -- 24
-duplicate$ -- 825
-empty$ -- 857
-format.name$ -- 51
-if$ -- 2584
+duplicate$ -- 821
+empty$ -- 855
+format.name$ -- 49
+if$ -- 2574
 int.to.chr$ -- 0
 int.to.str$ -- 16
-missing$ -- 132
+missing$ -- 131
 newline$ -- 75
 num.names$ -- 14
-pop$ -- 294
+pop$ -- 291
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 863
+skip$ -- 862
 stack$ -- 0
 substring$ -- 519
-swap$ -- 669
+swap$ -- 666
 text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 5
@@ -82,4 +62,4 @@ warning$ -- 8
 while$ -- 51
 width$ -- 18
 write$ -- 174
-(There were 5 error messages)
+(There were 8 warnings)

@@ -48,20 +48,20 @@
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
 
+
+
 \begin{document}
 \pagestyle{plain}
 \pagenumbering{arabic}
 
-
-
-
-
-
-
-%\onecolumn
 \appendix
-  
-%\twocolumn
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%            APPENDIX A : ALGORITHMS
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Algorithms}
 
 
@@ -85,13 +85,19 @@
  \label{alg:algo1}
 \end{algorithm}
 
+
+
 \begin{figure}[b]
-\includegraphics[scale=.5]{./figs/figure_7}
+\includegraphics[scale=.5]{figure_8.eps}
 \caption{Evolution of the global utility $ \mathcal{U}(CS) $ (blue diamond curve, left axis) and the number of agents involved in the coalitions (red circle curve, right axis) during the greedy optimization of algorithm \ref{alg:algo1} }
 \label{fig:search}
 \end{figure}
 
+
+
 Figure \ref{fig:search} displays the evolution of the global utility and the number of involved agents during the course of the greedy algorithm \ref{alg:algo1}. The transition from an invalid to a valid coalitions is clearly visible on the blue diamond curve and occurs between iteration 10 and 15. After this transition, coalition's utilities improve slowly up to a maximum point. 
+
+
 
 \begin{algorithm}
  \KwData{Agent set $\mathcal{A}$,\\ Desired number of coalitions $ N_{COAL} $, \\ Maximum number of iterations $ Loop^{max} $}
@@ -109,6 +115,8 @@ Figure \ref{fig:search} displays the evolution of the global utility and the num
  \caption{Random algorithm}
  \label{alg:algo2}
 \end{algorithm}
+
+
 
 \begin{algorithm}
  \KwData{$P_{i}$ series,\\ Desired number of coalitions $ N_{COAL} $,\\ search step size $ \beta << 1 $}
@@ -130,10 +138,17 @@ Figure \ref{fig:search} displays the evolution of the global utility and the num
 \end{algorithm}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%            APPENDIX B : NOTATIONS
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
- \subsection{Notations}
+\subsection{Notations}
 
-Figure \ref{fig:notations} presents all the notations used in the article.
+\noindent Figure \ref{fig:notations} presents all the notations used in the article.
+ 
+ 
  
 \begin{figure*}
 \begin{minipage}{\textwidth}
@@ -170,31 +185,43 @@ Figure \ref{fig:notations} presents all the notations used in the article.
 \end{figure*}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%            APPENDIX C : NET PRODUCTION SERIES
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Net production series}
 \label{appendixB}
 
 Data were collected from \cite{Infoclimat} (data for the United States at \cite{NCDC}). The variables used in the simulation are :
 
+
 \begin{itemize}
-\item Average wind speed (in $m.s^{-1}$)
-\item Nebulosity (integer in $[0,8] $)
-\item Temperature (in degree Celsius)
+	\item Average wind speed (in $m.s^{-1}$)
+	\item Nebulosity (integer in $[0,8] $)
+	\item Temperature (in degree Celsius)
 \end{itemize} 
 
+
 \subsubsection{Wind power curve}
-Power curves are functions that, for a given type of generator, map some input quantity to the output power produced. For wind-turbines and solar arrays these functions are well studied and approximations have been proposed \cite{Lydia2014} \cite{Piedallu2007, Piedallu2008}. For the wind turbines, the power curve can be specified by 4 values :
+Power curves are functions that, for a given type of generator, map some input quantity to the output power produced. For wind-turbines and solar arrays these functions are well studied and approximations have been proposed \cite{Lydia2014} \cite{Piedallu2007}, \cite{Piedallu2008}. For the wind turbines, the power curve can be specified by 4 values :
+
 
 \begin{itemize}
-\item Cut-in-speed : The wind speed at which the turbine first starts to rotate and generates power.
-\item Rated-output-power : The maximum power that the turbine can generate.
-\item Rated-output-speed : The wind speed at which the turbine attains its rated output power.
-\item Cut-out-speed : The speed at which the turbine is turned off as not to damage the rotor.
+	\item Cut-in-speed : The wind speed at which the turbine first starts to rotate and generates power.
+	\item Rated-output-power : The maximum power that the turbine can generate.
+	\item Rated-output-speed : The wind speed at which the turbine attains its rated output power.
+	\item Cut-out-speed : The speed at which the turbine is turned off as not to damage the rotor.
 \end{itemize}
+
 
 The most interesting part is the increase of output power when the wind speed is in the cut-in-speed rated-output-speed range. Even if sometimes a simple linear model is used, the increase has been shown to be non linear and some more complex exponential fit can be found in the literature \cite{Lydia2014}.
 
+
 \subsubsection{Solar power curve}
-The input quantity desired for our power curve model for solar arrays is a radiance in $ W.m^{-2} $, which can be difficult to find in weather station available data. As we mainly collected nebulosity series, we used the Helios model described in \cite{Piedallu2007, Piedallu2008}. This model enabled us to compute perfect (clear blue sky situation) solar radiances at some specific locations on earth and at given timestamps. As nebulosity is a measure of the sky cloudiness, we can use the nebulosity series as degradation factors on the clear blue sky model (see \cite{Piedallu2007, Piedallu2008} for more details) :
+The input quantity desired for our power curve model for solar arrays is a radiance in $ W.m^{-2} $, which can be difficult to find in weather station available data. As we mainly collected nebulosity series, we used the Helios model described in \cite{Piedallu2007}, \cite{Piedallu2008}. This model enabled us to compute perfect (clear blue sky situation) solar radiances at some specific locations on earth and at given timestamps. As nebulosity is a measure of the sky cloudiness, we can use the nebulosity series as degradation factors on the clear blue sky model (see \cite{Piedallu2007}, \cite{Piedallu2008} for more details) :
+
 
 \begin{equation}
 \left\{ \begin{array}{lll}
@@ -202,34 +229,60 @@ The input quantity desired for our power curve model for solar arrays is a radia
 			\eta(t) = 1-0.75 \left( \dfrac{N(t)}{8} \right)^{3.4}
 \end{array} \right.
 \end{equation}
-where $ \Psi_{perfect}(t) $ and $ \Psi{real}(t) $ are respectively the clear blue sky and real radiances at time t, $ \eta(t) $ is the degradation factor at time t, and $ N(t) $ is the nebulosity index at time t. Once we have input data in the forms of radiances, we compute the production of a solar array with the following simplified power curve :
+
+
+\noindent where $ \Psi_{perfect}(t) $ and $ \Psi{real}(t) $ are respectively the clear blue sky and real radiances at time t, $ \eta(t) $ is the degradation factor at time t, and $ N(t) $ is the nebulosity index at time t. Once we have input data in the forms of radiances, we compute the production of a solar array with the following simplified power curve :
+
 
 \begin{equation}
 \mathcal{F}_{PV}(\Psi{real}(t)) =  S_{PV} \Psi{real}(t)  e_{PV}
 \end{equation}
-where $ S_{PV} $ is the surface of the array, and $ e_{PV} $ is its efficiency. The very simple form of this power curve is due to some simplifications in order not to overload the model. For instance, it does not take into account angles and orientations degradations. These could be incorporated if needed by changing the power curve in the simulations.
+
+
+\noindent where $ S_{PV} $ is the surface of the array, and $ e_{PV} $ is its efficiency. The very simple form of this power curve is due to some simplifications in order not to overload the model. For instance, it does not take into account angles and orientations degradations. These could be incorporated if needed by changing the power curve in the simulations.
+
 
 \subsubsection{Consumption}
 Modeling electric consumption has already been widely tackled in the literature. Models can be basically divided into two main categories : Top-down and bottom-up approaches. Top-down techniques take aggregated consumption data as inputs and try to estimate individual consumption patterns while bottom-up methods use a fine modeling of users consumptions as to obtain realistic aggregated consumption curves. In this paper, we used a bottom-up model since the end user, or relatively small aggregations of end users, are in our interest. The main objective was to capture both daily patterns and seasonal variations of the consumptions. We assumed an additive model where the consumption of an agent is the sum of a seasonal heating term that depends on the outside temperature and an electronic consumption term that only depends on the hour of the day. By denoting $ \tau(t) $ the outside temperature at timestamp t, we can express the consumption $ P_{i}^{D}(t) $ of agent i at time t :
 
+
 \begin{equation}
 P_{i}^{D}(t) = \mathcal{F}_{i}^{heat}(\tau(t), t) + \mathcal{F}_{i}^{elec}(t)
 \end{equation}
-where $ \mathcal{F}_{i}^{heat}(\tau(t), t) $ is the power curve that maps the temperature to a heating consumption, and $ \mathcal{F}_{i}^{elec}(t) $ computes the consumption of agent i (other than heating) at a given hour of the day. In the simulation, all agents have a desired inside temperature $ T_{i} $, supposed to be a constant for simplification. By using thermodynamic laws $ \mathcal{F}_{i}^{heat}(\tau(t), t) $ can be approximated by :
+
+
+\noindent where $ \mathcal{F}_{i}^{heat}(\tau(t), t) $ is the power curve that maps the temperature to a heating consumption, and $ \mathcal{F}_{i}^{elec}(t) $ computes the consumption of agent i (other than heating) at a given hour of the day. In the simulation, all agents have a desired inside temperature $ T_{i} $, supposed to be a constant for simplification. By using thermodynamic laws $ \mathcal{F}_{i}^{heat}(\tau(t), t) $ can be approximated by :
+
 
 \begin{equation}
 \mathcal{F}_{i}^{heat}(\tau(t), t) = \dfrac{B_{i}}{R_{i}} \left[ T_{i} - \tau(t) \right]
 \end{equation}
-where $ B_{i} $ is the surface of thermal exchanges for agent i and $ R_{i} $ is their thermal resistance. We denote by $ \Omega_{i} $ the maximum consumption possible for agent i, which is basically the sum of all its appliances powers. We also denote by $ \omega_{i}(t) = \{ \omega_{i}(t_{0}),...,\omega_{i}(t_{24}) \} $ the vector of the average fraction of $ \Omega_{i} $ used for each hour. We can therefore write :
+
+
+\noindent where $ B_{i} $ is the surface of thermal exchanges for agent i and $ R_{i} $ is their thermal resistance. We denote by $ \Omega_{i} $ the maximum consumption possible for agent i, which is basically the sum of all its appliances powers. We also denote by $ \omega_{i}(t) = \{ \omega_{i}(t_{0}),...,\omega_{i}(t_{24}) \} $ the vector of the average fraction of $ \Omega_{i} $ used for each hour. We can therefore write :
+
 
 \begin{equation}
 \mathcal{F}_{i}^{elec}(t) = \Omega_{i} ( \omega_{i}(t) + \epsilon )
 \end{equation}
-where $ \epsilon $ is a noise term. The vector $ \omega_{i}(t) $ enables us to easily differentiate agent consumption behaviors. Business or residential areas for instance can be easily distinguished with this kind of model.
+
+
+\noindent where $ \epsilon $ is a noise term. The vector $ \omega_{i}(t) $ enables us to easily differentiate agent consumption behaviors. Business or residential areas for instance can be easily distinguished with this kind of model.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%            APPENDIX D : RESILIENCE ALGORITHM
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Resilience algorithm}
 \label{appendix_resilience}
+
 The following algorithm (see algorithm \ref{alg:algo4}) explains the process through which the resilience of a coalition structure is explored. For a given coalition structure, we consider random failures of physical components of the agents. This results in the agent being unable to support its coalition. Therefore, the agent is simply removed from the coalition, which impacts the coalition's production. Eventually, after some number of agent failures, some coalitions might not be sufficiently stable and productive to fulfill the market's constraints. In this case, the coalition fails, and is removed from the market.
+
+
 \begin{algorithm}
 	\KwData{$ CS = \left\{ S_1,S_2,...,S_k \right\} $ Coalition structure \;}
 	
@@ -246,45 +299,63 @@ The following algorithm (see algorithm \ref{alg:algo4}) explains the process thr
 \label{alg:algo4}
 \end{algorithm}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%            APPENDIX E : UTILITY FUNCTION
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Utility function}
 \label{appendix_utility}
 
 We have the following utility function (see main article) that attributes a real value to any coalition S depending on the best contract value that S can propose given the grid policy $ (P^{MIN},\phi)$ : 
 
+
 \begin{equation}
 	U(S) = \frac{1}{|S|^{\alpha}} \frac{ P_S^{CRCT \star} }{P^{MAX}}
 \end{equation}
 
+
 $ U $ depends on the specific agents within the coalition S because $ P_S^{CRCT \star} $ is directly impacted by the correlations between the agents. $ U $ is also sensitive to the size of the coalition S through the term $ \frac{1}{|S|^{ \alpha } } $. The purpose of this term is to introduce in the utility function the following tradeoff : as a coalition grows, its contract value $ P_S^{CRCT \star} $ tends to grow as well but the cost of coordinating all the agents also becomes larger. The parameter $ \alpha $ is used in order to control to what extend the size of the coalition impacts its utility.
 
 Knowing what value to use for $ \alpha $ is not trivial and is important since it influences the shape of the utility function. For some range of values, the utility might not even be a concave function of the coalition size. Given a situation with N agents and a desired number of coalitions $ N_{COAL}$, the algorithm \ref{alg:algo1} will start with $ N_{COAL} $ seeds and increase their sizes as long as the utilities are improved. The order through which coalitions incorporate new prosumers is randomized but leads generally to relatively balanced coalitions. We denote by $ \bar{N} $ the desired approximate final size of the coalitions, i.e we target a utility function that is concave in the coalition size with a maximum at $ \bar{N} $ (in the article, $ \bar{N} $ is fixed at $\frac{N}{N_{COAL}}$). We propose to obtain such utility function through tunning $\alpha $. Ideally, we seek to express $ \alpha $ as a function of $ \bar{N} $ and the agents power distributions and correlations.
-\\
+
 In the general case, neither the power distributions nor the correlation structure have special forms which makes obtaining an analytical expression for $ \alpha $ difficult. Therefore we use two simplifying assumptions in order to have an estimate for $ \alpha $. First, we approximate the power distributions by normal distributions, such that the optimal contract value can be written in the following way :
+
 
 \begin{equation}
 	P_S^{CRCT \star } = \mu_S - \sqrt{2} \sigma_S erf^{-1}(1 - 2 \phi)
 \end{equation}
 
-With : 
+
+\noindent With : 
+
 
 \begin{equation}
 	\left\{ \begin{array}{lll} \mu_{S} = \sum_{i \in S} \mu_i \\ \sigma_{S} = \sqrt{ \sum_{i \in S} \sigma_i^2 + 2 \sum_{i} \sum_{j} \rho_{ij} \sigma_i \sigma_j } \end{array} \right.
 \end{equation}
 
 
-Therefore, we can write the utility function as :
+\noindent Therefore, we can write the utility function as :
+
 
 \begin{equation}
 	U(S) = \frac{1}{|S|^{\alpha} P^{MAX} } \left[ \mu_S - \sqrt{2} \sigma_S erf^{-1}(1 - 2 \phi) \right]
 \end{equation}
 
+
 As $ \mu_S $ and $ \sigma_S $ depends on the agents in S (and consequently on the size of S), we make a second simplifying assumption :
+
 
 \begin{equation}
 	\left\{ \begin{array}{lll} \forall i \in \mathcal{A}\ \mu_i = \bar{ \mu } = \frac{1}{N} \sum_{i \in \mathcal{A}} \mu_i  \\ \forall i \in \mathcal{A}\ \sigma_i = \bar{ \sigma } = \frac{1}{N} \sum_{i \in \mathcal{A}} \sigma_i \\ \forall i,j \in \mathcal{A}^2\  \rho_{ij} = \bar{ \rho } = \frac{2}{N(N-1)} \sum_{i \in \mathcal{A}} \sum_{j \in \mathcal{A}} \rho_{ij} \end{array} \right.
 \end{equation}
 
+
 That is, any agent is replaced by a mean approximation. In these conditions, we have :
+
 
 \begin{equation}
 	\left\{ \begin{array}{lll} 
@@ -293,21 +364,27 @@ That is, any agent is replaced by a mean approximation. In these conditions, we 
 	\end{array} \right.
 \end{equation}
 
-And the utility function becomes :
+
+\noindent And the utility function becomes :
+
 
 \begin{equation}
 	U(S) = \frac{ \bar{ \mu } }{ |S|^{\alpha -1} P^{MAX} } - \frac{ \sqrt(2) \bar{ \sigma } }{ |S|^{\alpha} P^{MAX} } \sqrt{|S| + \bar{ \rho } |S| ( |S| - 1 ) }
 \end{equation}
 
-$ \bar{ \mu },\ \bar{ \sigma },\ \bar{ \rho }, and\ P^{MAX} $ are all constants in these very particular conditions, such that U is a function of the coalition size with a parameter $ \alpha $. Depending on $ \alpha $, the utility function can have very different shapes.
-\\
-We select $\alpha^{\star} $ such that :
+
+\noindent $ \bar{ \mu },\ \bar{ \sigma },\ \bar{ \rho }, and\ P^{MAX} $ are all constants in these very particular conditions, such that U is a function of the coalition size with a parameter $ \alpha $. Depending on $ \alpha $, the utility function can have very different shapes.
+
+\noindent We select $\alpha^{\star} $ such that :
+
 
 \begin{equation}
 	\left\{ \begin{array}{lll} \left| \frac{ \partial U }{ \partial |S| } \right|_{|S|=\bar{N}} = 0 \\ \left| \frac{ \partial^2 U }{ \partial |S|^2 } \right|_{\alpha = \alpha^{\star}} \leq 0 \end{array} \right.
 \end{equation}
 
-Solving these equations yields the following expression :
+
+\noindent Solving these equations yields the following expression :
+
 
 \begin{equation}
 	\begin{tiny}
@@ -315,11 +392,12 @@ Solving these equations yields the following expression :
 	\end{tiny}
 \end{equation}
 
+
 Since $ \alpha^{\star} ( \bar{N} ) $ is obtained for a simplified case derived from the real situation, it should be considered as a soft constraint on the coalitions sizes.
 
 Using such an approach on 100 prosumers examples with $N_{COAL} = 4 $ and $\bar{N}=25$ results in coalitions which sizes are comprised between 17 and 34 agents.
 
 
 \bibliographystyle{IEEEtran}  
-\bibliography{Article}
+\bibliography{Appendix}
 \end{document}
